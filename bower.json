@@ -9,5 +9,13 @@
   "keywords": [
     "chat"
   ],
-  "homepage": "https://github.com/vishalrana9915/chat_bot"
+  "homepage": "https://github.com/vishalrana9915/chat_bot",
+  "dependencies": {
+    "angular": "angularjs#^1.6.9",
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^5.0.6",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.5",
+    "angular-ui-router": "^1.0.15"
+  }
 }
