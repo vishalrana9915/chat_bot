@@ -1415,3 +1415,32 @@
 {"name":"ChatBotLogs","hostname":"Laptop-2039","pid":2460,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T14:01:10.112Z","v":0}
 {"name":"ChatBotLogs","hostname":"Laptop-2039","pid":2460,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T14:01:11.182Z","v":0}
 {"name":"ChatBotLogs","hostname":"Laptop-2039","pid":2460,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T14:01:11.396Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11980,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:38:37.645Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11980,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:38:37.645Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11980,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:38:38.694Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11980,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T16:38:38.923Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11736,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:40:22.751Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11736,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:22.752Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11736,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:23.800Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10792,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:40:25.431Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10792,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:25.432Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10792,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:26.510Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10792,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T16:40:26.727Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":8212,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:40:46.114Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":8212,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:46.115Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9164,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:40:49.276Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9164,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:49.280Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9164,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:50.356Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9164,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T16:40:50.612Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9312,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:40:51.920Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9312,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:51.921Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9312,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:40:53.009Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9312,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T16:40:53.282Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10852,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:41:09.734Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10852,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:41:09.735Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10852,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:41:10.802Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":10852,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T16:41:10.988Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":3664,"level":30,"msg":"configuring db in development mode","time":"2018-03-01T16:41:34.614Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":3664,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:41:34.614Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":3664,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-01T16:41:35.702Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":3664,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-01T16:41:36.038Z","v":0}
