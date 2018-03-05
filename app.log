@@ -2413,3 +2413,11 @@
 {"name":"ChatBotLogs","hostname":"Laptop-2039","pid":8548,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-05T11:04:39.842Z","v":0}
 {"name":"ChatBotLogs","hostname":"Laptop-2039","pid":8548,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-05T11:04:40.908Z","v":0}
 {"name":"ChatBotLogs","hostname":"Laptop-2039","pid":8548,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-05T11:04:41.112Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9348,"level":30,"msg":"configuring db in development mode","time":"2018-03-05T12:25:33.192Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9348,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-05T12:25:33.193Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9348,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-05T12:25:34.257Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":9348,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-05T12:25:34.464Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11340,"level":30,"msg":"configuring db in development mode","time":"2018-03-05T13:18:35.246Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11340,"level":30,"msg":"connecting to -> mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-05T13:18:35.246Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11340,"level":30,"msg":"connected to DB chat_bot?replicaSet=repl1 at mongodb://localhost:27017,localhost:27018,localhost:27019/chat_bot?replicaSet=repl1","time":"2018-03-05T13:18:36.323Z","v":0}
+{"name":"ChatBotLogs","hostname":"Laptop-2039","pid":11340,"level":30,"msg":"Express server listening on 4009, in development mode","time":"2018-03-05T13:18:36.608Z","v":0}

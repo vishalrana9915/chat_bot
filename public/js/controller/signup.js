@@ -13,12 +13,12 @@ app.controller('signupCtrl',function($scope,qualityControlSerevice,$state){
 
 
 	qualityControlSerevice.postReq('register',self.obj)
-		.then((result) =>{
+		.then(function(result){
 			console.log("file==>"+JSON.stringify(result))
 			alert(result.data.response.responseMessage)
 			$state.transitionTo('login')
 		} )
-		.catch(e => console.log("JSON==>"+JSON.stringify(e)))
+		.catch(function(e){ console.log("JSON==>"+JSON.stringify(e))})
 	}
 
 

@@ -19,7 +19,6 @@ config.dbConfig(config.cfg, (err) => {
         return;
     }
 
-console.log("running")
 
     // load external modules
     const express = require("express");
