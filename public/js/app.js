@@ -13,7 +13,9 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider ) {
         controller: 'signupCtrl',
         templateUrl: 'template/partial/signup.html',
         resolve:{
-
+            socket: function(){
+              
+            }
         }
       })
 
