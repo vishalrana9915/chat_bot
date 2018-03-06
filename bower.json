@@ -14,8 +14,23 @@
     "angular": "angularjs#^1.6.9",
     "bootstrap": "^4.0.0",
     "font-awesome": "^5.0.6",
-    "jquery": "^3.3.1",
+    "jquery": "^1.9.1",
     "lodash": "^4.17.5",
-    "angular-ui-router": "^1.0.15"
+    "angular-ui-router": "^1.0.15",
+    "domReady": "requirejs-domready#^2.0.1",
+    "angular-cookies": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "angular-couch-potato": "^0.2.3",
+    "moment": "^2.21.0",
+    "requirejs": "^2.3.5",
+    "jquery-form": "^4.2.2",
+    "bootstrapvalidator": "^0.5.3",
+    "jquery-validation": "^1.17.0",
+    "jquery-ui": "^1.12.1",
+    "jquery-color": "^2.1.2"
+  },
+  "devDependencies": {
+    "angular-scenario": "^1.6.9",
+    "angular-mocks": "^1.6.9"
   }
 }
