@@ -1,0 +1,26 @@
+<div>
+    <!--##################################################################################################-->
+    <!--## Created by Shawn Miller on 7/3/2015                                                          ##-->
+    <!--## Filename: public/app/components/notifications/notification.tpl.html                          ##-->
+    <!--##################################################################################################-->
+
+    <!--############################################-->
+    <!--## ACTIVITY NOTIFICATIONS                 ##-->
+    <!--############################################-->
+    <span id="activity" class="activity-dropdown  ng-cloak" activities-dropdown-toggle>
+    <i class="fa fa-leanpub"></i>
+    <b class="badge bg-color-red">{{notifyPriorityJobs.length + notifyOtherJobs.length}}</b>
+    </span>
+    <div smart-include="app/components/activities/activities.html"></div>
+
+    <!--############################################-->
+    <!--## ALERT NOTIFICATIONS                    ##-->
+    <!--############################################-->
+    <span id="alert" class="alerts-dropdown  ng-cloak" alerts-dropdown-toggle>
+    <i class="fa fa-exclamation-circle"></i>
+    <b class="badge bg-color-red">{{jobAlerts.length}}</b>
+    </span>
+    <div smart-include="app/components/alerts/alerts.html"></div>
+
+
+</div>

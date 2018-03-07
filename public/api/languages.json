@@ -1,0 +1,26 @@
+[
+	{
+		"key"              : "en-US",
+		"class" 		   : "en-us",
+		"alt"              : "United States",
+		"title"            : "US English",
+		"dataTableKey"     : "english",
+		"formValidationKey": "en_US"
+	},
+	{
+		"key"              : "en-CA",
+		"class" 		   : "en-ca",
+		"alt"              : "CA English",
+		"title"            : "CA English",
+		"dataTableKey"     : "english",
+		"formValidationKey": "en_CA"
+	},
+	{
+		"key"              : "fr-CA",
+		"class" 		   : "fr-ca",
+		"alt"              : "CA Fran&ccedil;ais",
+		"title"            : "CA Fran&ccedil;ais",
+		"dataTableKey"     : "english",
+		"formValidationKey": "fr_CA"
+	}
+]

@@ -6,7 +6,6 @@ define([
     'jquery',
     'angular',
     'domReady',
-
     //'pace',
     'bootstrap',
     'appConfig',
@@ -14,7 +13,7 @@ define([
     'includes'
 ], function (require, $, ng, domReady) {
     'use strict';
-    console.log("hello")
+    
     $.sound_path = appConfig.sound_path;
     $.sound_on = appConfig.sound_on;
 

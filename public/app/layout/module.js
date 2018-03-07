@@ -1,5 +1,5 @@
 /**
- * Created by vishal rana 
+ * Created by Shawn Miller on 4/17/2015.
  * Filename: public/app/layout/module.js
  */
 define(['angular',

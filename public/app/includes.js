@@ -1,16 +1,16 @@
 define([
 
 	//DefaultApiService - Default API Calls, GET, POST, PUT, DELETE.
-	// 'layout/service/buildInfo',
+	'layout/service/buildInfo',
 	// 'modules/services/DefaultApiService',
 
 	// user account & profile
 	'auth/module',
 	'auth/models/User',
-	'auth/services/Authorization'
-
+	'auth/services/Authorization',
+	'auth/login/loginCtrl',
 	// application layout
-	// 'layout/module',
+	'layout/module',
 	// 'layout/service/customerLoyaltyService',
 	// 'layout/directives/customerName',
 	// 'layout/actions/minifyMenu',
@@ -39,7 +39,7 @@ define([
 	// 'layout/directives/systemMenu',
 	// 'layout/directives/smartPageTitle',
 	// 'layout/directives/hrefVoid',
-	// 'layout/directives/customSpinner',
+	'layout/directives/customSpinner',
 	// 'layout/directives/datatableBasic',
 	// 'layout/directives/datatableServerSide',
 	// 'layout/directives/datatableColumnFilter',
@@ -48,7 +48,7 @@ define([
 	// 'layout/directives/multiGrpSelectDropDown',
  //    'layout/service/appendPropertyService',
 	// 'layout/service/preflightApiService',
-	// 'layout/service/errorNotificationsService',
+	'layout/service/errorNotificationsService',
 	// //'layout/directives/datatablePoc',
 
 
@@ -56,21 +56,21 @@ define([
 	// 'layout/directives/tableActions',
 	// 'layout/directives/formActions',
 	// 'layout/directives/assignActions',
-	// 'layout/service/SmartCss',
+	'layout/service/SmartCss',
 	// 'layout/service/dtEncoderFactory',
 	// 'layout/directives/maskForm',
 	// 'layout/service/facilityRoutingService',
 	// 'layout/service/systemRefreshService',
 	// 'layout/service/barcodeScannerService',
-	// 'components/frontend-session-validations/userSessionService',
+	'components/frontend-session-validations/userSessionService',
 	// 'modules/widgets/directives/widgetGrid',
 	// 'modules/widgets/directives/jarvisWidget',
 	// 'layout/directives/facilitySelectorLink',
 	// 'layout/directives/barcodeScanner',
-	// 'layout/directives/networkStatus',
-	// 'components/language/form-validation-key-service',
+	'layout/directives/networkStatus',
+	'components/language/form-validation-key-service',
 	// 'layout/filters/localDateTimeFilter',
-	// 'components/notifications/notificationFlyOut',
+	'components/notifications/notificationFlyOut',
 	// 'layout/filters/uniqueFilter',
 	// 'layout/service/productionStatusService',
  //    'layout/service/fileUploadService',
@@ -79,8 +79,8 @@ define([
 	// 'layout/directives/jquiAccordion',
 
 	// // System update notification
-	// 'layout/service/notificationMessages',
-	// 'layout/service/notificationService',
+	'layout/service/notificationMessages',
+	'layout/service/notificationService',
 
 	// // Dashboard
 	// 'dashboard/module',
@@ -89,12 +89,12 @@ define([
 	// 'dashboard/directives/dashboardJobsSummary',
 	// 'dashboard/directives/dashboardOrdersSummary',
 
-	// // Useful Links Component - Dashboard Panel
-	// 'components/useful-links/usefulLinksCtrl',
-	// 'components/useful-links/models/useful-links',
-	// 'components/useful-links/directives/usefulLinksList',
+	// Useful Links Component - Dashboard Panel
+	'components/useful-links/usefulLinksCtrl',
+	'components/useful-links/models/useful-links',
+	'components/useful-links/directives/usefulLinksList',
 
-	// // Announcements Component - Dashboard Panel
+	// Announcements Component - Dashboard Panel
 	// 'components/announcements/announcementsCtrl',
 	// 'components/announcements/models/announcements',
 	// 'components/announcements/directives/announcements',
@@ -103,26 +103,26 @@ define([
 	// 'components/job-notifications/jobNotifications',
 	// 'components/job-notifications/notificationTypeClass',
 
-	// // Language components & controller
-	// 'components/language/Language',
-	// 'components/language/languageSelector',
-	// 'components/language/language-controller',
+	// Language components & controller
+	'components/language/Language',
+	'components/language/languageSelector',
+	'components/language/language-controller',
 
-	// //'components/projects/Project',
-	// //'components/projects/recentProjects',
+	//'components/projects/Project',
+	//'components/projects/recentProjects',
 
-	// // Activities Working feature
-	// 'components/activities/activities-controller',
-	// 'components/activities/activities-dropdown-toggle-directive',
-	// 'components/activities/activities-service',
+	// Activities Working feature
+	'components/activities/activities-controller',
+	'components/activities/activities-dropdown-toggle-directive',
+	'components/activities/activities-service',
 
-	// // Alerts Working feature
-	// 'components/alerts/alerts-controller',
-	// 'components/alerts/alerts-dropdown-toggle-directive',
-	// 'components/alerts/alerts-service',
+	// Alerts Working feature
+	'components/alerts/alerts-controller',
+	'components/alerts/alerts-dropdown-toggle-directive',
+	'components/alerts/alerts-service',
 
-	// // Shortcut Directive - Large Icons above breadcrumbs
-	// //'components/shortcut/shortcut-directive',
+	// Shortcut Directive - Large Icons above breadcrumbs
+	//'components/shortcut/shortcut-directive',
 
 	// //Local Storage
 	// 'modules/local-storage/module',
@@ -137,7 +137,7 @@ define([
 	// 'modules/widgets/module',
 
 	// // SmartAdmin
-	// //'modules/smart-admin/module',
+	// 'modules/smart-admin/module',
 
 	// // Customer
 	// 'modules/customer/views/customer/module',

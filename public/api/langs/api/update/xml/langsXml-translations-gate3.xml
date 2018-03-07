@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (x64) (http://www.altova.com) by Shawn S Miller (private) -->
+<lang>
+	<key value="AccountingTypes">
+		<language value="us">Accounting Types</language>
+		<language value="fr">Types de comptabilité</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+	<key value="Active">
+		<language value="us">Active</language>
+		<language value="fr">Actif</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+	<key value="AddCuttingMachine">
+		<language value="us">Add Cutting Machine</language>
+		<language value="fr">Ajouter tranche-papier</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+	<key value="AdditionalComments">
+		<language value="us">Additional Comments</language>
+		<language value="fr">Commentaires additionnels</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+	<key value="Apply">
+		<language value="us">Apply</language>
+		<language value="fr">Appliquer</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+	<key value="Archived">
+		<language value="us">Archived</language>
+		<language value="fr">Archivé</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+	<key value="ArchivedJobPriority">
+		<language value="us">Archived Job Priority</language>
+		<language value="fr">Priorité des travaux archivés</language>
+		<language value="en-ca"/>
+		<language value="es"/>
+		<language value="de"/>
+	</key>
+</lang>

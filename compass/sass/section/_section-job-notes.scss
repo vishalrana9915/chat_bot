@@ -1,0 +1,44 @@
+
+.notes-header, .notes-key {
+  font-weight : 700;
+  display     : block;
+}
+
+.notes-header {
+  font-size : larger;
+}
+
+.notes-facility-body {
+  margin-top : 10px;
+}
+
+/*Transform the initials span*/
+.notes-facility-body:last-child span, .notes-user-initials span {
+  text-transform : uppercase;
+}
+
+/*Do not apply any text transformation to a notes-facility-body that immediately  proceeds a notes header*/
+.notes-header + div.notes-facility-body > span {
+  text-transform : none;
+}
+
+.notes-time {
+  font-weight : bold;
+}
+
+.notes-facility-name {
+  margin-top : 20px;
+}
+
+.notes-jobnote {
+  font-size   : inherit;
+  font-weight : normal;
+}
+
+.notes-user-initials {
+  margin-top : 20px;
+}
+
+.notes-user-initials:before {
+  content : " --";
+}

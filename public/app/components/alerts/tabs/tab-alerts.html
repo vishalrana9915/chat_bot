@@ -1,0 +1,40 @@
+<ul class="notification-body">
+
+	<!--Template Path: public/app/components/alerts/tabs/tab-alerts.html-->
+
+	<li ng-repeat="routedJob in jobAlerts | orderBy : '-notificationDate'">
+
+		<!--TODO: Fix UnRead Class-->
+		<span ng-class="{unread : alert.status == 'unread'}">
+
+			<!--################################################-->
+			<!--## NOTIFICATION TOOLBAR                       ##-->
+			<!--################################################-->
+			<span class="notification-toolbar">
+				<span ng-bind="routedJob.jobName"></span>
+			</span><!--/.notification-toolbar-->
+
+			<a ng-click="editJob(routedJob.jobId, routedJob.id)" class="notification-msg">
+
+				<span class='label pull-right {{routedJob.status | notificationTypeClass }}'>{{getWord(routedJob.status)}}</span>
+				<span ng-class="{'alert-title': routedJob.notificationType != 9}" ng-hide="routedJob.notificationType == 9">
+					{{getWord('RoutedJob')}} {{getWord(routedJob.status) }}
+				</span>
+				<span ng-class="{'alert-title': routedJob.notificationType == 9}" ng-show="routedJob.notificationType == 9">
+					{{getWord(routedJob.status)}}
+				</span>
+
+				<span class="bdp" ng-bind-html='routedJob | bdp'></span>
+
+				<span class="customerName" customer-name="{firstName: '{{routedJob.firstName}}', lastName: '{{routedJob.lastName}}'}" ></span>
+
+				<span class="jobId">{{getWord('JobNo')}} {{routedJob.jobNo}}</span>
+				<span class="dateTime">{{routedJob.jobDueDate | localDateTimeFilter}}</span>
+
+			</a>
+
+		</span>
+
+	</li>
+
+</ul>

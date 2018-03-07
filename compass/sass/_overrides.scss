@@ -1,0 +1,26 @@
+//**
+// * Created by Shawn Miller on 12/14/2015.
+// * Path: compass/sass/_overrides.scss
+//
+
+@import "overrides/main.scss";
+@import 'overrides/override-form-validation.scss';
+@import 'overrides/override-form-validation2.scss';
+@import 'overrides/override-data-grid.scss';
+@import 'overrides/override-selection.scss';
+@import 'overrides/override-flags.scss';
+@import 'overrides/override-charts.scss';
+@import 'overrides/temporary-overrides.scss';
+
+
+
+//// TODO: Added temporary class to address class for incoming job route panel
+//// Reference: public/app/modules/jobs/partials/incoming-routed-job.tpl.html
+p.address span {
+	display : block;
+}
+
+p.address span:first-child {
+	display     : block;
+	font-weight : 600;
+}

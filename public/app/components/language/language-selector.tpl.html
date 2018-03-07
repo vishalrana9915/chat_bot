@@ -1,0 +1,25 @@
+<ul class="header-dropdown-list hidden-xs ng-cloak" ng-controller="LanguagesCtrl">
+
+	<!--##################################################################################################-->
+	<!--## Created by Shawn Miller on 3/28/2015                                                         ##-->
+	<!--## Filename:  public/app/components/language/language-selector.tpl.html                         ##-->
+	<!--##################################################################################################-->
+
+	<li class="dropdown no-underline" uib-dropdown>
+		<a uib-dropdown-toggle class="dropdown-toggle" tooltip-placement="bottom" uib-tooltip="{{getWord('SelectLanguage')}}" href>
+			<img src="styles/img/blank.gif" class="flag flag-{{currentLanguage.class}}" alt="{{currentLanguage.alt}}">
+			<span ng-bind-html="currentLanguage.title"></span> <i class="fa fa-angle-down"></i>
+		</a><!--/.dropdown-toggle-->
+
+		<ul class="dropdown-menu pull-right tooltip-hide" uib-dropdown-menu>
+			<li ng-class="{active: language==currentLanguage}" ng-repeat="language in languages">
+				<a ng-click="selectLanguage(language)">
+					<img src="styles/img/blank.gif" class="flag flag-{{language.class}}" alt="{{language.alt}}">
+					<span ng-bind-html="language.title"></span>
+				</a>
+			</li>
+		</ul><!--/.dropdown-menu-->
+
+	</li>
+
+</ul>

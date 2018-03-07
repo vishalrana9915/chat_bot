@@ -35,6 +35,7 @@
     "lodash": "4.17.5",
     "method-override": "2.3.10",
     "mongoose": "5.0.4",
+    "morgan": "1.9.0",
     "multer": "1.3.0",
     "querystring": "0.2.0",
     "randomstring": "1.1.5",
@@ -43,7 +44,8 @@
     "sha256": "0.2.0",
     "socket.io": "2.0.4",
     "util": "0.10.3",
-    "winston": "2.4.0"
+    "winston": "2.4.0",
+    "xsltproc": "0.0.4"
   },
   "devDependencies": {
     "grunt": "1.0.0",
@@ -54,6 +56,18 @@
     "grunt-contrib-jshint": "1.1.0",
     "grunt-contrib-uglify": "3.3.0",
     "grunt-rev": "0.1.0",
-    "grunt-usemin": "3.1.1"
+    "grunt-usemin": "3.1.1",
+    "grunt-xsltproc": "0.6.1"
+  },
+  "nextprint": {
+    "public": "public/",
+    "plugin": "public/plugin/",
+    "vendor": "public/vendor/",
+    "api": "public/api/",
+    "temp": "public/tmp/",
+    "build": "public/build/",
+    "css": "public/styles/css",
+    "bowerPackage": "bower.json",
+    "index": "public/index.html"
   }
 }

@@ -1,0 +1,284 @@
+.jarviswidget > div {
+	border-width: 1px 1px 1px;
+}
+
+#widget-order-job-detail .widget-body,
+#widget-job-info .widget-body,
+#widget-manage-order .widget-body,
+#widget-tickets-sheets .widget-body {
+	min-height: 10px;
+}
+
+.widget-body .list-group {
+	margin: -1px -1px -2px;
+}
+
+.widget-body-toolbar a {
+	padding: 6px 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.details-grid {
+	margin-bottom: 0px !important;
+}
+
+.details-grid .list-group-item:first-child {
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	border-top: 0;
+}
+
+.details-grid .list-group-item:last-child {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom: 0;
+}
+
+.details-grid .status-label {
+	margin-right: 5px;
+	margin-bottom: 5px !important;
+	/*display       : inline-block;*/
+}
+
+#dtRoutePending_wrapper .DTTT #dtRoutePending_dtAcceptRoute {
+	color: #FFF !important;
+}
+
+#dtRoutePending_wrapper .DTTT a {
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+/*#filteredContainer div {
+	position: relative;
+	padding-left: 90px !important;
+	font-size: 12px;
+}*/
+
+#filteredContainer strong {
+	text-transform: uppercase;
+}
+
+/*#filteredContainer span {
+	font-size: 12px;
+	line-height: normal;
+	color: #333;
+	font-weight: 400;
+	margin-right: 60px;
+	margin-bottom: 6px;
+	height: 20px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.k-top-left {
+	top: 0;
+	left: 0;
+}
+
+.k {
+	position: absolute;
+}*/
+
+.dd-handle:hover:before, .dd-handle:hover:before + .dd-list .dd-handle {
+	content: '\f047';
+}
+
+.dd-handle:hover, .dd-handle:hover + .dd-list .dd-handle {
+	content: '\f0c9';
+}
+
+.dropzone {
+	/*Added by Shawn Miller 8/11/2015*/
+	overflow-y: scroll;
+}
+
+i.color-dot {
+	display: inline-block;
+	border-radius: 50%;
+	margin-right: 5px;
+	margin-left: 5px;
+	padding: 5px;
+	width: auto !important;
+}
+
+i.color-square {
+	display: inline-block;
+	border-radius: 50%;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 2px;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #CCC;
+}
+
+#datatable-filters, #smart-search {
+	display: block;
+	margin: 0px 10px 5px 10px;
+}
+
+#smart-search {
+	margin-top: 15px;
+}
+
+.datatable-child-format {
+	padding: 10px 0 10px;
+}
+
+.datatable-child-format .form-group {
+	display: block !important;
+}
+
+.datatable-child-format .form-group .control-label {
+	font-weight: bold;
+}
+
+header span#status {
+	padding: 5px;
+	margin-top: 7px;
+	margin-right: 7px;
+}
+
+.details-grid a.disabled {
+	background-color: transparent !important;
+	color: #D1D1D1;
+	cursor: default;
+	pointer-events: none;
+	text-decoration: none;
+}
+
+input.small-digit {
+	width: 100px;
+}
+
+i.loyalty-status {
+	margin: 0 3px 0 0;
+}
+
+a.table-action, i.object-level {
+	margin: 5px 5px;
+}
+
+i.object-level {
+	color: #5E5E5E;
+	margin: 5px 5px;
+}
+
+i.object-level:hover {
+	color: #454545;
+	margin: 5px 5px;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+	top: -7px !important;
+	right: 5px;
+}
+
+.padding-10 .form-actions {
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-bottom: -10px;
+}
+
+.tab-pane .widget-body-toolbar,
+.tab-content-body .widget-body-toolbar {
+	background: #FAFAFA;
+	background-image: -webkit-gradient(
+					linear,
+					left top,
+					left bottom,
+					color-stop(0, #FFFFFF),
+					color-stop(1, #FAFAFA)
+	);
+	background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #FAFAFA 100%);
+	background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #FAFAFA 100%);
+	background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #FAFAFA 100%);
+	background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #FAFAFA 100%);
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #FAFAFA 100%);
+}
+
+label input[type=checkbox].checkbox + span, label input[type=radio].radiobox + span {
+	display: inline;
+}
+
+.associateInitials {
+	width: 100px;
+	padding-right: 12px;
+}
+
+input[type="text"].rightJustified {
+	text-align: right;
+}
+
+#lblAddAnother {
+	margin-right: 55px;
+	margin-bottom: 7px;
+}
+
+td.tickbox {
+	text-align: center;
+}
+
+.truncate {
+	/*width: 250px;*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+ul.useful-links {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.useful-links li {
+	margin: 15px;
+}
+
+header h2 {
+	display: block;
+	display: -webkit-box;
+	max-width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.table-icon {
+	width: 28px;
+	text-align: left;
+	padding-left: 12px !important;
+	padding-right: 0 !important;
+}
+
+.truncate {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+input[readonly], input[readonly="readonly"],
+textarea[readonly], textarea[readonly="readonly"] {
+	background-color: #FFF !important;
+	cursor: default !important;
+	border: 1px solid #CCC;
+}
+
+.smart-form td .label {
+	display: block;
+	margin-bottom: 6px;
+	line-height: 19px;
+	font-weight: 400;
+	font-size: 13px;
+	color: #333;
+	text-align: center;
+	white-space: normal
+}

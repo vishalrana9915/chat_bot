@@ -23,7 +23,7 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 
 					return $http({
 						method: 'GET',
-						url: appConfig.apiURL + '/user/currentUser',
+						url: appConfig.apiURL + 'user/currentUser',
 						headers: {
 							'Content-Type': 'application/json'
 						}

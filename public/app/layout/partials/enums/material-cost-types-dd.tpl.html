@@ -1,0 +1,11 @@
+﻿
+<select ng-model="materialCostType"
+        id="materialCostTypes"
+        class="form-control"
+        data-ng-options="materialCostType.name for materialCostType in materialCostTypes">
+
+    <option value=""
+            disabled selected="selected"
+            ng-bind="getWord('Select Material Cost Type')"></option>
+
+</select>

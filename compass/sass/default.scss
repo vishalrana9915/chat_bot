@@ -1,0 +1,147 @@
+@import "overrides";
+
+td.key {
+  font-weight : 600 !important;
+}
+
+table table td.key {
+  background-color : #ededed;
+}
+
+table table td.title {
+  font-weight      : 600 !important;
+  background-color : #9b9a9b;
+  color            : #fefefe;
+}
+
+.ui-accordion .ui-accordion-header {
+  background-color : #3276b1 !important;
+  color            : #fefefe;
+  font-weight      : 600 !important;
+}
+
+.pgoverlay {
+  position   : absolute;
+  top        : 0;
+  left       : 0;
+  background : transparent !important;
+  z-index    : 21 !important;
+  width      : 100%;
+  height     : 100%;
+  display    : block;
+}
+
+.overlay {
+  background : #000;
+  opacity    : 0.6;
+  position   : fixed;
+  z-index    : 1006;
+  width      : 100%;
+  height     : 100%;
+  bottom     : 0;
+  left       : 0;
+  right      : 0;
+  top        : 0;
+}
+
+H2.rule {
+  display       : block;
+  padding       : 8px 0;
+  border-bottom : 1px dashed rgba(0, 0, 0, .2);
+  background    : #fff;
+  font-size     : 16px;
+  font-weight   : 700;
+  color         : #232323;
+  margin        : 10px 0px 10px;
+}
+
+#preview-index {
+  margin : 10px 0;
+
+  i {
+    position      : relative;
+    display       : inline-block;
+    border-radius : 50%;
+    margin        : 0 7px;
+    padding       : 9px;
+    width         : auto !important;
+    + span {
+      position : relative;
+      top      : -3px;
+    }
+  }
+  #k-bleed {
+    background : lightskyblue;
+  }
+  #k-trim {
+    background : #f14b52;
+  }
+  #k-safe {
+    background : lightgreen;
+  }
+}
+
+.preflight-preview {
+  margin         : 15px 0;
+  border         : rgba(0, 0, 0, 1) solid 1px;
+  /*width          : 1010px;*/
+  /*height         : 568px;*/
+  /*background     : url('../img/FB_sample_correct_withtemplate.jpg') no-repeat center;*/
+  padding        : 0px;
+  display        : table-cell;
+  vertical-align : middle;
+  > .proof-overlay {
+    margin-left  : auto;
+    margin-right : auto;
+    display      : block;
+  }
+}
+
+/*.preflight-preview {
+  margin         : 15px 0;
+  border         : rgba(0, 0, 0, 1) solid 1px;
+  !*width          : 1010px;*!
+  !*height         : 568px;*!
+  background     : url('../img/FB_sample_correct_withtemplate.jpg') no-repeat center;
+  padding        : 0px;
+  display        : table-cell;
+  vertical-align : middle;
+}
+
+.preflight-preview > .proof-overlay {
+  margin-left  : auto;
+  margin-right : auto;
+  display      : block;
+}*/
+
+.preflight-preview-old {
+  margin : 15px 0;
+  border : rgba(0, 0, 0, 1) solid;
+}
+
+.label-group {
+  margin-bottom : 0 !important;
+}
+
+.borderless td, .borderless th {
+  border : none !important;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display : none !important;
+}
+
+#txtAssociateInitials {
+  text-transform : uppercase;
+}
+
+.dividerLine {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.grayout {
+  opacity: 0.6;
+  filter: alpha(opacity = 60);
+}

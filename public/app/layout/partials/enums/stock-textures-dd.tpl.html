@@ -1,0 +1,13 @@
+﻿
+    <select ng-model="stockTexture"
+            id="stockTexture"
+            class="form-control"
+
+            data-ng-options="stockTexture as stockTexture.name for stockTexture in stockTextures" required>
+
+        <option value=""
+                disabled selected="selected"
+                ng-bind="getWord('Select Stock Texture')"></option>
+
+    </select>
+

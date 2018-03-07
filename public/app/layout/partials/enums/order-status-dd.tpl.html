@@ -1,0 +1,7 @@
+﻿<select id="cboStatus"
+        ng-model="orderStatus"
+        style="width:100%"
+        class="form-control"
+        data-ng-options="orderStatus.name for orderStatus in orderStatusEnums">
+    <option value="" ng-bind="getWord('SelectOption')"></option>
+</select>

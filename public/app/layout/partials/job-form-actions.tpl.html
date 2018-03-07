@@ -1,0 +1,59 @@
+<div class="form-actions">
+
+	<div class="row">
+
+		<div class="col-sm-6 col-xs-12 hidden-xs" >
+			<div class="dataTables_info pull-left" aria-live="polite" ng-bind="displayPaginationInfo(currentJobPage, totalJobs)">
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-12">
+			<div>
+
+				<!--<button id="btnActionJob"
+							type="submit"
+							class="btn btn-primary"
+							ng-bind="getWord(actionText)"></button>
+
+					<button id="otherActionJob"
+							type="submit"
+							class="btn btn-primary"
+							ng-show="otherAction"
+							ng-bind="getWord(otherAction)"></button>-->
+
+				<span id="hostButtons"> </span>
+
+				<button id="btnPrevJob"
+				        type="button"
+				        class="btn btn-default"
+				        ng-show="false"
+				        ng-click="prevJob()"
+				        ng-bind="getWord('PrevJob')"></button>
+
+				<button id="btnSkipJob"
+				        type="button"
+				        class="btn btn-default"
+				        ng-show="showSkipJob"
+				        ng-click="skipJob()"
+				        ng-bind="getWord('Skip')"></button>
+
+				<button id="btnNextJob"
+				        type="button"
+				        class="btn btn-default"
+				        ng-show="false"
+				        ng-click="nextJob()"
+				        ng-bind="getWord('NextJob')"></button>
+
+				<button id="btnClosePanel"
+				        type="button"
+				        class="btn btn-default"
+				        ng-click="closeMultiJobPanel(); closePanel()"
+				        ng-bind="getWord('ClosePanel')"></button>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

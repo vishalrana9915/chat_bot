@@ -1,0 +1,14 @@
+﻿<span>
+    <select ng-model="reprintReasonCategoryValue"
+            id="reprintReasonCategoryValue"
+            class="form-control"
+
+            data-ng-options="reprintReasonCategory as reprintReasonCategory.name for reprintReasonCategory in reprintReasonCategories" required>
+
+        <option value=""
+                disabled selected="selected"
+                ng-bind="getWord('Select Reason Category')"></option>
+
+    </select>
+
+  </span>

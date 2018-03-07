@@ -1,0 +1,11 @@
+﻿<select ng-model="optimalPrintTechnology"
+            id="optimalPrintTechnology"
+            class="form-control"
+
+            data-ng-options="optimalPrintTechnology as optimalPrintTechnology.name for optimalPrintTechnology in optimalPrintTechnologies" required>
+
+        <option value=""
+                disabled selected="selected"
+                ng-bind="getWord('Select Print Technology')"></option>
+
+    </select>

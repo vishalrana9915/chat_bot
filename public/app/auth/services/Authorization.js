@@ -1,44 +1,59 @@
 /**
- * Created by Dante Garcia on 5/7/2015.
+ * @Created by vishal rana.
  * Path: app\auth\services\Authorize.js
  */
 define(['auth/module'], function (module) {
 
 	'use strict';
-	return module.registerService('Authorization', function ($rootScope, $http, $cookies) {
+	return module.registerService('Authorization', function ($rootScope, $http, $cookies,User) {
 			var authToken;
-
+					console.log("service loaded...")
 			function authorizationException(message) {
 				this.message = message;
 				this.name = "AuthorizationException";
 			}
 
 			this.login = function (username, password) {
-
+					console.log("checking base url==>"+appConfig.apiURL)
 				//******************************************************************************************************
 				// Resetting the Authorization in the header if it exists and you are trying to login
 				//******************************************************************************************************
 				$http.defaults.headers.common.Authorization = undefined;
 
-				var params = "grant_type=password&username=" + username + "&password=" + password;
-				return $http({
-					url    : appConfig.apiURL + '/user/GetAuthorizeToken',
+				var params = {
+					email:username,
+					password:password
+				}
+				// "grant_type=password&username=" + username + "&password=" + password;
+				var requestObj = {
+					url    : appConfig.apiURL + 'user/login',
 					method : "POST",
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					headers: { 'Content-Type': 'application/json' },
 					data   : params
-				})
+				}
+				return $http(requestObj)
 					.success(function (data, status, headers, config) {
-						$http.defaults.headers.common.Authorization = "Bearer " + data.access_token;
+						console.log("reqobj-=>"+JSON.stringify(data))
+						if(data.error){
+							 console.log(error);
+						}
+						else if(data.response.responseCode == 400)
+							 console.log("Check your password and email.")
+						else{
+								$http.defaults.headers.common.Authorization = "Bearer " + data.response.accessToken;
 						$http.defaults.headers.common['Accept-Language'] = $cookies.get('_locale');
-						$cookies.put("_Token", data.access_token);
+						$cookies.put("_Token", data.response.accessToken);
 						$cookies.put("expDate", data[".expires"]);
-						authToken = data.access_token;
-						User.initUserInfo();
+						authToken = data.response.accessToken;
+						return data
+						}  
+						
+						// User.initUserInfo();
 
 						//******************************************************************************************************
 						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
 						//******************************************************************************************************
-						$rootScope.userIsAuthorized = true;
+						// $rootScope.userIsAuthorized = true;
 					})
 					.error(function (data, status, headers, config) {
 

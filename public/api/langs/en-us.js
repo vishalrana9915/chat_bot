@@ -1,0 +1,3 @@
+{
+	'chakBhai' : "chak Bhai"
+}

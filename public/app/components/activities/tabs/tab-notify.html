@@ -1,0 +1,45 @@
+<ul class="notification-body">
+
+	<!--##################################################################################################-->
+	<!--## Created by Shawn Miller on 7/3/2015                                                          ##-->
+	<!--## Filename: public/app/components/activities/tabs/tab-notify.html                              ##-->
+	<!--##################################################################################################-->
+
+	<li ng-repeat="notifyJob in notifyOtherJobs | orderBy : '-notificationDate'">
+
+		<span ng-class="{unread : priority.status == 'unread'}">
+
+			<!--################################################-->
+			<!--## NOTIFICATION TOOLBAR                       ##-->
+			<!--################################################-->
+			<span class="notification-toolbar">
+
+				<span ng-bind="notifyJob.jobName"></span>
+
+				<a id="{{notifyJob.id}}" href-void
+				   ng-click="acknowledgeJob(notifyJob.id)"
+				   class="btn btn-default btn-xs pull-right"
+				   tooltip-placement="left"
+				   uib-tooltip="{{getWord('Remove')}}"> <i class="fa fa-times"></i> </a>
+
+			</span><!--/.notification-toolbar-->
+
+			<a ng-click="editJob(notifyJob.jobId, notifyJob.id)" class="notification-msg">
+
+				<span class='label pull-right {{ notifyJob.status | notificationTypeClass }}'> {{ getWord(notifyJob.status) }} </span>
+
+				<span class="bdp" ng-bind-html='notifyJob | bdp'></span>
+
+				<span class="customerName" customer-name="{firstName: '{{notifyJob.firstName}}', lastName: '{{notifyJob.lastName}}'}" ></span>
+
+				<span class="jobNumber">{{getWord('JobNo')}} {{notifyJob.jobNo}}</span>
+
+				<span class="dueDate">{{ notifyJob.jobDueDate | localDateTimeFilter}}</span>
+
+			</a>
+
+		</span>
+
+	</li>
+
+</ul>

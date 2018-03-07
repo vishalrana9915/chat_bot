@@ -1,0 +1,107 @@
+
+.show-stat-summaries {
+  > div {
+	border-right : 1px solid #DADADA !important;
+	border-top   : 1px solid #DADADA !important;
+	margin-top   : 10px !important;
+	/*margin-bottom : -1px;*/
+	overflow     : hidden;
+	padding      : 0 0 !important;
+  }
+  > div:last-child {
+	border-right : 0 !important;
+  }
+
+  .list-group-item {
+	position         : relative;
+	display          : block;
+	margin-bottom    : -1px;
+	background-color : #FAFAFA;
+	border           : 0 !important;
+  }
+
+  .list-group-item:last-child {
+	margin-bottom              : 0;
+	border-bottom-right-radius : 0;
+	border-bottom-left-radius  : 0;
+  }
+
+  .list-group-item:first-child {
+	border-top-right-radius : 0;
+	border-top-left-radius  : 0;
+  }
+
+  a {
+	transition         : all .3s ease;
+	-webkit-transition : all .3s ease;
+	-moz-transition    : all .3s ease;
+	-o-transition      : all .3s ease;
+  }
+
+  .fa {
+	text-align : right;
+	outline    : none;
+  }
+}
+
+.summary {
+  & > p.list-group-item-text {
+	color       : #636363;
+	font-weight : 600;
+  }
+  & > h4.list-group-item-heading {
+	font-size : 10pt;
+  }
+}
+
+a.summary i, .summary > h4.list-group-item-heading {
+  color : #636363;
+}
+
+a.summary:hover {
+  background-color : #636363 !important;
+  h4.list-group-item-heading {
+	font-weight : 600;
+  }
+  * {
+	color : #FFF;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width : 767px) {
+
+  .show-stat-summaries > div:first-child {
+	border-right : 0 !important;
+	margin-top   : 15px !important;
+  }
+
+  .show-stat-summaries > div {
+	border-right : 0 !important;
+	margin-top   : 0 !important;
+  }
+
+  .show-stat-summaries > div:last-child {
+	/*border-right : 0!important;*/
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width : 480px) {
+
+  .show-stat-summaries > div:first-child {
+	border-right : 0 !important;
+	margin-top   : 15px !important;
+  }
+
+  .show-stat-summaries > div {
+	border-right : 0 !important;
+	margin-top   : 0 !important;
+  }
+
+  .show-stat-summaries > div:last-child {
+	/*border-right : 0!important;*/
+  }
+}
+
+

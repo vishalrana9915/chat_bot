@@ -36,15 +36,15 @@ var require = {
 
 		'jquery-form': '../dist/plugins/jquery-form/jquery.form',
 
-		// SSM 08/10/15 Removed outdated validator plugin
 		'bootstrap-validator': '../dist/plugins/bootstrapvalidator/dist/js/bootstrapValidator.min',
 
-		// SSM 08/10/15 New field validation library and addons
 		// This is a custom build of form-validator that does NOT consist of all validators.
 		// Only popular validators are included
-		// SSM 08/10/15: TODO: Replace with minified version after debugging
+		// SSM : TODO: Replace with minified version after debugging
 		//'form-validator' : '../plugin/formvalidation/dist/js/formValidation.popular',
 		'form-validator': '../dist/plugins/formvalidation/dist/js/formValidation',
+		'smartwidgets': '../smartadmin-plugin/smartwidgets/jarvis.widget.min',
+		'notification': '../smartadmin-plugin/notification/SmartNotification.min',
 
 		// Don't confuse bootstrap(.min).js file provided by the Bootstrap framework with bootstrap(.min).js provided by
 		// FormValidation which is placed inside the formvalidation/dist/js/framework directory.
@@ -95,7 +95,6 @@ var require = {
 		'jcrop': {deps: ['jquery-color']},
 		'bootstrap-validator': {deps: ['jquery']},
 		'intl-tel-input-master': {deps: ['jquery']},
-		'intl-tel-utils': {deps: ['intl-tel-input-master']},
 		'form-validator': {deps: ['jquery']},
 		'form-validator-i18n': {deps: ['form-validator']},
 		'form-validator-mandatoryicon': {deps: ['form-validator']},
@@ -121,6 +120,8 @@ var require = {
 		'bootstrap-progressbar': {deps: ['bootstrap']},
 		'jquery-ui': {deps: ['jquery']},
 		'jquery-nestable': {deps: ['jquery']},
+		'superbox': {deps: ['jquery']},
+		'notification': {deps: ['jquery']},
 		'smartwidgets': {deps: ['jquery-ui']},
 		'ngStorage': {exports: 'ngStorage', deps: ['angular']}
 	},

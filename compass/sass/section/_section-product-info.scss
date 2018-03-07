@@ -1,0 +1,27 @@
+
+#product-info a.list-group-item {
+  background-color : #F5F5F5;
+  color            : #000;
+}
+
+#product-info a.list-group-item .fa-lg {
+  line-height : 1em;
+}
+
+#product-info a.list-group-item:focus, #product-info a.list-group-item:hover {
+  text-decoration  : none;
+  color            : #FFFFFF;
+  background-color : #3276B1;
+}
+
+#product-info .list-group {
+  margin  : 0;
+  padding : 0;
+}
+
+#product-info .list-group-item {
+  border-left   : 0;
+  border-right  : 0;
+  border-bottom : 1px solid #DDD;
+}
+

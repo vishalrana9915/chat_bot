@@ -1,0 +1,17 @@
+{
+  "activities": {
+    "last_update": "7/29/2015 8:43AM",
+    "types": [
+      {
+        "title": "Priority",
+        "name": "priority",
+        "length": 0
+      },
+      {
+        "title": "Notify",
+        "name": "notify",
+        "length": 0
+      }
+    ]
+  }
+}

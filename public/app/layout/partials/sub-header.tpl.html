@@ -1,0 +1,45 @@
+<div ng-show="showSubHeader" class="col-xs-12 col-sm-5 col-md-5 col-lg-8" data-sparkline-container>
+
+	<!--######################################################################################-->
+	<!--## Created by Shawn Miller on 4/24/2015                                             ##-->
+	<!--## Filename: public/app/layout/partials/sub-header.tpl.html                         ##-->
+	<!--## ###################################################################################-->
+
+    <ul id="sparks" class="">
+
+        <li class="sparks-info">
+            <a href-void ng-click="navigateTo('Jobs', 'JobPriority', '0')">
+                <h5>{{getWord('RedoJobs')}}
+					<span class="text-muted">
+						<i class="fa fa-list"></i>
+						&nbsp;<span class="txt-color-red" style="display: inline-block; font-weight: 600;" ng-bind="dashboardSummary.jobSummary.redoCount"></span>
+					</span>
+				</h5>
+            </a>
+        </li>
+
+        <li class="sparks-info">
+            <a ng-click="navigateTo('Jobs', 'JobPriority', '1')">
+                <h5>{{getWord('RushJobs')}}
+					<span class="text-muted">
+						<i class="fa fa-list"></i>
+						&nbsp;<span class="txt-color-orange" style="display: inline-block; font-weight: 600;"  ng-bind="dashboardSummary.jobSummary.rushCount"></span>
+					</span>
+				</h5>
+            </a>
+        </li>
+
+        <li class="sparks-info">
+            <a ng-click="navigateTo('Jobs', 'JobStatus', 'Hold')">
+                <h5>{{getWord('OnHoldJobs')}}
+					<span class="text-muted">
+						<i class="fa fa-list"></i>
+						&nbsp;<span class="txt-color-blue" style="display: inline-block; font-weight: 600;"  ng-bind="dashboardSummary.jobSummary.holdCount"></span>
+					</span>
+				</h5>
+            </a>
+        </li>
+
+    </ul>
+
+</div>

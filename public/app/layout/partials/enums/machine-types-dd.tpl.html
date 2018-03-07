@@ -1,0 +1,10 @@
+﻿<select ng-model="machineType"
+        id="machineTypes"
+        class="form-control"
+        data-ng-options="machineType.name for machineType in machineTypes">
+
+    <option value=""
+            disabled selected="selected"
+            ng-bind="getWord('Select Machine Type')"></option>
+
+</select>

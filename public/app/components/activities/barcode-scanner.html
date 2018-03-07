@@ -1,0 +1,30 @@
+<form id="barcode-scanner" class="activities-ajax-dropdown ng-cloak" role="form" ng-submit="activateScan()">
+
+	<!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
+
+	<!--<div class="btn-group btn-group-justified" data-toggle="buttons">
+		<label class="btn btn-default" ng-class="{active : isActive(tab.name)}"
+		       ng-repeat="(key, tab) in notificationTabs | filter:{ category: 'notifications' }" ng-click="setTab(tab.name)">
+			<input type="radio" name="activity">
+			{{tab.title}} ({{tab.length}})
+		</label>
+	</div>-->
+
+	<div class="form-group">
+		<label for="codeScanner" class="col-sm-3 col-md-3 col-lg-3 control-label">{{getWord('Scan')}}</label>
+
+		<div class="col-sm-8 col-md-8 col-lg-8">
+			<input id="codeScanner" name="codeScanner" type="text" class="form-control" style="width:100%"/>
+		</div><!--/.column-->
+	</div><!--/.form-group-->
+
+	<!--####################################################-->
+	<!--## notification content                           ##-->
+	<!--####################################################-->
+
+	<!--####################################################-->
+	<!--## footer: refresh area                           ##-->
+	<!--####################################################-->
+   
+
+</form>

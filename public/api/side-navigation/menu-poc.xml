@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (x64) (http://www.altova.com) by Shawn S Miller (private) -->
+<side-navigation>
+
+
+	<menu-item-parent>
+		<name>Dashboard</name>
+		<key>Dashboard</key>
+		<icon>fa-home</icon>
+		<surl>app.dashboard</surl>
+	</menu-item-parent>
+	
+	
+	<menu-item-parent menu-collapse="true">
+		<name>Customers</name>
+		<key>Customers</key>
+		<icon>fa-users</icon>
+		
+		<menu-item>
+			<name>Customers List</name>
+			<key>CustomersList</key>
+			<icon>fa-users</icon>
+		</menu-item>
+		
+		<menu-item-parent menu-collapse="true">
+			<name>Customers Setup</name>
+			<key>CustomersSetup</key>
+			<icon>fa-users</icon>
+			
+			<menu-item active="active">
+				<name>Accounting Types</name>
+				<key>AccountingTypes</key>
+				<surl>app.customer.setup.accounting-types</surl>
+			</menu-item>
+			<menu-item active="active">
+				<name>Business Types</name>
+				<key>BusinessTypes</key>
+				<surl>app.customer.setup.business-types</surl>
+			</menu-item>
+			<menu-item active="active">
+				<name>Customer Class</name>
+				<key>CustomerClass</key>
+				<surl>app.customer.setup.customer-class</surl>
+			</menu-item>
+			<menu-item active="active">
+				<name>Payment Methods</name>
+				<key>PaymentMethods</key>
+				<surl>app.customer.setup.payment-methods</surl>
+			</menu-item>
+			<menu-item active="active">
+				<name>Pricing Groups</name>
+				<key>PricingGroups</key>
+				<surl>app.customer.setup.pricing-groups</surl>
+			</menu-item>
+			<menu-item active="active">
+				<name>Customer Terms</name>
+				<key>CustomerTerms</key>
+				<surl>app.customer.setup.customer-terms</surl>
+			</menu-item>
+			<menu-item active="active">
+				<name>Customer Sources</name>
+				<key>CustomerSources</key>
+				<surl>app.customer.setup.customer-sources</surl>
+			</menu-item>
+		</menu-item-parent>
+		
+	</menu-item-parent>
+	
+	
+	<menu-item-parent>
+		<name>Estimates</name>
+		<key>Estimates</key>
+		<icon>fa-line-chart</icon>
+		<surl>app.estimates.list</surl>
+	</menu-item-parent>
+	
+	
+	<menu-item-parent>
+		<name>Orders</name>
+		<key>Orders</key>
+		<icon>fa-inbox</icon>
+		<surl>app.estimates.list</surl>
+	</menu-item-parent>
+	<menu-item-parent>
+		<name>Closed Orders</name>
+		<key>ClosedOrders</key>
+		<icon>fa-archive</icon>
+		<surl>app.orders.closed-orders</surl>
+	</menu-item-parent>
+	<menu-item-parent>
+		<name>Jobs</name>
+		<key>Jobs</key>
+		<icon>fa-puzzle-piece</icon>
+		<surl>app.jobs.list</surl>
+	</menu-item-parent>
+	<menu-item-parent menu-collapse="true">
+		<name>Production</name>
+		<key>Production</key>
+		<icon>fa-sliders</icon>
+		<!--TODO: Add Items-->
+	</menu-item-parent>
+	<menu-item-parent menu-collapse="true">
+		<name>Products</name>
+		<key>Products</key>
+		<icon>fa-tags</icon>
+		<!--TODO: Add Items-->
+	</menu-item-parent>
+	<menu-item-parent>
+		<name>Inventory</name>
+		<key>Inventory</key>
+		<icon>fa-list-alt</icon>
+		<surl>app.inventory.inventory</surl>
+	</menu-item-parent>
+	<menu-item-parent>
+		<name>Portals</name>
+		<key>Portals</key>
+		<icon>fa-globe</icon>
+		<surl>app.portals.portal</surl>
+	</menu-item-parent>
+	<menu-item-parent>
+		<name>Templates</name>
+		<key>Templates</key>
+		<icon>fa-file-code-o</icon>
+		<surl>app.templates.index</surl>
+	</menu-item-parent>
+	<menu-item-parent>
+		<name>Files</name>
+		<key>Files</key>
+		<icon>fa-folder-o</icon>
+		<surl>app.files.index</surl>
+	</menu-item-parent>
+	<menu-item-parent menu-collapse="true">
+		<name>Site</name>
+		<key>Site</key>
+		<icon>fa-desktop</icon>
+		<!--TODO: Add Items-->
+	</menu-item-parent>
+</side-navigation>

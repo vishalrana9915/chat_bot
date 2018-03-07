@@ -1,0 +1,30 @@
+<div class="alerts-ajax-dropdown ng-cloak">
+
+   <!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
+   <div class="btn-group btn-group-justified" data-toggle="buttons">
+      <label class="btn btn-default" ng-class="{active : isActive(tab.name)}"
+               ng-repeat="(key, tab) in notificationTabs | filter:{ category: 'alerts' }" ng-click="setTab(tab.name)">
+         <input type="radio" name="activity">
+         {{tab.title}} ({{tab.length}})
+      </label>
+    </div>
+
+    <!--####################################################-->
+    <!--## notification content                           ##-->
+    <!--####################################################-->
+	<div class="ajax-notifications custom-scroll" ng-switch="activeTab">
+		<div smart-include="app/components/alerts/tabs/tab-alerts.html" ng-switch-when="alerts"></div>
+		<div smart-include="app/components/alerts/tabs/tab-default.html" ng-switch-when="default"></div>
+	</div><!--/.ajax-notifications-->
+
+
+    <!--####################################################-->
+    <!--## footer: refresh area                           ##-->
+    <!--####################################################-->
+   <span class="hide"> Last updated on: {{alerts.last_update}}
+      <button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..." class="btn btn-xs btn-default pull-right">
+         <i class="fa fa-refresh"></i>
+      </button>
+   </span><!-- eo footer -->
+
+</div>

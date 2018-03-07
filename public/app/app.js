@@ -6,7 +6,7 @@
  * @description
  * # app [nextPrintApp]
  *
- * main module of the kodiak application.
+ * main module of the chatBot application.
  */
 
 define([
@@ -21,6 +21,10 @@ define([
     'angular-ui-router',
 
     'angular-animate',
+
+    'smartwidgets',
+
+    'notification',
 
     'ui-bootstrap',
 
@@ -64,6 +68,8 @@ define([
         // ui application modules smart-admin
         // 'app.layout',
         // 'app.ui'
+    // 'signalr'
+        
         ]);
 
     couchPotato.configureApp(app);
@@ -81,10 +87,10 @@ define([
             $rootScope.userIsAuthorized = true;
 
             var errorCounter = 0;
-            // var requestToIgnore = [
-            //     'brokerping',
-            //     'getJobFile'
-            // ];
+            var requestToIgnore = [
+                'brokerping',   
+                'getJobFile'
+            ];
 
             function notifyError(rejection) {
                 var rejectionInfo = {};
@@ -95,7 +101,7 @@ define([
 
                 try {
                     $.bigBox({
-                        title: $rootScope.getWord('Error'),
+                        title:   'Error',     //  $rootScope.getWord('Error'),
                         content: rejectionInfo.data ? rejectionInfo.data.message : '',
                         color: "#C46A69",
                         icon: "fa fa-warning shake animated",
@@ -159,139 +165,139 @@ define([
 
         .constant('APP_CONFIG', window.appConfig);
 
-    // app.run(function ($couchPotato, $rootScope, $state, $stateParams, $location, $cookies, $http, User, connectionService, $q, formValidationKeyService, buildInfo) {
+    app.run(function ($couchPotato, $rootScope, $state, $stateParams, Language,$location, $cookies, $http, User, $q, formValidationKeyService, buildInfo) {
 
     //     // Get build information.
-    //     $http.get('build.json?' + Math.random()).success(function (data) {
+        $http.get('build.json?' + Math.random()).success(function (data) {
 
-    //         appConfig.build = data.buildNum;
-    //         buildInfo.setBuildInfo(data.buildNum);
-    //         console.log(appConfig.build);
+            appConfig.build = data.buildNum;
+            buildInfo.setBuildInfo(data.buildNum);
+            console.log(appConfig.build);
 
-    //         $rootScope.correctPath = function (pathExpression) {
-    //             return buildInfo.correctPath(pathExpression);
-    //         };
+            $rootScope.correctPath = function (pathExpression) {
+                return buildInfo.correctPath(pathExpression);
+            };
 
-    //     }).error(function () {
-    //         appConfig.build = 'app';
-    //     });
+        }).error(function () {
+            appConfig.build = 'app';
+        });
 
 
     //     /****************************************************************************************************
     //      * The localised key is set here for all the form validations so that when the app loads
     //      * we can use the localised value for all the forms.
     //      ***************************************************************************************************/
-    //     formValidationKeyService.initializeKey();
+        formValidationKeyService.initializeKey();
 
     //     /****************************************************************************************************
     //      * The currentYear is set here so that when the app loads we have the year for the footer to use.
     //      ***************************************************************************************************/
-    //     $rootScope.currentYear = new Date().getFullYear();
+        $rootScope.currentYear = new Date().getFullYear();
 
-    //     // CHECK BROWSER
-    //     if (navigator.userAgent.indexOf('Firefox')
-    //         != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Firefox') + 8)) >= 3.6) {
-    //         //Firefox
-    //         //Allow
-    //         $rootScope.isFireFox = true;
-    //     } else if (navigator.userAgent.indexOf('Chrome') != -1
-    //         && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Chrome') + 7).split(' ')[0]) >= 15) {
-    //         //Chrome
-    //         //Allow
-    //         $rootScope.isChrome = true;
-    //     } else if (navigator.userAgent.indexOf('MSIE') != -1
-    //         && navigator.userAgent.indexOf('Version') != -1
-    //         && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Version') + 8).split(' ')[0]) >= 10) {
-    //         //Safari
-    //         //Allow
-    //         $rootScope.isInternetExplorer = true;
-    //     } else {
-    //         // Block
-    //     }
+        // CHECK BROWSER
+        if (navigator.userAgent.indexOf('Firefox')
+            != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Firefox') + 8)) >= 3.6) {
+            //Firefox
+            //Allow
+            $rootScope.isFireFox = true;
+        } else if (navigator.userAgent.indexOf('Chrome') != -1
+            && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Chrome') + 7).split(' ')[0]) >= 15) {
+            //Chrome
+            //Allow
+            $rootScope.isChrome = true;
+        } else if (navigator.userAgent.indexOf('MSIE') != -1
+            && navigator.userAgent.indexOf('Version') != -1
+            && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Version') + 8).split(' ')[0]) >= 10) {
+            //Safari
+            //Allow
+            $rootScope.isInternetExplorer = true;
+        } else {
+            // Block
+        }
 
     //     // Initialize Facility changed status.
-    //     $rootScope.facilityChanged = false;
+        $rootScope.facilityChanged = false;
 
-    //     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, from) {
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, from) {
 
-    //         var requiresLogin = toState.data.requiresLogin;
+            var requiresLogin = toState.data.requiresLogin;
 
-    //         var currentDate = new Date();
+            var currentDate = new Date();
 
-    //         if ($cookies.get("_Token"))
-    //             var tokenDate = new Date($cookies.get("expDate"));
-    //         else
-    //             requiresLogin = true;
+            if ($cookies.get("_Token"))
+                var tokenDate = new Date($cookies.get("expDate"));
+            else
+                requiresLogin = true;
 
-    //         if ((requiresLogin || 'undefined') && ($cookies.get("_Token") && (tokenDate >= currentDate))) {
-    //             $http.defaults.headers.common.Authorization = "Bearer " + $cookies.get("_Token");
-    //             $http.defaults.headers.common['Accept-Language'] = $cookies.get("_locale");
+            if ((requiresLogin || 'undefined') && ($cookies.get("_Token") && (tokenDate >= currentDate))) {
+                $http.defaults.headers.common.Authorization = "Bearer " + $cookies.get("_Token");
+                $http.defaults.headers.common['Accept-Language'] = $cookies.get("_locale");
 
-    //             // If logged in and trying to go to login screen
-    //             if (toState.name == 'login') {
+                // If logged in and trying to go to login screen
+                if (toState.name == 'login') {
 
-    //                 $rootScope.$evalAsync(function () {
-    //                     // If on dashboard need to reload the page
-    //                     if ($location.path() == '/') {
-    //                         location.reload();
-    //                     } else {
-    //                         // Redirect to dashboard
-    //                         $location.path('/');
-    //                     }
-    //                 });
+                    $rootScope.$evalAsync(function () {
+                        // If on dashboard need to reload the page
+                        if ($location.path() == '/') {
+                            location.reload();
+                        } else {
+                            // Redirect to dashboard
+                            $location.path('/');
+                        }
+                    });
 
-    //                 event.preventDefault();
-    //                 return;
-    //             }
-    //         } else {
-    //             if (toState.name != 'login') {
-    //                 // Reset the authorization header if not logged in.
-    //                 $http.defaults.headers.common.Authorization = undefined;
+                    event.preventDefault();
+                    return;
+                }
+            } else {
+                if (toState.name != 'login') {
+                    // Reset the authorization header if not logged in.
+                    $http.defaults.headers.common.Authorization = undefined;
 
-    //                 if (toState.name != 'logout') {
-    //                     // Get the previous url for redirect after login
-    //                     $rootScope.previousUrl = window.location.href.split('#')[1];
-    //                 }
+                    if (toState.name != 'logout') {
+                        // Get the previous url for redirect after login
+                        $rootScope.previousUrl = window.location.href.split('#')[1];
+                    }
 
-    //                 $state.go('login');
-    //                 $rootScope.$evalAsync(function () {
-    //                     $location.path('/login');
-    //                 });
+                    $state.go('login');
+                    $rootScope.$evalAsync(function () {
+                        $location.path('/login');
+                    });
 
-    //                 event.preventDefault();
-    //                 return;
-    //             }
-    //             return;
-    //         }
-    //         // //SSM Issue my lie here - End
+                    event.preventDefault();
+                    return;
+                }
+                return;
+            }
+            // //SSM Issue my lie here - End
 
-    //         /********************************************************************************************/
-    //         // SignalR connection check and connect if disconnected.
-    //         /********************************************************************************************/
-    //         if (toState.name == 'login' || toState.name == 'logout') {
-    //             //// SignalR disconnect if state is login or logout
-    //             connectionService.stopConnection();
-    //         }
-    //         else if (from.name == 'login' || from.name == '') {
-    //             ******************************************************************************************
-    //             // SignalR connection check and connect if routing from login page.
-    //             /********************************************************************************************/
+            /********************************************************************************************/
+            // SignalR connection check and connect if disconnected.
+            /********************************************************************************************/
+            if (toState.name == 'login' || toState.name == 'logout') {
+                //// SignalR disconnect if state is login or logout
+                // connectionService.stopConnection();
+            }
+            else if (from.name == 'login' || from.name == '') {
+               // ******************************************************************************************
+                // SignalR connection check and connect if routing from login page.
+                /********************************************************************************************/
 
-    //             if ($rootScope.connection) {
-    //                 if (!$rootScope.connection.hub.state) {
-    //                     connectionService.startConnection();
-    //                 }
-    //                 else if ($rootScope.connection.hub.state != $rootScope.connection.connectionState.connected) {
-    //                     if ($rootScope.connection.hub.state == $rootScope.connection.connectionState.disconnected) {
-    //                         connectionService.startConnection();
-    //                     }
-    //                 }
-    //             }
-    //             else {
-    //                 connectionService.startConnection();
-    //             }
-    //         }
-    //     });
+                if ($rootScope.connection) {
+                    if (!$rootScope.connection.hub.state) {
+                        // connectionService.startConnection();
+                    }
+                    else if ($rootScope.connection.hub.state != $rootScope.connection.connectionState.connected) {
+                        if ($rootScope.connection.hub.state == $rootScope.connection.connectionState.disconnected) {
+                            // connectionService.startConnection();
+                        }
+                    }
+                }
+                else {
+                    // connectionService.startConnection();
+                }
+            }
+        });
 
     //     $rootScope.$on('$stateChangeSuccess', function (ev, toState, toParams, from, fromParams) {
 
@@ -374,17 +380,17 @@ define([
 
     //     });
 
-    //     app.lazy = $couchPotato;
-    //     $rootScope.$state = $state;
-    //     $rootScope.$stateParams = $stateParams;
-    //     // editableOptions.theme = 'bs3';
+        app.lazy = $couchPotato;
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+        // editableOptions.theme = 'bs3';
 
     //     /********************************************************************************************/
     //     // Initialize localization and related objects
     //     /********************************************************************************************/
-    //     Language.initializeLanguage();
+        Language.initializeLanguage();
 
-    // });
+    });
 
     return app;
 });

@@ -1,0 +1,158 @@
+<aside id="left-panel">
+
+	<!--##################################################################################################-->
+	<!--## Created by Pardha Mugunda on 10/08/2015                                                          ##-->
+	<!--## Filename: public/app/layout/partials/navigation-user.tpl.html                                    ##-->
+	<!--##################################################################################################-->
+
+        <!--############################################################-->
+        <!--## USER INFO COMPONENT                                    ##-->
+        <!--############################################################-->
+    <div class="login-info">
+
+    <span>
+      <span id="current-user">
+			<img ng-src="{{user.picture}}" class="online">
+			<span>{{user.username}}</span>
+		</span>
+
+     </span>
+
+    </div>
+
+        <nav>
+            <!--############################################################-->
+            <!--## MENU                                                   ##-->
+            <!--############################################################-->
+            <!--## NOTE: Notice the gaps after each icon usage <i></i>..  ##-->
+            <!--## Please note that these links work a bit different than ##-->
+            <!--## traditional href="" links.                             ##-->
+            <!--############################################################-->
+            <ul data-smart-menu>
+
+                <!--############################################################-->
+                <!--## START DASHBOARD                                        ##-->
+                <!--############################################################-->
+                <li id="nav-item-dashboard"  data-ui-sref-active="active">
+                    <a data-ui-sref="app.dashboard" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i>
+                        <span class="menu-item-parent">{{getWord('Dashboard')}}</span>
+                    </a>
+                </li><!--/#nav-item-dashboard-->
+
+
+                <!--############################################################-->
+                <!--## START ORDERS                                           ##-->
+                <!--############################################################-->
+                <li id="nav-item-orders" data-ui-sref-active="active">
+                    <a data-ui-sref="app.orders.list">
+                        <i class="fa fa-lg fa-fw fa-inbox"></i>
+                        <span class="menu-item-parent"> {{getWord('Orders')}} </span></a>
+                </li><!--/.nav-item-orders-->
+
+                <!--############################################################-->
+                <!--## START CLOSED ORDERS                                    ##-->
+                <!--############################################################-->
+                <li id="nav-item-closed-orders" data-ui-sref-active="active">
+                    <a data-ui-sref="app.closed-orders.list"> <i class="fa fa-lg fa-fw fa-archive"></i>
+                        <span class="menu-item-parent"> {{getWord('ClosedOrders')}} </span></a>
+                </li>
+                <!--/.nav-item-closed-orders-->
+
+
+                <!--############################################################-->
+                <!--## START JOBS                                             ##-->
+                <!--############################################################-->
+                <li id="nav-item-jobs" data-ui-sref-active="active" class="hide">
+                    <a data-ui-sref="app.jobs.list">
+                        <i class="fa fa-lg fa-fw fa-puzzle-piece"></i>
+                        <span class="menu-item-parent">  {{getWord('Jobs')}}  </span></a>
+                </li>
+                <!--/.nav-item-jobs-->
+
+
+                <!--############################################################-->
+                <!--## START ROUTE PENDING                                    ##-->
+                <!--############################################################-->
+                <li id="nav-item-route-pending" data-ui-sref-active="active" class="hide">
+                    <a data-ui-sref="app.jobs.route-pending">
+                        <i class="fa fa-lg fa-fw fa-puzzle-piece"></i>
+                        <span class="menu-item-parent">  {{getWord('RoutePending')}}  </span></a>
+                </li>
+                <!--/.nav-item-route-pending-->
+
+                <!--############################################################-->
+                <!--## START JOBS MULTI LEVEL MENU                            ##-->
+                <!--############################################################-->
+                <li id="nav-item-jobs-menu" data-menu-collapse>
+                    <a href="#">
+                        <i class="fa fa-lg fa-fw fa-puzzle-piece"></i> <span class="menu-item-parent"> {{getWord('Jobs')}} </span></a>
+                    <ul>
+                        <li data-ui-sref-active="active" ng-show="getJobListRoute() == 1">
+                            <a data-ui-sref="app.jobs.list"> {{getWord('JobsList')}}</a>
+                        </li>
+                        <li data-ui-sref-active="active" ng-show="getJobListRoute() == 2">
+                            <a data-ui-sref="app.jobs.hub"> {{getWord('JobsList')}}</a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.jobs.job-batching"> {{getWord('Batching')}}</a>
+                        </li>
+                        <li data-ui-sref-active="active"  ng-hide="hideRoute">
+                            <a data-ui-sref="app.jobs.route-pending"> {{getWord('RoutePending')}}</a>
+                        </li>
+                    </ul>
+                </li><!--/#nav-item-customer-->
+
+                <!--############################################################-->
+				<!--## START PRODUCTION                                       ##-->
+                <!--############################################################-->
+
+                <!--############################################################-->
+                <!--## START REPORTS                                          ##-->
+                <!--############################################################-->
+                <li id="nav-item-reports" data-ui-sref-active="active">
+                    <a data-ui-sref="app.reports.index">
+                        <i class="fa fa-lg fa-fw fa-bar-chart"></i>
+                        <span class="menu-item-parent"> {{getWord('Reports')}}</span></a>
+                </li><!--/.nav-item-reports-->
+
+                <li id="app.preflight" data-menu-collapse ng-show="user.isProductionManager">
+                    <a href="#"> <i class="fa fa-lg fa-fw fa-paper-plane-o"></i> <span class="menu-item-parent">{{getWord('WorkflowManagement')}}</span> </a>
+                    <ul>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.workflow-management.profiles-list">{{getWord('PreflightProfiles')}}</a>
+                        </li>
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.workflow-management.preflight">{{getWord('Preflight')}}</a>
+                        </li>
+                        <!--############################################################-->
+                        <!--## Imposition                                             ##-->
+                        <!--############################################################-->
+
+                        <li data-ui-sref-active="active">
+                            <a data-ui-sref="app.workflow-management.imposition">{{getWord('ImpositionTemplates')}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+				<!--############################################################-->
+				<!--## PREFLIGHT                                              ##-->
+				<!--## SSM 06/24/2016                                         ##-->
+				<!--############################################################-->
+				<!--<li id="app.preflight" data-ui-sref-active="active">
+					<a data-ui-sref="app.preflight.preflight">
+						<i class="fa fa-lg fa-fw fa-paper-plane-o"></i>
+						<span class="menu-item-parent">{{getWord('Preflight')}}</span>
+					</a>
+				</li>-->
+
+            </ul>
+        </nav>
+
+        <!--############################################################-->
+        <!--## TOGGLE MENU COMPONENT                                  ##-->
+        <!--############################################################-->
+		<span class="minifyme" data-action="minifyMenu" minify-menu>
+			<i class="fa fa-arrow-circle-left hit"></i>
+		</span>
+
+    </aside>

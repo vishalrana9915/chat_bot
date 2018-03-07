@@ -1,0 +1,7 @@
+﻿<select id="cboJobStatus"
+        ng-model="jobStatus"
+        style="width:100%"
+		class="form-control"
+		data-ng-options="jobStatus.name group by jobStatus.group for jobStatus in jobStatusEnums">
+    <option ng-bind="getWord('SelectOption')"></option>
+</select>

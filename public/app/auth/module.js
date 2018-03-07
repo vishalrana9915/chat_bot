@@ -13,21 +13,23 @@ define([
     var module = ng.module('app.auth', ['ui.router']);
 
     couchPotato.configureApp(module);
+    module.config(function ($stateProvider, $couchPotatoProvider,$urlRouterProvider) {
 
-    module.config(function ($stateProvider, $couchPotatoProvider) {
+        $stateProvider
 
-        $stateProvider.state('login', {
+        .state('login', {
             url: '/login',
             views: {
                 root: {
                     templateUrl: "app/auth/views/login.html",
-                    controller : 'LoginCtrl',
+                    controller :"LoginCtrl",
                     resolve: {
                         deps: $couchPotatoProvider.resolveDependencies([
-                            'models/User',
-                            'services/Authorization',
-                            'login/loginCtrl',
-                            'layout/directives/networkStatus'
+                            'app/auth/models/User',
+                            'app/auth/login/loginCtrl',
+                            'app/auth/services/Authorization',
+                            'app/auth/layout/directives/networkStatus',
+                            'app/auth/layout/service/notificationService'
                         ])
                     }
                 }
@@ -97,6 +99,10 @@ define([
                 htmlId: 'lock-page'
             }
         })
+         
+        
+
+        $urlRouterProvider.otherwise('login');
 
     })
         //.constant('authKeys', authKeys);

@@ -21,7 +21,12 @@ var domain = document.domain;
 appConfig.facility_selector = true;
 
 appConfig.default_language = {
-    "key": "en-us"
+    "key": "en-us",
+    "class": "en-us",
+    "alt": "United States",
+    "title": "US English",
+    "dataTableKey": "english",
+    "formValidationKey": "en_US"
 };
 
 appConfig.smartSkin = "smart-style-0";

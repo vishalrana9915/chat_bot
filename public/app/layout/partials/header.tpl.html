@@ -1,0 +1,310 @@
+<header id="header">
+
+	<!--############################################-->
+	<!--## LOGO GROUP                             ##-->
+	<!--############################################-->
+	<div id="logo-group">
+		<span id="logo"> <img src="styles/img/logo.png" alt="FlightDeck"> </span>
+	</div><!--/#logo-group-->
+
+	<!--############################################-->
+	<!--## RECENT-PROJECTS                        ##-->
+	<!--############################################-->
+	<!--<recent-projects></recent-projects>-->
+
+	<!--############################################-->
+	<!--## PULLED RIGHT: NAV AREA                 ##-->
+	<!--############################################-->
+	<div class="pull-right">
+
+		<!--############################################-->
+		<!--## COLLAPSE MENU BUTTON                   ##-->
+		<!--############################################-->
+		<div id="hide-menu" class="btn-header pull-right">
+			<span>
+				<a toggle-menu tooltip-placement="bottom" uib-tooltip="{{getWord('CollapseMenu')}}">
+					<i class="fa fa-reorder"></i>
+				</a>
+			</span>
+		</div><!--/#hide-menu-->
+
+		<!--############################################-->
+		<!--## #MOBILE                                ##-->
+		<!--## Top menu profile link : this shows     ##-->
+		<!--## only when top menu is active           ##-->
+		<!--############################################-->
+		<ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+			<li class="">
+				<a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+					<img src="styles/img/avatars/male.png" alt="Profile Photo" class="online"/> </a>
+				<ul class="dropdown-menu pull-right">
+					<li>
+						<a href-void class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a ui-sref="app.appViews.profileDemo" class="padding-10 padding-top-0 padding-bottom-0">
+							<i class="fa fa-user"></i> <u>P</u>rofile</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href-void class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i>
+							<u>S</u>hortcut</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href-void class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full
+							<u>S</u>creen</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#/login" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i>
+							<strong><u>L</u>ogout</strong></a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+
+		<!--############################################-->
+		<!--## LOGOUT BUTTON                          ##-->
+		<!--############################################-->
+		<div id="logout" class="btn-header transparent pull-right">
+            <span>
+	            <a id="logoutLink" logout-form data-action="userLogout"
+	               tooltip-placement="bottom" uib-tooltip="{{getWord('SignOut')}}"
+	               data-logout-msg="You can improve your security further after logging out by closing this opened browser">
+	                <i class="fa fa-sign-out"></i>
+	            </a>
+            </span>
+		</div><!--/#logout-->
+
+		<!--############################################-->
+		<!--## FULL SCREEN BUTTON                     ##-->
+		<!--############################################-->
+		<div id="fullscreen" class="btn-header transparent pull-right" tooltip-placement="bottom" uib-tooltip="{{getWord('FullScreen')}}">
+            <span>
+	            <a full-screen>
+	                <i class="fa fa-arrows-alt"></i>
+	            </a>
+            </span>
+		</div><!--/#fullscreen-->
+
+
+		<!--############################################-->
+		<!--## FACILITY SELECTOR HEADER BUTTON        ##-->
+		<!--############################################-->
+		<div id="facility-btn" class="btn-header transparent pull-right hidden-sm hidden-xs"
+		     tooltip-placement="bottom"
+		     uib-tooltip="{{user.curFacilityName}}">
+
+			<div>
+
+				<!--############################################-->
+				<!--## Facility Selector Anchor/Button        ##-->
+				<!--############################################-->
+				<a id="facility-command-btn" facility-selector-link href-void><i class="fa fa-building-o"></i></a>
+
+				<!--############################################-->
+				<!--## Facility Fly-out                       ##-->
+				<!--############################################-->
+				<div class="popover bottom tooltip-hide">
+					<div class="arrow"></div>
+					<h3 class="popover-title" ng-bind="getWord('SelectFacility')"></h3>
+
+
+					<div class="popover-content">
+
+						<div class="form-inline">
+
+							<!--############################################-->
+							<!--## FORM GROUP                             ##-->
+							<!--############################################-->
+							<div class="form-group" style="width: 60%;">
+
+								<!--############################################-->
+								<!--## SELECT ELEMENT #cboFacilitySelector    ##-->
+								<!--############################################-->
+								<select id="cboFacilitySelector"
+								        smart-select2
+								        ng-model="facility"
+										style="width:100%"
+										class="select2 form-control"
+										data-ng-options="facility.name for facility in facilities"
+										ng-change="facilitySelected=''">
+
+									<option value="" selected="selected"
+									        ng-bind="user.curFacilityName"></option>
+
+								</select>
+
+							</div><!--/.form-group-->
+
+							<div class="pull-right">
+								<!--############################################-->
+								<!--## Set Facility Button                    ##-->
+								<!--############################################-->
+								<a id="set-facility-btn"
+								   class="btn btn-success"
+								   ng-disabled="facilitySelected"
+								   href-void>
+
+									<!--GLYPHICON-->
+									<i class="glyphicon glyphicon-ok"></i>
+								</a>
+
+								<!--############################################-->
+								<!--## Dismiss Popup Button                   ##-->
+								<!--############################################-->
+								<a id="close-facility-btn"
+								   class="btn bg-color-purple txt-color-white"
+								   onclick="$('#facility-btn .popover').fadeOut(550);"
+								   href-void >
+
+									<!--GLYPHICON-->
+									<i class="glyphicon glyphicon-remove"></i>
+								</a>
+
+							</div><!--/.pull-right-->
+
+						</div>
+					</div><!--/.popover-content-->
+				</div><!--/.popover.bottom-->
+			</div>
+		</div><!--/#facility-btn-->
+
+		<!--############################################-->
+		<!--## NETWORK STATUS BUTTON                  ##-->
+		<!--############################################-->
+		<div id="network-status" class="btn-header transparent pull-right" network-status tooltip-placement="bottom" uib-tooltip="{{getWord('PrintBrokerStatus')}}">
+            <span>
+	            <a ng-class="statusClass">
+					<i class="fa fa-signal"></i>
+				</a>
+            </span>
+		</div><!--/#fullscreen-->
+
+		<!--############################################-->
+		<!--## MULTIPLE LANG DROP DOWN                ##-->
+		<!--############################################-->
+		<!--## multiple lang dropdown : find all      ##-->
+		<!--## flags in the flags page                ##-->
+		<!--############################################-->
+		<language-selector></language-selector>
+		<!--/#language-selector-->
+
+	</div><!-- end pulled right: nav area -->
+
+	<!--############################################-->
+	<!--## NOTIFICATIONS GROUP                    ##-->
+	<!--############################################-->
+	<div id="notifications-group" class="pull-right">
+
+		<!--############################################-->
+		<!--## JOB NOTIFICATIONS                      ##-->
+		<!--############################################-->
+		<job-notifications></job-notifications>
+
+		<dashboard-jobs-summary></dashboard-jobs-summary>
+
+		<dashboard-orders-summary></dashboard-orders-summary>
+
+		<!--############################################-->
+		<!--## ACTIVITY FLY-OUT                       ##-->
+		<!--############################################-->
+		<span id="activity" class="activity-dropdown ng-cloak" activities-dropdown-toggle ng-click="setTab('priority')">
+			<i class="fa fa-leanpub"></i>
+			<b class="badge bg-color-red" ng-bind="notifyPriorityJobs.length + notifyOtherJobs.length"></b>
+		</span>
+		<notification-fly-out template-url='app/components/activities/activities.html'></notification-fly-out>
+
+		<!--############################################-->
+		<!--## ALERT FLY-OUT                          ##-->
+		<!--############################################-->
+		<span id="alert" class="alerts-dropdown ng-cloak" alerts-dropdown-toggle ng-click="setTab('alerts')">
+			<i class="fa fa-exclamation-circle"></i>
+			<b class="badge bg-color-red" ng-bind="jobAlerts.length"></b>
+		</span>
+		<notification-fly-out template-url='app/components/alerts/alerts.html'></notification-fly-out>
+
+	</div>
+
+			<!--############################################-->
+		<!--## FACILITY SELECTOR HEADER BUTTON        ##-->
+		<!--############################################-->
+		<div id="barcode-scanner-btn" class="btn-header transparent pull-right hidden-sm hidden-xs" tooltip-placement="bottom" uib-tooltip="{{getWord('Scanner')}}">
+
+			<div>
+
+				<!--############################################-->
+				<!--## Facility Selector Anchor/Button        ##-->
+				<!--############################################-->
+				<a id="barcode-scanner-command-btn" barcode-scanner href-void><i class="fa fa-barcode"></i></a>
+
+				<!--############################################-->
+				<!--## Facility Fly-out                       ##-->
+				<!--############################################-->
+				<div class="popover bottom tooltip-hide">
+					<div class="arrow"></div>
+					<h3 class="popover-title" ng-bind="getWord('Scanner')"></h3>
+
+
+					<div class="popover-content">
+
+						<div class="form-inline">
+
+							<!--############################################-->
+							<!--## FORM GROUP                             ##-->
+							<!--############################################-->
+							<div class="form-group" style="width: 60%;">
+
+								<!--############################################-->
+								<!--## SELECT ELEMENT #cboFacilitySelector    ##-->
+								<!--############################################-->
+								<input id="cboBarcodeScanner"
+								        ng-model="barcode"
+										style="width:100%"
+										class="form-control"
+										placeholder="{{getWord('ScanBarcode')}}"
+										data-ng-keypress="activateScan($event)">
+
+								</input>
+
+							</div><!--/.form-group-->
+							<div class="pull-right">
+								<!--############################################-->
+								<!--## Set Facility Button                    ##-->
+								<!--############################################-->
+								<i a-disabled="!barcode"><a href-void id="set-barcode-scan-btn"
+								   class="btn btn-success"
+								   ng-disabled="!barcode"
+								   a-disabled="!barcode"
+								   ng-click="startScanning()">
+
+									<!--GLYPHICON-->
+									<i class="glyphicon glyphicon-ok"></i>
+								</a></i>
+
+								<!--############################################-->
+								<!--## Dismiss Popup Button                   ##-->
+								<!--############################################-->
+								<a id="close-barcode-scanner-btn"
+								   class="btn bg-color-purple txt-color-white"
+								   onclick="$('#close-barcode-scanner-btn .popover').fadeOut(550);"
+								   href-void >
+
+									<!--GLYPHICON-->
+									<i class="glyphicon glyphicon-remove"></i>
+								</a>
+
+							</div><!--/.pull-right-->
+						</div>
+
+						
+					</div><!--/.popover-content-->
+				</div><!--/.popover.bottom-->
+			</div>
+		</div><!--/#facility-btn-->
+	
+
+</header>

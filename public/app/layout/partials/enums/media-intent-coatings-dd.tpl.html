@@ -1,0 +1,12 @@
+﻿<select ng-model="mediaIntentCoating"
+        id="mediaIntentCoating"
+        class="form-control"
+
+        data-ng-options="mediaIntentCoating as mediaIntentCoating.name for mediaIntentCoating in mediaIntentCoatings"
+        required>
+
+    <option value=""
+            disabled selected="selected"
+            ng-bind="getWord('Select Coating')"></option>
+
+</select>

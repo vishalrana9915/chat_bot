@@ -1,10 +1,9 @@
 define(['auth/module'], function (module) {
 
     "use strict";
+          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies) {
 
-    module.registerController('LoginCtrl', function ($rootScope, $scope, $state, User, Authorization, $location, $http, $cookies) {
-
-        console.log("in login ctrl");
+        console.log($rootScope.getWord('chakBhai'));
 
         $scope.userInfo = {
             username: '',
@@ -28,16 +27,17 @@ define(['auth/module'], function (module) {
             if ($scope.userInfo.rememberMe && $scope.userInfo.username) {
                 $cookies.put("username", $scope.userInfo.username);
             }
-
-            $scope.startSpinner();
+                console.log("checling data"+angular.toJson(userInfo))
+            // $scope.startSpinner();
 
             Authorization.login(
                 $scope.userInfo.username,
                 $scope.userInfo.password)
 
                 .success(function (data) {
-                    $scope.stopSpinner();
-
+                    // $scope.stopSpinner();
+                        console.log("in success")
+                        notificationService.loginSuccess(data.response.responseMessage);
                     if ($rootScope.previousUrl) {
                         $location.path($rootScope.previousUrl);
                     } else {
@@ -46,7 +46,9 @@ define(['auth/module'], function (module) {
                 })
 
                 .error(function (response) {
-                    $scope.stopSpinner();
+                    // $scope.stopSpinner();
+                        console.log("in Error")
+
                 });
         };
     });

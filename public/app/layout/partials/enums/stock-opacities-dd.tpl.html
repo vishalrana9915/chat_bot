@@ -1,0 +1,11 @@
+﻿    <select ng-model="stockOpacity"
+            id="stockOpacity"
+            class="form-control"
+
+            data-ng-options="stockOpacity as stockOpacity.name for stockOpacity in stockOpacities" required>
+
+        <option value=""
+                disabled selected="selected"
+                ng-bind="getWord('Select Stock Opacity')"></option>
+
+    </select>

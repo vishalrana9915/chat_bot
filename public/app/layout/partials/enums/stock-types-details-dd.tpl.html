@@ -1,0 +1,13 @@
+﻿
+    <select ng-model="mediaTypeDetail"
+            id="mediaTypeDetail"
+            class="form-control"
+
+            data-ng-options="mediaTypeDetail as mediaTypeDetail.name for mediaTypeDetail in mediaTypeDetails" required>
+
+        <option value=""
+                disabled selected="selected"
+                ng-bind="getWord('Select Stock Type Details')"></option>
+
+    </select>
+

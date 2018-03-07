@@ -1,0 +1,28 @@
+<div id="useful-links-widget" ng-controller="usefulLinksCtrl"
+	 data-jarvis-widget
+	 data-widget-colorbutton="false"
+	 data-widget-editbutton="false"
+	 data-widget-togglebutton="false"
+	 data-widget-deletebutton="false"
+	 data-widget-fullscreenbutton="false"
+	 data-widget-sortable="false"
+	 data-widget-collapsed="false">
+
+	<header>
+		<span class="widget-icon"> <i class="fa fa-external-link"></i> </span>
+		<h2 ng-bind="getWord('UsefulLinks')"></h2>
+	</header>
+
+	<!-- widget div-->
+	<div>
+		<div class="widget-body no-padding">
+
+			<div class="custom-scroll padding-10" style="height:265px; overflow-y: scroll;" ng-bind-html="usefulLinks">
+
+			</div>
+
+		</div><!--/.widget-body-->
+
+	</div>
+
+</div>

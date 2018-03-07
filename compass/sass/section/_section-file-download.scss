@@ -1,0 +1,26 @@
+
+#file-download-table > thead > tr > th {
+  vertical-align : middle;
+}
+
+.file-download-message > :first-child {
+  width         : 100%;
+  overflow      : hidden;
+  text-overflow : ellipsis;
+  white-space   : nowrap;
+  color         : #8A8A8A;
+}
+
+.file-download-message > :first-child > :first-child {
+  font-weight : 700;
+  display     : block;
+}
+
+.file-download-message > :first-child > :last-child {
+  font-weight : 500;
+}
+
+.file-download-message > :first-child span {
+  color   : #111;
+  display : block;
+}

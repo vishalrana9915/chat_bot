@@ -1,0 +1,11 @@
+﻿<select ng-model="stockFlute"
+            id="stockFlute"
+            class="form-control"
+
+            data-ng-options="stockFlute as stockFlute.name for stockFlute in stockFlutes" required>
+
+        <option value=""
+                disabled selected="selected"
+                ng-bind="getWord('Select flute')"></option>
+
+    </select>

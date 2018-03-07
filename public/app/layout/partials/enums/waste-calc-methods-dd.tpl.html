@@ -1,0 +1,11 @@
+﻿
+<select ng-model="wasteCalcMethod"
+        id="calculationMethod"
+        class="form-control"
+        data-ng-options="wasteCalcMethod.name for wasteCalcMethod in wasteCalcMethods">
+
+    <option value=""
+            disabled selected="selected"
+            ng-bind="getWord('Select Calculation Method')"></option>
+
+</select>

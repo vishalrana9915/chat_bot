@@ -1,0 +1,46 @@
+<div class="form-actions">
+
+	<div class="row" ng-show="!activeView">
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+			<!--SSM Removed 'dropup' class from btn-group below-->
+			<div id="createGrpBtn" ng-show="!id" class="btn-group" uib-dropdown>
+				<button id="btn1" class="btn btn-primary" ng-click="addAnother=false" type="submit"
+				        ng-bind="getWord(createText)"></button>
+				<button id="btn2" ng-show="showCheck && !id" type="submit" class="btn btn-primary dropdown-toggle" uib-dropdown-toggle>
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu  pull-right" uib-dropdown-menu>
+					<li>
+						<a id="submitAnother" ng-click="addAnother=true" type="submit">{{getWord('CreateAndAddAnother')}}</a>
+					</li>
+				</ul>
+			</div>
+
+			<button id="btnSave" ng-show="id" class="btn btn-primary" type="submit"
+			        ng-bind="getWord('Save')"></button>
+
+			<button id="btnCancel" ng-show="!activeView" class="btn btn-default" type="button"
+			        ng-click="cancelForm()"
+			        ng-bind="getWord(cancelText)"></button>
+
+			<button id="btnClose" ng-show="activeView" class="btn btn-default" type="button"
+			        ng-click="cancelForm()"
+			        ng-bind="getWord(cancelText)"></button>
+
+		</div>
+
+	</div>
+
+
+	<!--#############################################################-->
+	<!--## Added isolated div for close button -Dante G. 8/27/2015 ##-->
+	<!--#############################################################-->
+	<div class="row" ng-show="activeView">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<button class="btn btn-default" type="button" ng-click="cancelForm()" ng-bind="getWord('Close')"></button>
+		</div>
+	</div>
+
+</div>

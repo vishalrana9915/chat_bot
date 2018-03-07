@@ -1,0 +1,26 @@
+<ul class="notification-body">
+
+	<!--##################################################################################################-->
+	<!--## Created by Shawn Miller on 10/10/2015                                                        ##-->
+	<!--## Filename: public/app/components/activities/tabs/tab-msgs.html                                ##-->
+	<!--##################################################################################################-->
+
+	<li ng-repeat="msg in currentActivityItems">
+
+		<span ng-class="{unread : msg.status == 'unread'}">
+
+			<a href="javascript:void(0);" class="notification-msg">
+
+				<img ng-src="{{msg.image}}" alt="" class="air air-top-left margin-top-5" width="40" height="40" />
+				<span class="from">{{msg.title}}</span>
+				<time>{{imsgnfo.time}}</time>
+				<span class="subject">{{msg.subject}}</span>
+				<span class="msg-body">{{msg.message}}</span>
+
+			</a>
+
+		</span>
+
+	</li>
+
+</ul>

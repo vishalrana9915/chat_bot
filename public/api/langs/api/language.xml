@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (x64) (http://www.altova.com) by Shawn S Miller (private) -->
+<lang xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language.xsd">
+
+
+    <!-- KEEP ON TOP -->
+    <key value="AAA_Schema" type="label/exception">
+        <language value="en-us">English</language>
+        <language value="fr-ca">French Canadian</language>
+        <language value="en-ca">Canadian English</language>
+        <comments>
+            <comment date="9/8/15" user="SSM">Added Comments Comment element to Schema</comment>
+            <comment date="9/8/15" user="SSM">Comments Element is optional, if it is present, then a comment element is required</comment>
+        </comments>
+    </key>
+    <!-- KEEP ON TOP -->
+
+
+
+    <key value="AllowedFileExtensions" type="help block">
+        <language value="en-us">Allowed File Extensions: {1}</language>
+        <language value="fr-ca"></language>
+        <language value="en-ca"></language>
+    </key>
+
+    <key value="Browse" type="help block">
+        <language value="en-us">Browse</language>
+        <language value="fr-ca">(FR) Browse</language>
+        <language value="en-ca">(FR-CA)Browse</language>
+    </key>
+
+    <key value="UploadFile" type="help block">
+        <language value="en-us">Upload File</language>
+        <language value="fr-ca">(FR) Upload File</language>
+        <language value="en-ca">(FR-CA) Upload File</language>
+    </key>
+
+    <key value="chakBhai" type="help block">
+        <language value="en-us">chal bhai</language>
+        <language value="fr-ca">(FR) Upload File</language>
+        <language value="en-ca">(FR-CA) Upload File</language>
+    </key>
+
+    <key value="SelectTime" type="label">
+        <language value="en-us">Select Time</language>
+        <language value="fr-ca">Sélectionner une heure</language>
+        <language value="en-ca">Select Time</language>
+        <comments>
+            <comment user="DG" date="9/4/15">Created this keys for Facility Create/Edit forms</comment>
+        </comments>
+    </key>
+   
+</lang>

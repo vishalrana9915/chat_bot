@@ -1,0 +1,90 @@
+//**
+// * Created by Shawn Miller on 12/14/2015.
+// * Path: compass/sass/overrides/override-data-grid.scss
+//
+
+table .col-level {
+  text-align : center;
+  width      : 40px;
+}
+
+.table.has-action thead tr th:last-child {
+  text-align  : center;
+  white-space : nowrap;
+  width       : 112px;
+}
+
+.table.has-level thead tr th:first-child {
+  width : 25px;
+}
+
+/*.dataTable td {
+	max-width     : 0;
+	overflow      : hidden;
+	text-overflow : ellipsis;
+	white-space   : nowrap;
+}*/
+
+table .col-action {
+  text-align  : center;
+  white-space : nowrap;
+  width       : 120px;
+  overflow    : visible;
+}
+
+table .col-color {
+  text-align : center;
+  width      : 50px;
+}
+
+table .col-loyalty-status {
+  max-width : 100px;
+}
+
+table .col-loyalty-status i {
+  margin-right : 5px;
+}
+
+td.col-time {
+  width : 125px;
+}
+
+/*
+.fixed-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse; !*not really necessary, removes extra white space *!
+  border-spacing: 0;
+}
+
+.fixed-table .col-notes-body{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+*/
+
+.col-notes-body {
+  max-width     : 99%;
+  text-overflow : ellipsis;
+  overflow      : hidden;
+}
+
+.notes-body {
+  text-overflow : ellipsis;
+  overflow      : hidden;
+  word-break    : break-all;
+}
+
+td.col-checkbox, th.col-checkbox {
+  text-align : center;
+  width      : 105px;
+}
+
+td.col-checkbox label {
+  display : inline-block !important;
+}
+
+.fc-border-separate thead tr, .table thead tr {
+  font-size : 13px;
+}
