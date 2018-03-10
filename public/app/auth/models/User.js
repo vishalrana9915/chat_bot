@@ -4,7 +4,7 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 
 	return module.registerFactory('User', function ($http, $q) {
 		var dfd = $q.defer();
-
+		
 		var UserModel = {
 			initialized: dfd.promise,
 			userId				: undefined,

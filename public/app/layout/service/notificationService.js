@@ -3,13 +3,17 @@
  * Path: public/app/layout/service/notificationService.js
  */
 
-define(['layout/module'], function (module) {
+define(['layout/module','auth/loginCtrl'], function (module) {
 
+console.log(module)
     'use strict';
 
-    module.registerFactory('notificationService', function (notificationMessages, dtEncoder, $rootScope) {
+    return  module.registerFactory('notificationService', function (notificationMessages, dtEncoder, $rootScope) {
+        
         var confirmInProgress = false;
-        var notificationService = {
+        console.log("in servicie")
+        var notificationService =  {
+
             confirmDelete: function(id, itemName, scope){
                 if(confirmInProgress)
                     return;
@@ -25,10 +29,6 @@ define(['layout/module'], function (module) {
                         scope.deleteOnConfirm(id, itemName);
                     }
                 });
-            },
-
-            loginSuccess : function(){
-
             },
             confirmPrintRemove: function(id, itemName, scope, itemStatus){
                 if(confirmInProgress)
@@ -107,6 +107,15 @@ define(['layout/module'], function (module) {
                     timeout: 4000
                 });
 
+            },
+            loginSuccess : function(){
+                 $.smallBox({
+                    title: notificationMessages.successCreateTitle()  ,
+                    content: "<i class='fa fa-clock-o'></i> <i>" + notificationMessages.successCreateMessage().replace('{1}', he.encode(dtEncoder.escapeQuotes(itemName))) + "</i>",
+                    color: appConfig.smallBoxSuccess,
+                    iconSmall: "fa fa-check fa-2x fadeInRight animated",
+                    timeout: 4000
+                });
             },
             notifyCreateSuccess: function (itemName) {
                 $.smallBox({

@@ -1,5 +1,5 @@
 /**
- * Created by DanGar on 8/26/2016.
+ * Created by vishal .
  * Path: ../app/layout/service/buildInfo.js
  */
 

@@ -1,0 +1,143 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Chat Bot",
+        "version": "1.0.0"
+    },
+    "host": "localhost:4009",
+    "basePath": "/chat_bot/api/v1/user",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Authenticating user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "description": "login user.",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "email",
+                                "password"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucessfully login",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Please check your username/password and try again."
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "summary": "Register new user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "user",
+                        "required": true,
+                        "description": "Register user.",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "email",
+                                "password",
+                                "firstName"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                },
+                                "firstName": {
+                                    "type": "string"
+                                },
+                                "dob": {
+                                    "type": "string"
+                                },
+                                "mobile": {
+                                    "type": "string"
+                                },
+                                "profileImage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucessfully registered user",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                },
+                                "userProfile": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Please fill all required fields and try again.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "string"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

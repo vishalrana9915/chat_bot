@@ -1,5 +1,4 @@
 /**
- * Created by Shawn Miller on 3/25/2015.
  * Filename: public/app/auth/module.js
  */
 define([
@@ -28,8 +27,9 @@ define([
                             'app/auth/models/User',
                             'app/auth/login/loginCtrl',
                             'app/auth/services/Authorization',
-                            'app/auth/layout/directives/networkStatus',
-                            'app/auth/layout/service/notificationService'
+                            'app/layout/directives/networkStatus',
+                            'app/layout/service/notificationService',
+                            'app/layout/service/errorNotificationsService'
                         ])
                     }
                 }

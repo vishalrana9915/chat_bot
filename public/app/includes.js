@@ -7,7 +7,7 @@ define([
 	// user account & profile
 	'auth/module',
 	'auth/models/User',
-	'auth/services/Authorization',
+	// 'auth/services/Authorization',
 	'auth/login/loginCtrl',
 	// application layout
 	'layout/module',
@@ -79,8 +79,8 @@ define([
 	// 'layout/directives/jquiAccordion',
 
 	// // System update notification
-	'layout/service/notificationMessages',
-	'layout/service/notificationService',
+	// 'layout/service/notificationMessages',
+	// 'layout/service/notificationService',
 
 	// // Dashboard
 	// 'dashboard/module',
@@ -90,9 +90,9 @@ define([
 	// 'dashboard/directives/dashboardOrdersSummary',
 
 	// Useful Links Component - Dashboard Panel
-	'components/useful-links/usefulLinksCtrl',
-	'components/useful-links/models/useful-links',
-	'components/useful-links/directives/usefulLinksList',
+	// 'components/useful-links/usefulLinksCtrl',
+	// 'components/useful-links/models/useful-links',
+	// 'components/useful-links/directives/usefulLinksList',
 
 	// Announcements Component - Dashboard Panel
 	// 'components/announcements/announcementsCtrl',

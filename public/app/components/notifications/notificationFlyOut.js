@@ -1,5 +1,5 @@
 /**
- * Created by Pancham Bhagwat on 09/26/2015.
+ * Created by vishal.
  * Path: public/app/components/notification-fly-outs/notificationFlyOut.js
  */
 

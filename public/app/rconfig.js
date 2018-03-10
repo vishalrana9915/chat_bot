@@ -41,7 +41,7 @@ var require = {
 		// This is a custom build of form-validator that does NOT consist of all validators.
 		// Only popular validators are included
 		// SSM : TODO: Replace with minified version after debugging
-		//'form-validator' : '../plugin/formvalidation/dist/js/formValidation.popular',
+		'form-validator' : '../dist/plugins/formvalidation/dist/js/formValidation.popular',
 		'form-validator': '../dist/plugins/formvalidation/dist/js/formValidation',
 		'smartwidgets': '../smartadmin-plugin/smartwidgets/jarvis.widget.min',
 		'notification': '../smartadmin-plugin/notification/SmartNotification.min',

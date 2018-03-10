@@ -27,7 +27,8 @@
     "bootstrapvalidator": "^0.5.3",
     "jquery-validation": "^1.17.0",
     "jquery-ui": "^1.12.1",
-    "jquery-color": "^2.1.2"
+    "jquery-color": "^2.1.2",
+    "swagger-ui": "^3.12.1"
   },
   "devDependencies": {
     "angular-scenario": "^1.6.9",

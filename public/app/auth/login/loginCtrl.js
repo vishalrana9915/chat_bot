@@ -1,9 +1,8 @@
 define(['auth/module'], function (module) {
 
     "use strict";
-          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies) {
+          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies,notificationService) {
 
-        console.log($rootScope.getWord('chakBhai'));
 
         $scope.userInfo = {
             username: '',
@@ -37,7 +36,7 @@ define(['auth/module'], function (module) {
                 .success(function (data) {
                     // $scope.stopSpinner();
                         console.log("in success")
-                        notificationService.loginSuccess(data.response.responseMessage);
+                        // notificationService.loginSuccess(data.response.responseMessage);
                     if ($rootScope.previousUrl) {
                         $location.path($rootScope.previousUrl);
                     } else {

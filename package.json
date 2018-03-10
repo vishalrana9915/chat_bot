@@ -43,6 +43,8 @@
     "request-promise": "4.2.2",
     "sha256": "0.2.0",
     "socket.io": "2.0.4",
+    "swagger-tools": "0.10.3",
+    "swagger-ui": "3.12.1",
     "util": "0.10.3",
     "winston": "2.4.0",
     "xsltproc": "0.0.4"
@@ -57,7 +59,8 @@
     "grunt-contrib-uglify": "3.3.0",
     "grunt-rev": "0.1.0",
     "grunt-usemin": "3.1.1",
-    "grunt-xsltproc": "0.6.1"
+    "grunt-xsltproc": "0.6.1",
+    "grunt-yaml": "0.4.2"
   },
   "nextprint": {
     "public": "public/",

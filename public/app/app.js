@@ -101,8 +101,8 @@ define([
 
                 try {
                     $.bigBox({
-                        title:   'Error',     //  $rootScope.getWord('Error'),
-                        content: rejectionInfo.data ? rejectionInfo.data.message : '',
+                        title:  $rootScope.getWord('Error'),
+                        content: rejectionInfo.data ? rejectionInfo.data : '',
                         color: "#C46A69",
                         icon: "fa fa-warning shake animated",
                         //number: ++errorCounter,
@@ -117,6 +117,7 @@ define([
             return {
                 // On request failure
                 requestError: function (rejection) {
+                    console.log("in request error"+rejection)
                     $rootScope.stopSpinner();
                     // show notification
                     notifyError(rejection);
@@ -127,6 +128,8 @@ define([
 
                 // On response failure
                 responseError: function (rejection) {
+                    console.log("in response error"+JSON.stringify(rejection))
+
                     if ($rootScope.stopSpinner) {
                         $rootScope.stopSpinner();
                     }
@@ -138,9 +141,10 @@ define([
                     });
 
                     ignore = (ignore || !$rootScope.userIsAuthorized);
-
+                    
                     if (!ignore)
                         notifyError(rejection);
+
 
                     //******************************************************************************************************
                     // userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.

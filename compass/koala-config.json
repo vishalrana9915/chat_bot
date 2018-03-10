@@ -2,7 +2,7 @@
 	"mappings": [
 		 {
 		 	"src": "sass",
-		 	"dest": "../public/styles/css2"
+		 	"dest": "public/styles/css2"
 		 }
 	],
 	"ignores": ["*.css"],

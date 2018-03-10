@@ -3,11 +3,10 @@
  * Path: app\auth\services\Authorize.js
  */
 define(['auth/module'], function (module) {
-
+	
 	'use strict';
 	return module.registerService('Authorization', function ($rootScope, $http, $cookies,User) {
 			var authToken;
-					console.log("service loaded...")
 			function authorizationException(message) {
 				this.message = message;
 				this.name = "AuthorizationException";
@@ -26,7 +25,7 @@ define(['auth/module'], function (module) {
 				}
 				// "grant_type=password&username=" + username + "&password=" + password;
 				var requestObj = {
-					url    : appConfig.apiURL + 'user/login',
+					url    : appConfig.apiURL + 'user/logins',
 					method : "POST",
 					headers: { 'Content-Type': 'application/json' },
 					data   : params
