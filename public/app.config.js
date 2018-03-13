@@ -10,7 +10,7 @@ appConfig.build = 'app'; //Build information.
 
 /***********************************Local Settings************************************/
  appConfig.apiURL = 'http://localhost:4009/chat_bot/api/v1/';
-
+ appConfig.socketURL = 'http://localhost:4009';
 var domain = document.domain;
 
 //appConfig.ticketUrl = domain.indexOf("documents.staples.com") != -1 ?
@@ -184,102 +184,6 @@ if (appConfig.voice_command) {
         'show dashboard': function () {
             window.location.hash = "dashboard"
         },
-        // 'show inbox': function () {
-        //     window.location.hash = "inbox/"
-        // },
-        // 'show graphs': function () {
-        //     window.location.hash = "graphs/flot"
-        // },
-        // 'show flotchart': function () {
-        //     window.location.hash = "graphs/flot"
-        // },
-        // 'show morris chart': function () {
-        //     window.location.hash = "graphs/morris"
-        // },
-        // 'show inline chart': function () {
-        //     window.location.hash = "graphs/inline-charts"
-        // },
-        // 'show dygraphs': function () {
-        //     window.location.hash = "graphs/dygraphs"
-        // },
-        // 'show tables': function () {
-        //     window.location.hash = "tables/table"
-        // },
-        // 'show data table': function () {
-        //     window.location.hash = "tables/datatable"
-        // },
-        // 'show jquery grid': function () {
-        //     window.location.hash = "tables/jqgrid"
-        // },
-        // 'show form': function () {
-        //     window.location.hash = "forms/form-elements"
-        // },
-        // 'show form layouts': function () {
-        //     window.location.hash = "forms/form-templates"
-        // },
-        // 'show form validation': function () {
-        //     window.location.hash = "forms/validation"
-        // },
-        // 'show form elements': function () {
-        //     window.location.hash = "forms/bootstrap-forms"
-        // },
-        // 'show form plugins': function () {
-        //     window.location.hash = "forms/plugins"
-        // },
-        // 'show form wizards': function () {
-        //     window.location.hash = "forms/wizards"
-        // },
-        // 'show bootstrap editor': function () {
-        //     window.location.hash = "forms/other-editors"
-        // },
-        // 'show dropzone': function () {
-        //     window.location.hash = "forms/dropzone"
-        // },
-        // 'show image cropping': function () {
-        //     window.location.hash = "forms/image-editor"
-        // },
-        // 'show general elements': function () {
-        //     window.location.hash = "ui/general-elements"
-        // },
-        // 'show buttons': function () {
-        //     window.location.hash = "ui/buttons"
-        // },
-        // 'show fontawesome': function () {
-        //     window.location.hash = "ui/icons/fa"
-        // },
-        // 'show glyph icons': function () {
-        //     window.location.hash = "ui/icons/glyph"
-        // },
-        // 'show flags': function () {
-        //     window.location.hash = "ui/icons/flags"
-        // },
-        // 'show grid': function () {
-        //     window.location.hash = "ui/grid"
-        // },
-        // 'show tree view': function () {
-        //     window.location.hash = "ui/treeview"
-        // },
-        // 'show nestable lists': function () {
-        //     window.location.hash = "ui/nestable-list"
-        // },
-        // 'show jquery U I': function () {
-        //     window.location.hash = "ui/jqui"
-        // },
-        // 'show typography': function () {
-        //     window.location.hash = "ui/typography"
-        // },
-        // 'show calendar': function () {
-        //     window.location.hash = "calendar"
-        // },
-        // 'show widgets': function () {
-        //     window.location.hash = "widgets"
-        // },
-        // 'show gallery': function () {
-        //     window.location.hash = "gallery"
-        // },
-        // 'show maps': function () {
-        //     window.location.hash = "gmap-xml"
-        // },
         'go back': function () {
             history.back(1);
         },

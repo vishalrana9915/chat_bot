@@ -3,15 +3,21 @@ info:
   title: "Chat Bot"
   version: "1.0.0"
 host: "localhost:4009"
-basePath: "/chat_bot/api/v1/user"
+basePath: "/chat_bot/api/v1"
 consumes:
 - "application/json"
+- "application/x-www-form-urlencoded"
 produces:
 - "application/json"
 schemes:
 - "http"
+tags:
+  - name: user
+    description: "user api"
+  - name: admin
+    description: "admin api"
 paths:
-  "/login":
+  "/user/login":
       post:
         summary: Authenticating user
         parameters: 
@@ -39,7 +45,7 @@ paths:
                   type: string
           "400":
             description: Please check your username/password and try again.
-  "/register":
+  "/user/register":
       post:
         summary: Register new user
         parameters: 
@@ -90,4 +96,32 @@ paths:
                   type: string
                 responseMessage: 
                   type: string 
-            
+  "/user/currentUser":
+      get:
+        summary: Reterieve User Details.
+        parameters:
+        - name: "authorization"
+          in: "header"
+          required: true
+          type: "string"
+        responses:
+          "200":
+            description: Sucessfully get user details.
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: string
+                responseMessage:
+                  type: string
+                userProfile:
+                    type: object
+          "400":
+            description: Access Forbidden.          
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: string
+                responseMessage: 
+                  type: string 

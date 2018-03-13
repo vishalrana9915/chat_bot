@@ -32,7 +32,9 @@ define([
 
     'angular-cookies',
 
-    'ngStorage'
+    'ngStorage',
+
+    // 'socket.io'
 ], function (ng, couchPotato) {
 
     var app = ng.module('app', [
@@ -68,7 +70,8 @@ define([
         // ui application modules smart-admin
         // 'app.layout',
         // 'app.ui'
-    // 'signalr'
+        // 'io'
+    // 'socket.io'
         
         ]);
 
@@ -170,7 +173,7 @@ define([
         .constant('APP_CONFIG', window.appConfig);
 
     app.run(function ($couchPotato, $rootScope, $state, $stateParams, Language,$location, $cookies, $http, User, $q, formValidationKeyService, buildInfo) {
-
+            // var socket = io.connect(appConfig.socketURL)
     //     // Get build information.
         $http.get('build.json?' + Math.random()).success(function (data) {
 

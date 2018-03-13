@@ -28,8 +28,10 @@ define([
                             'app/auth/login/loginCtrl',
                             'app/auth/services/Authorization',
                             'app/layout/directives/networkStatus',
-                            'app/layout/service/notificationService',
-                            'app/layout/service/errorNotificationsService'
+                            'app/auth/directives/loginAuth',
+                            'app/auth/directives/signupForm',
+                           // 'app/layout/service/notificationService'
+//                            'app/layout/service/errorNotificationsService'
                         ])
                     }
                 }
@@ -42,6 +44,29 @@ define([
 
         })
 
+        .state('signup', {
+            url: '/signup',
+            views: {
+                root: {
+                    templateUrl: "app/auth/views/signup.html",
+                    controller :"signupCtrl",
+                    resolve: {
+                        deps: $couchPotatoProvider.resolveDependencies([
+                            'app/auth/directives/signupForm',
+                            'app/auth/signup/signupCtrl'
+                           // 'app/layout/service/notificationService'
+//                            'app/layout/service/errorNotificationsService'
+                        ])
+                    }
+                }
+            },
+            data: {
+                title: 'SignUp',
+                rootId: 'extra-page',
+                requiresLogin:false
+            }
+
+        })
         .state('logout',{
                 url:'/logout',
                 views:{

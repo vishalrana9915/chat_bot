@@ -3,7 +3,7 @@
  * Path: public/app/layout/service/notificationService.js
  */
 
-define(['layout/module','auth/loginCtrl'], function (module) {
+define(['auth/module'], function (module) {
 
 console.log(module)
     'use strict';

@@ -3,7 +3,7 @@
  * Path: public/app/layout/service/notificationMessages.js
  */
 
-define(['layout/module'], function (module) {
+define(['app'], function (module) {
 
 	'use strict';
 

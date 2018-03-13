@@ -13,7 +13,6 @@ define(['auth/module'], function (module) {
 			}
 
 			this.login = function (username, password) {
-					console.log("checking base url==>"+appConfig.apiURL)
 				//******************************************************************************************************
 				// Resetting the Authorization in the header if it exists and you are trying to login
 				//******************************************************************************************************
@@ -32,14 +31,13 @@ define(['auth/module'], function (module) {
 				}
 				return $http(requestObj)
 					.success(function (data, status, headers, config) {
-						console.log("reqobj-=>"+JSON.stringify(data))
 						if(data.error){
-							 console.log(error);
+							 throw new authorizationException("Please enter valid credentials.")  //console.log();
 						}
 						else if(data.response.responseCode == 400)
 							 console.log("Check your password and email.")
 						else{
-								$http.defaults.headers.common.Authorization = "Bearer " + data.response.accessToken;
+						$http.defaults.headers.common.Authorization = data.response.accessToken;
 						$http.defaults.headers.common['Accept-Language'] = $cookies.get('_locale');
 						$cookies.put("_Token", data.response.accessToken);
 						$cookies.put("expDate", data[".expires"]);

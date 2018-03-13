@@ -1,9 +1,12 @@
-define(['auth/module'], function (module) {
+define(['auth/module','io'], function (module,io) {
 
     "use strict";
-          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies,notificationService) {
-
-
+          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies) {
+            // console.log(io)
+            var socket = io.connect('http://localhost:4009')
+            socket.on('hi',function(data){
+                console.log('socket connected for '+data.name)
+            })
         $scope.userInfo = {
             username: '',
             password: ''
@@ -22,11 +25,9 @@ define(['auth/module'], function (module) {
         }
 
         $scope.loginUser = function (userInfo) {
-
             if ($scope.userInfo.rememberMe && $scope.userInfo.username) {
                 $cookies.put("username", $scope.userInfo.username);
             }
-                console.log("checling data"+angular.toJson(userInfo))
             // $scope.startSpinner();
 
             Authorization.login(
@@ -37,11 +38,12 @@ define(['auth/module'], function (module) {
                     // $scope.stopSpinner();
                         console.log("in success")
                         // notificationService.loginSuccess(data.response.responseMessage);
-                    if ($rootScope.previousUrl) {
-                        $location.path($rootScope.previousUrl);
-                    } else {
-                        $location.path('/');
-                    }
+                        User.initUserInfo()
+                    // if ($rootScope.previousUrl) {
+                    //     $location.path($rootScope.previousUrl);
+                    // } else {
+                    //     $location.path('/');
+                    // }
                 })
 
                 .error(function (response) {
@@ -50,5 +52,7 @@ define(['auth/module'], function (module) {
 
                 });
         };
+
+              
     });
 });

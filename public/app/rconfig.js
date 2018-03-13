@@ -58,10 +58,11 @@ var require = {
 		'form-validator-fr_CA': '../dist/plugins/formvalidation/dist/js/language/fr_CA',
 
 		'lodash': '../dist/plugins/lodash/dist/lodash.min',
-
+        'glyphicon' : '../dist/plugins/glyphicons/glyphicons',
 		// app js file includes
 		'appConfig': '../app.config',
-		'modules-includes': 'includes'
+		'modules-includes': 'includes',
+		'io': '../dist/plugins/socket.io-client/dist/socket.io'
 	},
 	shim: {
 		'angular': {'exports': 'angular', deps: ['jquery']},
@@ -74,7 +75,7 @@ var require = {
 		'angular-ui-router': {deps: ['angular']},
 		'angular-filter':{deps: ['angular']},
 		'angular-couch-potato': {deps: ['angular']},
-		'socket.io': {deps: ['angular']},
+		// 'socket.io': {deps: ['angular']},
 		'anim-in-out': {deps: ['angular-animate']},
 		'angular-easyfb': {deps: ['angular']},
 		'angular-google-plus': {deps: ['angular']},
@@ -129,5 +130,6 @@ var require = {
 		'jquery',
 		'bootstrap',
 		'angular'
+		// 'socketio'
 	]
 };

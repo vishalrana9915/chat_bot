@@ -29,7 +29,7 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 						}
 					})
 						.success(function (response) {
-
+							console.log("checking response==>"+JSON.stringify(response))
 							UserModel.userId				= response._id;
 							UserModel.firstName				= response.firstName;
 							UserModel.lastName				= response.lastName;
@@ -38,7 +38,7 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 
 							UserModel.picture = "styles/img/avatars/male.png";
 
-							userSessionService.setUserSessionInfo(response);
+							// userSessionService.setUserSessionInfo(response);
 
 							dfd.resolve(UserModel)
 						})

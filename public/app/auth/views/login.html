@@ -2,26 +2,14 @@
     <div class="row vertical-offset-100" >
     	<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
-			  	<div class="panel-heading">
+			  	<div class="panel-heading" style='margin-bottom: 50px'>
 			    	<h3 class="panel-title clrWht">Please sign in</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form" ng-submit="loginUser(userInfo)">
-                    <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="E-mail" name="email" type="text" ng-model='userInfo.username'>
-			    		</div>
-			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Password" name="password" type="password" ng-model='userInfo.password'>
-			    		</div>
-			    		<div class="checkbox">
-			    	    	<label class='clrWht'>
-			    	    		<input name="remember" type="checkbox" ng-model ="userInfo.rememberMe" value="Remember Me" > Remember Me
-			    	    	</label>
-			    	    </div>
-			    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
-			    	</fieldset>
-			      	</form>
+			    	<login-auth-form></login-auth-form>
+			    	<div>
+			    		<a ><label class='clrWht forgot' style='float: right;'>{{getWord('forgotPassword')}}!</label></a>
+			    	</div>
 			    </div>
 			</div>
 		</div>

@@ -36,12 +36,11 @@ config.dbConfig(config.cfg, (err) => {
     config.expressConfig(app, config.cfg.environment);
 
     // attach the routes to the app
-    require("./lib/route")(app);
+       require("./lib/route")(app);
     //require("./lib/post")(app);
 
     // start server
-    app.listen(config.cfg.port, () => {
-        logger.info(`Express server listening on ${config.cfg.port}, in ${config.cfg.TAG} mode`);
-    });
+     var server = app.listen(config.cfg.port);
+        require("./lib/socket/socketHandler.js")(server)
 
 });
