@@ -1,5 +1,5 @@
 /**
- * Created by Pancham Bhagwat on 6/17/2015.
+ * Created by Vishal rana .
  * Path: public/app/layout/directives/customSpinner.js
  * Notes: Directive for using the spin.js plugin
  */

@@ -1,12 +1,16 @@
 define(['auth/module','io'], function (module,io) {
 
     "use strict";
-          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies) {
+          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies,notificationService) {
             // console.log(io)
             var socket = io.connect('http://localhost:4009')
             socket.on('hi',function(data){
                 console.log('socket connected for '+data.name)
             })
+
+                        notificationService.loginSuccess();
+
+
         $scope.userInfo = {
             username: '',
             password: ''
@@ -37,7 +41,6 @@ define(['auth/module','io'], function (module,io) {
                 .success(function (data) {
                     // $scope.stopSpinner();
                         console.log("in success")
-                        // notificationService.loginSuccess(data.response.responseMessage);
                         User.initUserInfo()
                     // if ($rootScope.previousUrl) {
                     //     $location.path($rootScope.previousUrl);

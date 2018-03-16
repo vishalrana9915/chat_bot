@@ -24,7 +24,7 @@ define(['auth/module'], function (module) {
 				}
 				// "grant_type=password&username=" + username + "&password=" + password;
 				var requestObj = {
-					url    : appConfig.apiURL + 'user/logins',
+					url    : appConfig.apiURL + 'user/login',
 					method : "POST",
 					headers: { 'Content-Type': 'application/json' },
 					data   : params

@@ -24,10 +24,7 @@ define(['angular',
 						templateUrl: 'app/layout/layout.tpl.html',
 						resolve    : {
 							deps: $couchPotatoProvider.resolveDependencies([
-								'auth/directives/loginInfo',
-								'layout/directives/logout',
-								'modules/graphs/directives/inline/sparklineContainer',
-								'layout/directives/input/smartSelect2'
+								'layout/directives/logout'
 							])
 						}
 					}

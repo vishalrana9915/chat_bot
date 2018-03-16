@@ -90,10 +90,6 @@ define([
             $rootScope.userIsAuthorized = true;
 
             var errorCounter = 0;
-            var requestToIgnore = [
-                'brokerping',   
-                'getJobFile'
-            ];
 
             function notifyError(rejection) {
                 var rejectionInfo = {};
@@ -138,11 +134,6 @@ define([
                     }
                     // show notification
                     var ignore = false;
-                    _.forEach(requestToIgnore, function (n, key) {
-                        if (rejection.config.url.indexOf(requestToIgnore[key]) > -1)
-                            ignore = true;
-                    });
-
                     ignore = (ignore || !$rootScope.userIsAuthorized);
                     
                     if (!ignore)
