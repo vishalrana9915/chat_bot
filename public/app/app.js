@@ -66,12 +66,10 @@ define([
 
         //'login, lock, and register user
         'app.auth', //load 'app.auth' first
-
+        'app.dashboard'
         // ui application modules smart-admin
         // 'app.layout',
         // 'app.ui'
-        // 'io'
-    // 'socket.io'
         
         ]);
 
@@ -127,8 +125,7 @@ define([
 
                 // On response failure
                 responseError: function (rejection) {
-                    console.log("in response error"+JSON.stringify(rejection))
-
+                     document.getElementById("content").innerHTML='<object type="text/html" data="404.html" ></object>';
                     if ($rootScope.stopSpinner) {
                         $rootScope.stopSpinner();
                     }

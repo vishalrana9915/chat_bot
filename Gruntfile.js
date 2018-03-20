@@ -325,7 +325,7 @@ module.exports = function (grunt) {
 				'package.json'
 			]
 		},
-        
+
     });
  
     grunt.loadNpmTasks('grunt-string-replace');
@@ -351,6 +351,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-yaml');
     
     grunt.loadTasks('tasks');
+
     // Tell Grunt what to do when we type "grunt" into the terminal
     grunt.registerTask('default', [
         'uglify' ,

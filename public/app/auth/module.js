@@ -26,9 +26,8 @@ define([
                         deps: $couchPotatoProvider.resolveDependencies([
                             'app/auth/models/User',
                             'app/auth/login/loginCtrl',
-                            'app/auth/services/Authorization',
-                            'app/auth/directives/loginAuth'
-                                                    ])
+                            'app/auth/services/Authorization'
+                                                                             ])
                     }
                 }
             },
@@ -119,7 +118,12 @@ define([
             }
         })
          
-        
+         .state('PageNotFound', {
+            url: '/pageNotFound',
+            views: {
+                    templateUrl: 'public/404.html'
+            },
+        })
 
         $urlRouterProvider.otherwise('login');
 

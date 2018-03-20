@@ -6,6 +6,7 @@ define([
 	'auth/signup/signupCtrl',
     'auth/directives/loginAuth',
     'auth/directives/signupForm',
+    'modules/dashboard/module',
 	// application layout
 	'layout/module',
 	'layout/directives/customSpinner',

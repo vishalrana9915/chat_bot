@@ -8,8 +8,7 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 		var UserModel = {
 			initialized: dfd.promise,
 			userId				: undefined,
-			firstName			: undefined,
-			lastName			: undefined,
+			name				: undefined,
 			email				: undefined,
 			isDisabled			: undefined,
 			isDeleted			: undefined,
@@ -29,22 +28,20 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 						}
 					})
 						.success(function (response) {
-							console.log("checking response==>"+JSON.stringify(response))
-							UserModel.userId				= response._id;
-							UserModel.firstName				= response.firstName;
-							UserModel.lastName				= response.lastName;
-							UserModel.email 				= response.email;
-							UserModel.isDeleted 			= response.isDeleted;
+							UserModel.userId				= 	response.response.userDetails.userId || UserModel.userId;
+							UserModel.name					= 	response.response.userDetails.name || UserModel.name;
+							UserModel.email 				= 	response.response.userDetails.email || UserModel.email;
 
-							UserModel.picture = "styles/img/avatars/male.png";
+							UserModel.picture 				=   "styles/img/avatars/male.png";
 
 							// userSessionService.setUserSessionInfo(response);
-
+							
 							dfd.resolve(UserModel)
 						})
 						.error(function (response) {
-							console.log(response);
+							dfd.reject(response);
 						});
+						dfd.promise;
 				},
 					getUserInfo:function(){
 					return UserModel;

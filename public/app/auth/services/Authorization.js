@@ -11,6 +11,7 @@ define(['auth/module'], function (module) {
 				this.message = message;
 				this.name = "AuthorizationException";
 			}
+			
 
 			this.login = function (username, password) {
 				//******************************************************************************************************

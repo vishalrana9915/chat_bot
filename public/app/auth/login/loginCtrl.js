@@ -1,20 +1,24 @@
 define(['auth/module','io'], function (module,io) {
 
     "use strict";
-          module.registerController('LoginCtrl', function ($rootScope,$scope, $state, User, Authorization, $location, $http, $cookies,notificationService) {
-            // console.log(io)
-            var socket = io.connect('http://localhost:4009')
-            socket.on('hi',function(data){
-                console.log('socket connected for '+data.name)
-            })
-
-                        notificationService.loginSuccess();
-
+          module.registerController('LoginCtrl', function ($rootScope,
+                                                            $scope, 
+                                                            $state, 
+                                                            User, 
+                                                            Authorization, 
+                                                            $location, 
+                                                            $http, 
+                                                            $cookies,
+                                                            notificationService) {
+                    // Creating socket connection
+                    var socket = io.connect(appConfig.socketURL)
+          
 
         $scope.userInfo = {
             username: '',
             password: ''
         };
+        
 
         if ($cookies.get('username') != null) {
             $scope.userInfo.username = $cookies.get('username');
@@ -32,21 +36,19 @@ define(['auth/module','io'], function (module,io) {
             if ($scope.userInfo.rememberMe && $scope.userInfo.username) {
                 $cookies.put("username", $scope.userInfo.username);
             }
-            // $scope.startSpinner();
+            $rootScope.startSpinner()
 
             Authorization.login(
                 $scope.userInfo.username,
                 $scope.userInfo.password)
 
                 .success(function (data) {
-                    // $scope.stopSpinner();
-                        console.log("in success")
-                        User.initUserInfo()
-                    // if ($rootScope.previousUrl) {
-                    //     $location.path($rootScope.previousUrl);
-                    // } else {
-                    //     $location.path('/');
-                    // }
+                    $scope.stopSpinner();
+                    User.initUserInfo().then(function(result){
+                        socket.emit('initChat',result)
+                      })                       
+                        notificationService.loginSuccess();
+                        
                 })
 
                 .error(function (response) {

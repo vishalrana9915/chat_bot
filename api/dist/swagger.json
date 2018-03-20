@@ -195,6 +195,310 @@
                     }
                 }
             }
+        },
+        "/user/search_friends": {
+            "get": {
+                "summary": "Reterieve User Details.",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucessfully get user details.",
+                        "schema": {
+                            "$ref": "#/definitions/searched"
+                        }
+                    },
+                    "400": {
+                        "description": "Access Forbidden.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/createRoom": {
+            "post": {
+                "summary": "Creating chat room for chat.",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "reciever details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/roomCreation"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Sucessfully get user details.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                },
+                                "roomId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Access Forbidden.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/sendMessage": {
+            "post": {
+                "summary": "Sending message.",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Message initials",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/MessageInitials"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucessfully get user details.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Access Forbidden.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/sendRequest": {
+            "post": {
+                "summary": "Sending request.",
+                "parameters": [
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Message initials",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/sendRequestInitials"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sucessfully send.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Access Forbidden.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "responseCode": {
+                                    "type": "number"
+                                },
+                                "responseMessage": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "searched": {
+            "type": "object",
+            "properties": {
+                "responseMessage": {
+                    "type": "string"
+                },
+                "responseCode": {
+                    "type": "number"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Data"
+                    }
+                }
+            }
+        },
+        "Data": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "roomCreation": {
+            "type": "object",
+            "required": [
+                "chatType",
+                "members"
+            ],
+            "properties": {
+                "chatType": {
+                    "type": "string",
+                    "description": "UpperCase"
+                },
+                "members": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "MessageInitials": {
+            "type": "object",
+            "required": [
+                "roomId",
+                "message",
+                "messageType",
+                "recieverDetails"
+            ],
+            "properties": {
+                "roomId": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "messageType": {
+                    "type": "string",
+                    "description": "PERSONAL or GROUP"
+                },
+                "recieverDetails": {
+                    "type": "object",
+                    "properties": {
+                        "fullName": {
+                            "type": "string"
+                        },
+                        "recieverId": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "sendRequestInitials": {
+            "type": "object",
+            "required": [
+                "type",
+                "userId"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "UpperCase,Chooose from FRIENDREQUEST"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "id of user you are sending request"
+                }
+            }
         }
     }
 }

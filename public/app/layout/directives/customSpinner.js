@@ -3,20 +3,17 @@
  * Path: public/app/layout/directives/customSpinner.js
  * Notes: Directive for using the spin.js plugin
  */
-define(['layout/module', 'jquery', 'spinner-js', 'lodash'],
+define(['app', 'jquery', 'spinner-js', 'lodash'],
 	function (module, $, Spinner, _) {
-
 		'use strict';
 
 		module.registerDirective('customSpinner', function ($rootScope) {
-
 			return {
-
 				restrict: 'EA',
 				replace: true,
 
 				link: function (scope, element, attributes) {
-
+					console.log("in custom spinner")
 					var opts = {
 						lines       : 13,           // The number of lines to draw
 						length      : 28,           // The length of each line

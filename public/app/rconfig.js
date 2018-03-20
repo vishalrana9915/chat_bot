@@ -62,6 +62,7 @@ var require = {
 		'appConfig': '../app.config',
 		'modules-includes': 'includes',
 		'io': '../dist/plugins/socket.io-client/dist/socket.io',
+		// '720Kb':'../dist/plugins/angularjs-datepicker/src/js/angular-datepicker'
 		},
 	shim: {
 		'angular': {'exports': 'angular', deps: ['jquery']},

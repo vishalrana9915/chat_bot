@@ -9,9 +9,13 @@ console.log("");
 const config = require('./lib/config');
 
 // Import logger
-var logger = require('./lib/logger').logger;
+var logger = require('./lib/logger');
 
 // logger.requestLogger;
+
+//Cron Initialization
+require('./lib/cron/cronTasks')
+
 
 config.dbConfig(config.cfg, (err) => {
     if (err) {
@@ -28,6 +32,7 @@ config.dbConfig(config.cfg, (err) => {
 
     // init express app
     const app = express();
+    
 
     // set server home directory
     app.locals.rootDir = __dirname;
@@ -41,6 +46,8 @@ config.dbConfig(config.cfg, (err) => {
 
     // start server
      var server = app.listen(config.cfg.port);
-        require("./lib/socket/socketHandler.js")(server)
+
+     //setting socket object
+        require("./lib/socket/socketHandler.js")(server);
 
 });

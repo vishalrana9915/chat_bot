@@ -8,7 +8,7 @@ define(['auth/module', 'form-validator-bootstrap', 'form-validator-mandatoryicon
      return {
             restrict: 'EA',
             replace: true,
-            templateUrl: 'app/auth/partials/loginForm.tpl.html',
+            templateUrl: 'app/auth/partials/loginForm.html',
             link: function (scope, form) {
                 $(form).formValidation({
                    framework: 'bootstrap',
@@ -49,7 +49,6 @@ define(['auth/module', 'form-validator-bootstrap', 'form-validator-mandatoryicon
                     }
                     
                 }).on('success.form.fv',function(e){
-                    alert("in success")
                      e.preventDefault();
                      scope.loginUser(scope.userInfo)
                 })

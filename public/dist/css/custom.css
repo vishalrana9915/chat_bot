@@ -1,10 +1,8 @@
-body { padding-top:30px;background-image: url("../images/background1.jpg"); }
+body { padding-top:30px;background-image: url("../images/Wiki-background.jpg"); }
 /*.form-control { margin-bottom: 10px; }*/
 
 
 /* password widget */
-
-
 
 .clrWht{
   color:white;
@@ -31,6 +29,18 @@ body { padding-top:30px;background-image: url("../images/background1.jpg"); }
     color: white;
 }
 
+
+#registerForm .has-error .control-label,
+#registerForm .has-error .help-block,
+#registerForm .has-error .form-control-feedback {
+    color: red;
+}
+
+#registerForm .has-success .control-label,
+#registerForm .has-success .help-block,
+#registerForm .has-success .form-control-feedback {
+    color: green;
+}
 label.forgot:hover {
   cursor: pointer;
   color: red;
@@ -40,4 +50,25 @@ label.forgot:hover {
 .password-progress {
     margin-top: 10px;
     margin-bottom: 0;
+}
+
+.clrRed{
+  color:red;
+}
+
+.pad20{
+  padding: 20px
+}
+
+.mrg10{
+  margin: 10px;
+}
+
+.registerStyle{
+  margin-left: 50px;
+  margin-right: 50px;
+  width:60%;
+  margin-left:15%;
+  margin-right: 15%;
+  margin-top: 5%;
 }
