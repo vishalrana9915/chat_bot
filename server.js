@@ -13,13 +13,9 @@ var logger = require('./lib/logger');
 
 // logger.requestLogger;
 
-//Cron Initialization
-require('./lib/cron/cronTasks')
-
-
 config.dbConfig(config.cfg, (err) => {
     if (err) {
-        logger.error(err, 'exiting the app.');
+        console.error(err, 'exiting the app.');
         return;
     }
 

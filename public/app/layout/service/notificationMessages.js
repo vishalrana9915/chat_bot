@@ -11,10 +11,10 @@ define(['app'], function (module) {
 
 		var notificationMessages = {
 			successCreateTitle : function(){
-				return $rootScope.getWord('Sucess ful')
+				return '<h2>'+$rootScope.getWord('loginMsg')+'</h2>'
 			},
 			successLoginMessage : function () {
-				return $rootScope.getWord('Success');
+				return $rootScope.getWord('SuccessLogin');
 			}
 		};
 		return notificationMessages;

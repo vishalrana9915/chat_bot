@@ -252,6 +252,75 @@ paths:
                   type: number
                 responseMessage: 
                   type: string
+  "/user/showUserFriendRequests":
+      post:
+        summary: Getting user all notifications.
+        parameters:
+        - name: "authorization"
+          in: "header"
+          required: true
+          type: "string"
+        responses:
+          "200":
+            description: User Notifications.
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: number
+                responseMessage: 
+                  type: string  
+                data:
+                  type: array
+                  items:
+                    type: object
+          "400":
+            description: Sucessfully send.
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: number
+                responseMessage: 
+                  type: string  
+  "/user/acceptRejectFriendRequests":
+      post:
+        summary: Performing accept/reject function on notifications.
+        parameters:
+        - name: "authorization"
+          in: "header"
+          required: true
+          type: "string"
+        - name: "body"
+          in: "body"
+          required: true
+          type: "string" 
+          schema:
+            $ref: "#/definitions/notificationAction"
+        responses:
+          "200":
+            description: User Notifications.
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: number
+                responseMessage: 
+                  type: string  
+                data:
+                  type: array
+                  items:
+                    type: object
+          "400":
+            description: Sucessfully send.
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: number
+                responseMessage: 
+                  type: string
+         
 definitions:
   searched:
     type: "object"
@@ -322,7 +391,22 @@ definitions:
       userId:
         type: "string"
         description: "id of user you are sending request"
-    
+  notificationAction:
+    type: object
+    required: 
+    - "notificationId"
+    - "action"
+    - "uuid"
+    properties:
+      notificationId:
+        type: string
+        description: "This will contain the whole notification object id."
+      action:
+        type: string
+        description: "This will contain the Action to be perform i.e- ACCEPTED/REJECT."
+      uuid:
+        type: string
+        description: "This will contains the id of notification sender.Who request to you."
     
     
     

@@ -1,57 +1,42 @@
-<div class="container centerClass">
+   <div>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form id='loginForm'>
+              <h1>Login Forms</h1>
+              <div>
+                <input type="text" class="form-control"  placeholder="{{getWord('username')}}" name="username" ng-model='userInfo.username'/>
+              </div>
+              <div>
+                <input name="password" type="password" class="form-control" placeholder="{{getWord('password')}}" ng-model='userInfo.password' />
+              </div>
+              <div>
+                <a class="btn btn-default submit" ng-click='loginUser()'>Log in</a>
+                <a class="reset_pass" >Lost your password?</a>
+              </div>
 
-	<!-- container class stated from here -->
+              <div class="clearfix"></div>
 
-    <div class="row vertical-offset-100" >
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a href='/#/register' class="to_register"> Create Account </a>
+                </p>
 
-    	<!-- Starting row  -->
+                <div class="clearfix"></div>
+                <br />
 
+                <div>
+                  <h1><i class="fa fa-paw"></i> Chat Bot !</h1>
+                  <p>©2018 All Rights Reserved. Chat Bot ! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+ 			</form>
+          </section>
+        </div>
 
-    	<div class="col-md-4 col-md-offset-4">
-    	
-    		<!-- Base class  -->
+    </div>
 
-
-
-    		<div class="panel panel-default">
-			
-    			<!-- Head section -->
-
-			  	<div class="panel-heading" style='margin-bottom: 50px'>
-			    	<h3 class="panel-title clrWht">Please sign in</h3>
-			 	</div>
-			  	
-			 	<!-- Head section ends here. -->
-
-			  	<div class="panel-body">
-			    
-			  		<!-- Validating login form  -->
-
-			    	<login-auth-form></login-auth-form>
-			    	
-			    	<!-- validation ends here -->
-
-			    	<div class='col-xs-6'>
-			    		<a ><label class='clrWht forgot' style='float: right;'>{{getWord('forgotPassword')}}!</label></a>
-			    	</div>
-			    	
-			    	<div class='col-xs-6'>
-			    		<a href='#/register'><label class='clrWht forgot' style='float: left;'>{{getWord('Signup')}}</label></a>
-			    	
-			    	</div>
-
-			    </div>
-
-			</div>
-
-			<!-- Panel class ends here -->
-
-		</div>
-	</div>
-	<!-- Row ends here -->
 </div>
-
-<!-- container ends -->
 
 <!--###############################################################-->
 <!--## OVERLAY                                                   ##-->

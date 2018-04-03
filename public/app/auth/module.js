@@ -27,7 +27,7 @@ define([
                             'app/auth/models/User',
                             'app/auth/login/loginCtrl',
                             'app/auth/services/Authorization'
-                                                                             ])
+                         ])
                     }
                 }
             },
@@ -118,11 +118,24 @@ define([
             }
         })
          
-         .state('PageNotFound', {
-            url: '/pageNotFound',
+
+
+         .state('dashboard', {
+            url:'/dashboard',
             views: {
-                    templateUrl: 'public/404.html'
+                root:{
+                    templateUrl: 'app/modules/dashboard/views/dashboard.html',
+                    controller:'dashboardCtrl',
+                    resolve:{
+                         deps: $couchPotatoProvider.resolveDependencies([
+                            'app/modules/dashboard/controller/dashboard'
+                            ])
+                    }
+                }
             },
+            data: {
+                requiresLogin:true
+            }
         })
 
         $urlRouterProvider.otherwise('login');

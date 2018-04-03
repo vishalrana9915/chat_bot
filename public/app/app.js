@@ -22,9 +22,9 @@ define([
 
     'angular-animate',
 
-    'smartwidgets',
-
-    'notification',
+    // 'smartwidgets',
+    'toastr',
+    // 'notification',
 
     'ui-bootstrap',
 
@@ -53,6 +53,7 @@ define([
 
         //ngAnimate: provides support for CSS-based animations
         'ngAnimate',
+        'toastr',
 
         'ngStorage',
 
@@ -70,12 +71,49 @@ define([
         // ui application modules smart-admin
         // 'app.layout',
         // 'app.ui'
-        
+        // 'io'
         ]);
 
     couchPotato.configureApp(app);
 
-    app.config(function ($provide, $httpProvider) {
+    app.config(function ($provide, $httpProvider,toastrConfig) {
+
+
+
+//******************************************************************************************************
+// Configure toastr file manually.
+//******************************************************************************************************
+
+
+
+          angular.extend(toastrConfig, {
+            allowHtml: true,
+            closeButton: true,
+            extendedTimeOut: 1000,
+            positionClass: 'toast-bottom-right',
+            iconClasses: {
+              error: 'toast-error',
+              info: 'toast-info',
+              success: 'toast-success',
+              warning: 'toast-warning'
+            },  
+            messageClass: 'toast-message',
+            onHidden: null,
+            onShown: null,
+            onTap: null,
+            progressBar: true,
+            tapToDismiss: true,
+            templates: {
+              toast: 'directives/toast/toast.html',
+              progressbar: 'directives/progressbar/progressbar.html'
+            },
+            timeOut: 1000,
+            titleClass: 'toast-title',
+            toastClass: 'toast'
+          });
+
+//Toastr customization is done.
+
 
         //$localStorageProvider.setKeyPrefix('NewPrefix');
 
@@ -97,14 +135,16 @@ define([
                 }
 
                 try {
-                    $.bigBox({
-                        title:  $rootScope.getWord('Error'),
-                        content: rejectionInfo.data ? rejectionInfo.data : '',
-                        color: "#C46A69",
-                        icon: "fa fa-warning shake animated",
-                        //number: ++errorCounter,
-                        timeout: 6000
-                    });
+                    var content = rejectionInfo.data ? rejectionInfo.data : '';
+                    toastr.error(content,$rootScope.getWord('Error'))
+                    // $.bigBox({
+                    //     title:  $rootScope.getWord('Error'),
+                    //     content: rejectionInfo.data ? rejectionInfo.data : '',
+                    //     color: "#C46A69",
+                    //     icon: "fa fa-warning shake animated",
+                    //     //number: ++errorCounter,
+                    //     timeout: 6000
+                    // });
                 } catch (e) {
                     console.log(e);
                 }
@@ -125,7 +165,7 @@ define([
 
                 // On response failure
                 responseError: function (rejection) {
-                     document.getElementById("content").innerHTML='<object type="text/html" data="404.html" ></object>';
+                     // document.getElementById("content").innerHTML='<object type="text/html" data="404.html" ></object>';
                     if ($rootScope.stopSpinner) {
                         $rootScope.stopSpinner();
                     }
@@ -161,7 +201,7 @@ define([
         .constant('APP_CONFIG', window.appConfig);
 
     app.run(function ($couchPotato, $rootScope, $state, $stateParams, Language,$location, $cookies, $http, User, $q, formValidationKeyService, buildInfo) {
-            // var socket = io.connect(appConfig.socketURL)
+           
     //     // Get build information.
         $http.get('build.json?' + Math.random()).success(function (data) {
 
@@ -214,7 +254,7 @@ define([
         $rootScope.facilityChanged = false;
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, from) {
-
+            
             var requiresLogin = toState.data.requiresLogin;
 
             var currentDate = new Date();
@@ -230,7 +270,6 @@ define([
 
                 // If logged in and trying to go to login screen
                 if (toState.name == 'login') {
-
                     $rootScope.$evalAsync(function () {
                         // If on dashboard need to reload the page
                         if ($location.path() == '/') {
@@ -293,84 +332,6 @@ define([
                 }
             }
         });
-
-    //     $rootScope.$on('$stateChangeSuccess', function (ev, toState, toParams, from, fromParams) {
-
-    //         //******************************************************************************************************
-    //         // userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
-    //         //******************************************************************************************************
-    //         if (!$rootScope.userIsAuthorized && toState.name != 'login') {
-    //             var canceller = $q.defer();
-    //             angular.forEach($http.pendingRequests, function (p) {
-    //                 canceller.resolve(p);
-    //             });
-    //             $http.defaults.headers.common.Authorization = undefined;
-    //             $state.go('login');
-    //         }
-
-    //         // To avoid infdig angularJS errors.
-    //         // 1. When changing facility first change path to '/'.
-    //         // 2. Check if the facility has changed, true: reload location : simple state change.
-    //         if ($rootScope.facilityChanged) {
-    //             $rootScope.facilityChanged = false;
-    //             location.reload();
-    //         }
-
-    //         /********************************************************************************************/
-    //         // Datatables: Clearing out the datatable filters on different state transitions.
-    //         /********************************************************************************************/
-
-    //         function clearFilterCaches() {
-    //             localStorage.removeItem('DataTables_Filtered_Orders/');
-    //             localStorage.removeItem('DataTables_Filtered_Jobs/');
-    //         }
-
-    //         function clearDTCache() {
-    //             localStorage.removeItem('DataTables_dtOrders_/');
-    //             localStorage.removeItem('DataTables_dtJobs_/');
-    //         }
-
-    //         if (toState.name == 'app.dashboard') {
-    //             clearFilterCaches();
-    //             clearDTCache();
-    //         }
-
-    //         var jobStateItems = ['app.jobs.jobs-details', 'app.jobs.quality-check', 'app.jobs.bin-job', 'app.jobs.route-job', 'app.jobs.mark-job-shipped'];
-
-    //         function containsState(stateName) {
-    //             return _.contains(jobStateItems, stateName);
-    //         }
-
-    //         if (toState.name == 'app.orders.list' && from && from.name != 'app.orders.orders-view') {
-    //             clearDTCache();
-    //             if (from.name != 'app.dashboard') {
-    //                 clearFilterCaches();
-    //             }
-    //         }
-
-    //         if (toState.name == 'app.jobs.list' && from && !containsState(from.name)) {
-    //             clearDTCache();
-    //             if (from.name != 'app.dashboard') {
-    //                 clearFilterCaches();
-    //             }
-    //         }
-    //         if (toState.name == 'app.jobs.hub' && from && !containsState(from.name)) {
-    //             clearDTCache();
-    //             if (from.name != 'app.dashboard') {
-    //                 clearFilterCaches();
-    //             }
-    //         }
-
-    //         if (toState.name == 'app.jobs.route-pending' && from && !containsState(from.name)) {
-    //             localStorage.removeItem('DataTables_Filtered_JobsPendingRoute/');
-    //             localStorage.removeItem('DataTables_dtJobsPendingRoute_/');
-    //             localStorage.removeItem('DataTables_dtRoutePending_/');
-    //             _
-    //         }
-    //         if (toState.name == 'app.closed-orders.list' && from && from.name != 'app.closed-orders.view') {
-    //             localStorage.removeItem('DataTables_Filtered_ClosedOrders/');
-    //             localStorage.removeItem('DataTables_dtArchivedOrders_/');
-    //         }
 
 
     //     });

@@ -31,7 +31,8 @@
     "swagger-ui": "^3.12.1",
     "glyphicons": "^0.0.2",
     "socket.io-client": "^2.0.4",
-    "angularjs-datepicker": "^2.1.23"
+    "angularjs-datepicker": "^2.1.23",
+    "angular-toastr": "^2.1.1"
   },
   "devDependencies": {
     "angular-scenario": "^1.6.9",

@@ -16,6 +16,11 @@ define(['auth/module', 'form-validator-bootstrap', 'form-validator-mandatoryicon
                         valid: 'fa fa-ok',
                         invalid: 'fa fa-times',
                         validating: 'fa fa-sync-alt'
+                    },addOns: {
+                      i18n: {},
+                      mandatoryIcon: {
+                        // icon : 'fa fa-asterisk'
+                        }
                     },
                     fields: {
                         username: {

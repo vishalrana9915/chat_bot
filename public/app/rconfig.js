@@ -38,13 +38,21 @@ var require = {
 
 		'bootstrap-validator': '../dist/plugins/bootstrapvalidator/dist/js/bootstrapValidator.min',
 
+
+    	'Chart':"../vendors/Chart.js/dist/.min.js",
+
+    	'progressbar':"../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js",
+
+    	'date':"../vendors/DateJS/build/date.js",
+
+    	'daterangepicker':"../vendors/bootstrap-daterangepicker/daterangepicker.js",
 		// This is a custom build of form-validator that does NOT consist of all validators.
 		// Only popular validators are included
 		// SSM : TODO: Replace with minified version after debugging
 		'form-validator' : '../dist/plugins/formvalidation/dist/js/formValidation.popular',
 		'form-validator': '../dist/plugins/formvalidation/dist/js/formValidation',
-		'smartwidgets': '../smartadmin-plugin/smartwidgets/jarvis.widget.min',
-		'notification': '../smartadmin-plugin/notification/SmartNotification.min',
+		// 'smartwidgets': '../smartadmin-plugin/smartwidgets/jarvis.widget.min',
+		// 'notification': '../smartadmin-plugin/notification/SmartNotification.min',
 
 		// Don't confuse bootstrap(.min).js file provided by the Bootstrap framework with bootstrap(.min).js provided by
 		// FormValidation which is placed inside the formvalidation/dist/js/framework directory.
@@ -61,7 +69,29 @@ var require = {
 		// app js file includes
 		'appConfig': '../app.config',
 		'modules-includes': 'includes',
+		'custom':'../dist/js/custom.min',
 		'io': '../dist/plugins/socket.io-client/dist/socket.io',
+		'toastr': '../dist/plugins/angular-toastr/dist/angular-toastr.tpls',
+		'skycons': "../vendors/skycons/skycons.js",
+		'flot' : "../vendors/Flot/jquery.flot.js",
+		'pie':"../vendors/Flot/jquery.flot.pie.js",
+		'time':'../vendors/Flot/jquery.flot.time.js',
+		'stack':'../vendors/Flot/jquery.flot.stack.js',
+		'resize':'../vendors/Flot/jquery.flot.resize.js',
+		'orderBars':"../vendors/flot.orderbars/js/jquery.flot.orderBars.js",
+		'spline':"../vendors/flot-spline/js/jquery.flot.spline.min.js",
+		'curvedLines':"../vendors/flot.curvedlines/curvedLines.js",
+
+
+
+    // <script src="../vendors/DateJS/build/date.js"></script>
+    // <!-- JQVMap -->
+    // <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    // <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    // <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    // <!-- bootstrap-daterangepicker -->
+    // <script src="../vendors/moment/min/moment.min.js"></script>
+    // <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 		// '720Kb':'../dist/plugins/angularjs-datepicker/src/js/angular-datepicker'
 		},
 	shim: {
@@ -69,13 +99,17 @@ var require = {
 		'angular-animate': {deps: ['angular']},
 		'angular-resource': {deps: ['angular']},
 		'angular-cookies': {deps: ['angular']},
-
+		'custom':{deps:['angular','jquery']},
+		'nprogress':{deps:['angular','jquery']},
+		'Chart':{deps:['angular','jquery']},
+		'progressbar':{deps:['angular','jquery']},
+		'daterangepicker':{deps:['angular','jquery']},
 		//'angular-bootstrap' : {deps : ['angular']},
 		'ui-bootstrap': {deps: ['angular', 'angular-animate']},
 		'angular-ui-router': {deps: ['angular']},
 		'angular-filter':{deps: ['angular']},
 		'angular-couch-potato': {deps: ['angular']},
-		// 'socket.io': {deps: ['angular']},
+		'toastr': {deps: ['angular','jquery'],exports:'toastr'},
 		'anim-in-out': {deps: ['angular-animate']},
 		'angular-easyfb': {deps: ['angular']},
 		'angular-google-plus': {deps: ['angular']},
@@ -123,7 +157,7 @@ var require = {
 		'jquery-nestable': {deps: ['jquery']},
 		'superbox': {deps: ['jquery']},
 		'notification': {deps: ['jquery']},
-		'smartwidgets': {deps: ['jquery-ui']},
+		// 'smartwidgets': {deps: ['jquery-ui']},
 		'ngStorage': {exports: 'ngStorage', deps: ['angular']}
 	},
 	priority: [

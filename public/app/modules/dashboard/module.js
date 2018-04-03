@@ -16,23 +16,28 @@ define([
 
         $stateProvider
 
-        .state('dashboard', {
-            url: '/dashboard',
+        .state('dash', {
+            url: '/dash',
+            data:{
+                title:'Dashboard'
+            },
             views: {
                 root: {
-                    templateUrl: "public/404.html",
+                    "content@app": {
+                    templateUrl: "app/modules/dashboard/views/dashboard.html",
                     controller :"dashboardCtrl",
                     resolve: {
                         deps: $couchPotatoProvider.resolveDependencies([
-                            'app/modules/dashboard/controllers/dashboard.js'
-                                                    ])
+                            'app/modules/dashboard/controllers/dashboard'
+                         ])
                     }
+                }
                 }
             }
 
         })
 
-        $urlRouterProvider.otherwise('login');
+        $urlRouterProvider.otherwise('/login');
 
     })
         //.constant('authKeys', authKeys);

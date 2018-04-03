@@ -2,7 +2,7 @@ define(['auth/module', 'form-validator-bootstrap', 'form-validator-mandatoryicon
     
       "use strict";
 
-    module.registerDirective('signupForm', function ($rootScope) {
+    module.registerDirective('signupForm', function ($rootScope,$state) {
 // Sign up directive 
     	return {
     		restrict: 'EA',   //restricting to elements and attributes
@@ -17,42 +17,59 @@ define(['auth/module', 'form-validator-bootstrap', 'form-validator-mandatoryicon
                         validating: 'fa fa-sync-alt'
                     },
                     fields: {
-                        firstName: {
+                        username: {
                             validators: {
                                 notEmpty: {
-                                    message: 'First name is required'
+                                    message: 'Username is required'
                                 },
                                 stringLength: {
-                                    min: 1,
-                                    max: 30,
-                                    message: 'First name must be more than 1 and less than 30 characters long'
+                                    min: 6,
+                                    max: 18,
+                                    message: 'Username must be more than 6 characters.'
                                 },
                                        regexp: {
                                            regexp: /(([a-zA-Z]+))+$/,
-                                           message: 'First name can only consist of alphabets.'
+                                           message: 'Username can only consist of alphabets.'
                                        }
                             }
                         },
-                        lastName: {
+                        email: {
                            validators: {
                                 notEmpty: {
-                                    message: 'Last name is required'
+                                    message: 'Email is required'
                                 },
                                 stringLength: {
-                                    min: 1,
-                                    max: 30,
-                                    message: 'Last name must be more than 1 and less than 30 characters long'
+                                    min: 6,
+                                    max: 36,
+                                    message: 'Email must be more than 6 and less than 36 characters long'
                                 },
                                        regexp: {
-                                           regexp: /(([a-zA-Z]+))+$/,
-                                           message: 'Last name can only consist of alphabets.'
+                                           regexp: /(([a-zA-Z0-9\-?\.?]+)@(([a-zA-Z0-9\-_]+\.)+)([a-z]{2,3}))+$/,
+                                           message: 'Invalid Email.'
                                        }
                             }
                         },
-                        dateOfBirth: {
+                        password: {
                            validators: {
                                 notEmpty: {
-                                    message: 'Birth date is required'
+                                    message: 'Password is required'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 36,
+                                    message: 'password must be more than 6 characters.'
+                                }
+                            }
+                        },
+                        confirmPassword: {
+                           validators: {
+                                notEmpty: {
+                                    message: 'Confirm Password is required'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 36,
+                                    message: 'Confirm Password must be more than 6 characters.'
                                 }
                             }
                         }
@@ -62,6 +79,13 @@ define(['auth/module', 'form-validator-bootstrap', 'form-validator-mandatoryicon
                      e.preventDefault();
                      // scope.loginUser(scope.userInfo)
                 })
+
+
+                    scope.state = function (){
+                      console.log("in function ");
+                      $state.transitionTo('log.dashboard')
+                    }
+
               }
         }
     	})

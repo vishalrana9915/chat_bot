@@ -4,11 +4,15 @@ define([
 	'auth/models/User',
 	'auth/login/loginCtrl',
 	'auth/signup/signupCtrl',
-    'auth/directives/loginAuth',
-    'auth/directives/signupForm',
+    // 'auth/directives/loginAuth',
+    // 'auth/directives/signupForm',
     'modules/dashboard/module',
+    // 'modules/dashboard/directives/header',
+    // 'modules/dashboard/directives/footer',
+    'modules/dashboard/controllers/dashboard',
 	// application layout
 	'layout/module',
+
 	'layout/directives/customSpinner',
 	'layout/directives/networkStatus',
 	'components/language/form-validation-key-service',

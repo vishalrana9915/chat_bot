@@ -1,3 +1,22 @@
 {
-	"forgotPassword":"Forgot Password"
+	"forgotPassword"	:	"Forgot Password",
+	"pleasesignin"		:	"Please Sign In",
+	"username" 			: 	"Username",
+	"password" 			: 	"Password",
+	"confirmPass"		:	"Confirm Password",
+	"rememberme" 		: 	"Remember Me",
+	"signup"   			: 	"Sign Up",
+	"fullname" 			: 	"Full Name",
+	"dob" 				: 	"DOB",
+	"sex" 				: 	"Sex",
+	"country"			: 	"Country",
+	"address"			: 	"Address",
+	"mobile"			:	"Mobile",
+	"email"				:	"Email",
+	"provision"			:	"Provision",
+	"registerhere"		:	"Register Here",
+	"register"			:	"Register",
+	"SuccessLogin"		:	"Login Successfully.",
+	"loginMsg"			:	"Login"	
+
 }

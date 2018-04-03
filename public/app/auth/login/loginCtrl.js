@@ -1,4 +1,4 @@
-define(['auth/module','io'], function (module,io) {
+define(['auth/module','io', 'form-validator-bootstrap', 'form-validator-mandatoryicon'], function (module,io) {
 
     "use strict";
           module.registerController('LoginCtrl', function ($rootScope,
@@ -10,10 +10,7 @@ define(['auth/module','io'], function (module,io) {
                                                             $http, 
                                                             $cookies,
                                                             notificationService) {
-                    // Creating socket connection
-                    var socket = io.connect(appConfig.socketURL)
-          
-
+ 
         $scope.userInfo = {
             username: '',
             password: ''
@@ -44,9 +41,7 @@ define(['auth/module','io'], function (module,io) {
 
                 .success(function (data) {
                     $scope.stopSpinner();
-                    User.initUserInfo().then(function(result){
-                        socket.emit('initChat',result)
-                      })                       
+                    User.initUserInfo()                      
                         notificationService.loginSuccess();
                         
                 })
@@ -57,6 +52,10 @@ define(['auth/module','io'], function (module,io) {
 
                 });
         };
+
+
+
+
 
               
     });
