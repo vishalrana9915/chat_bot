@@ -2,56 +2,75 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-          <form>
-              <h1>Create Account</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+          <form id='signupForm'>
+              <h1>{{getWord('createaccount')}}</h1>
+              <div class='row'>
+                <div class='col-lg-6'>
+                <input type="text" class="form-control" name="" ng-model='userInfo.firstName' placeholder="{{getWord('firstname')}}" required="" />
+
+                </div>
+                <div class='col-lg-6'>
+                <input type="text" class="form-control" name="" ng-model='userInfo.lastName' placeholder="{{getWord('lastname')}}" required="" />
+
+                </div>
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" name="username" ng-model='userInfo.username' placeholder="{{getWord('username')}}" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="email" class="form-control" name="email" ng-model='userInfo.email' placeholder="{{getWord('email')}}" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" >Submit</a>
+                <input type="password" class="form-control" name="password" ng-model='userInfo.password' placeholder="{{getWord('password')}}" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" name="password" ng-model='userInfo.confirm' placeholder="{{getWord('confirmPass')}}" required="" />
+              </div>
+              <div class='row'>
+               <div class='col-lg-4'>
+                <select class="form-control"  style='border-radius: 7%;' ng-model='userInfo.day' ng-options="data for data in daysInfo">
+                        <option value=''>{{getWord('Day')}}</option>
+                      </select>
+
+                </div>
+                <div class='col-lg-4'>
+               <select class="form-control"  style='border-radius: 7%;' ng-model='userInfo.month' ng-options="data for data in monthInfo">
+                        <option value=''>{{getWord('Month')}}</option>
+                      </select></div>
+
+                <div class='col-lg-4'>
+                 <select class="form-control" style='border-radius: 7%;' ng-model='userInfo.year' ng-options="data for data in yearInfo">
+                        <option value=''>{{getWord('Year')}}</option>
+                      </select></div>
+                </div>
+               <div>
+                <a class="btn btn-default submit" ng-click='signup(userInfo);'>{{getWord('Submit')}}</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href='/#/login' class="to_register"> Log in </a>
+                <p class="change_link">{{getWord('alreadymember')}} ?
+                  <a href='/#/login' class="to_register">{{getWord('loginMsg')}} </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Chat Bot !</h1>
-                  <p>©2018 All Rights Reserved. Chat Bot! uses a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i> {{getWord('chatbot')}} !</h1>
+                  <p>©2018 {{getWord('rightreserved')}}</p>
                 </div>
               </div>
             </form>
           </section>
         </div>
-
     </div>
-
 </div>
 
-<!--###############################################################-->
-<!--## OVERLAY                                                   ##-->
-<!--###############################################################-->
-<div id="pageOverlay" class="overlay hidden"></div>
-
-<!--###############################################################-->
-<!--## SPIN JS                                                   ##-->
-<!--###############################################################-->
-<custom-spinner id="spCustomSpinner" ></custom-spinner>
 
 
-
+<custom-spinner id='pageOverlay'></custom-spinner>
 
 
 

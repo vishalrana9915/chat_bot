@@ -5,7 +5,7 @@
 define(['auth/module'], function (module) {
 	
 	'use strict';
-	return module.registerService('Authorization', function ($rootScope, $http, $cookies,User) {
+	return module.registerService('Authorization', function ($rootScope, $http, $cookies,User,notificationService,$state) {
 			var authToken;
 			function authorizationException(message) {
 				this.message = message;
@@ -19,12 +19,12 @@ define(['auth/module'], function (module) {
 				//******************************************************************************************************
 				$http.defaults.headers.common.Authorization = undefined;
 
-				var params = {
+				let params = {
 					email:username,
 					password:password
 				}
 				// "grant_type=password&username=" + username + "&password=" + password;
-				var requestObj = {
+				let requestObj = {
 					url    : appConfig.apiURL + 'user/login',
 					method : "POST",
 					headers: { 'Content-Type': 'application/json' },
@@ -33,15 +33,18 @@ define(['auth/module'], function (module) {
 				return $http(requestObj)
 					.success(function (data, status, headers, config) {
 						if(data.error){
-							 throw new authorizationException("Please enter valid credentials.")  //console.log();
+							notificationService.error("Please enter valid credentials.")
+							 throw new authorizationException("Please enter valid credentials.") ;
 						}
 						else if(data.response.responseCode == 400)
-							 console.log("Check your password and email.")
+							throw new authorizationException("Check your email and password.")
 						else{
 						$http.defaults.headers.common.Authorization = data.response.accessToken;
 						$http.defaults.headers.common['Accept-Language'] = $cookies.get('_locale');
 						$cookies.put("_Token", data.response.accessToken);
 						$cookies.put("expDate", data[".expires"]);
+						console.log(data.response.userProfile._id)
+						window.localStorage.setItem('_identity',data.response.userProfile._id)
 						authToken = data.response.accessToken;
 						return data
 						}  
@@ -61,21 +64,113 @@ define(['auth/module'], function (module) {
 			};
 
 			this.sendRequest = function (headers, method, url, data) {
-				if (authToken == null) {
-					throw new authorizationException("not logged in");
+				if (headers == null) {
+					throw new authorizationException("Not logged in");
 				}
 
-				$http.defaults.headers.common.Authorization = "Bearer " + authToken;
-				$cookies.put("_RequestVerificationToken", authToken);
+				$http.defaults.headers.common.Authorization =  headers;
+				// $cookies.put("_RequestVerificationToken", authToken);
+				var obj = {
+						url    : url,
+						method : method,
+						headers: headers,
+						data   : data
+				}
+
+				return obj;
+				
+			};
+
+			this.register = function(userData){
+				userData.dob = userData.day + '-'+userData.month+ '-'+userData.year
+				delete userData.day;
+				delete userData.month;
+				delete userData.year;
+				userData.privileged =0
+				userData.country = "INDIA"
+				if(userData.password != userData.confirm){
+					notificationService.error("password / confirm password disn't match.")
+							 throw new authorizationException("password / confirm password disn't match.") ;
+				}else{
+					delete userData.confirm;
+				let requestObj = {
+					url    : appConfig.apiURL + 'user/register',
+					method : "POST",
+					headers: { 'Content-Type': 'application/json' },
+					data   : JSON.stringify(userData)
+				}
+
+				return $http(requestObj)
+					.success(function (data, status, headers, config) {
+						if(data.error){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						else if(data.response.responseCode == 400)
+							throw new authorizationException("Please try after some time.")
+						else{
+							
+						return data
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data.error_description);
+
+					});
+
+				}
+			};
 
 
+			this.checkAvailability = function(){
 
-				$http({
-					url    : url,
-					method : method,
-					headers: headers,
-					data   : data
-				});
+				if(window.localStorage.getItem('_identity') && $cookies.get("_Token")){
+					return true;
+				}else{
+					return false;
+				}
+			};
+
+			this.logoutClear = function(){
+				$state.transitionTo('logout')
+			};
+
+			this.dailyUpdate = function(){
+				var content = this.sendRequest($cookies.get('_Token'),"GET",appConfig.apiURL+'user/dailyActivity');
+				return $http(content)
+				.success(function (data) {
+						if(data.error){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						else if(data.response.responseCode == 400)
+							throw new authorizationException("Please try after some time.")
+						else{
+							console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data.error_description);
+
+					});
+;
 			}
 		}
 	);

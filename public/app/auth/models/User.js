@@ -2,10 +2,10 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 
 	'use strict';
 
-	return module.registerFactory('User', function ($http, $q) {
+	return module.registerFactory('User', function ($http, $q,$cookies) {
 		var dfd = $q.defer();
 		
-		var UserModel = {
+		var UserModel = {	
 			initialized: dfd.promise,
 			userId				: undefined,
 			name				: undefined,
@@ -31,20 +31,21 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 							UserModel.userId				= 	response.response.userDetails.userId || UserModel.userId;
 							UserModel.name					= 	response.response.userDetails.name || UserModel.name;
 							UserModel.email 				= 	response.response.userDetails.email || UserModel.email;
-
 							UserModel.picture 				=   "styles/img/avatars/male.png";
 
-							// userSessionService.setUserSessionInfo(response);
+							$cookies.put('userObj',JSON.stringify(UserModel));
 							
 							dfd.resolve(UserModel)
 						})
 						.error(function (response) {
 							dfd.reject(response);
 						});
+
 						dfd.promise;
 				},
 					getUserInfo:function(){
-					return UserModel;
+						let resultUser = (UserModel.name) ? UserModel :  $cookies.get('userObj');
+					return resultUser;
 				}
 
 		};

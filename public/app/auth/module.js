@@ -13,7 +13,6 @@ define([
 
     couchPotato.configureApp(module);
     module.config(function ($stateProvider, $couchPotatoProvider,$urlRouterProvider) {
-
         $stateProvider
 
         .state('login', {
@@ -66,7 +65,6 @@ define([
                     root:{
                         templateUrl:'',
 	                    controller : function ($scope, $cookies) {
-
                             //Delete cookies.
                             $cookies.remove("_Token");
                             $cookies.remove("expDate");
@@ -129,7 +127,7 @@ define([
                     resolve:{
                          deps: $couchPotatoProvider.resolveDependencies([
                             'app/modules/dashboard/controller/dashboard'
-                            ])
+                            ])                        
                     }
                 }
             },

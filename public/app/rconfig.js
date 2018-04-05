@@ -39,13 +39,13 @@ var require = {
 		'bootstrap-validator': '../dist/plugins/bootstrapvalidator/dist/js/bootstrapValidator.min',
 
 
-    	'Chart':"../vendors/Chart.js/dist/.min.js",
+    	'Chart':"../vendors/Chart.js/dist/chart.min",
 
-    	'progressbar':"../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js",
+    	'progressbar':"../vendors/bootstrap-progressbar/bootstrap-progressbar.min",
 
-    	'date':"../vendors/DateJS/build/date.js",
+    	'date':"../vendors/DateJS/build/date",
 
-    	'daterangepicker':"../vendors/bootstrap-daterangepicker/daterangepicker.js",
+    	'daterangepicker':"../vendors/bootstrap-daterangepicker/daterangepicker",
 		// This is a custom build of form-validator that does NOT consist of all validators.
 		// Only popular validators are included
 		// SSM : TODO: Replace with minified version after debugging
@@ -72,18 +72,18 @@ var require = {
 		'custom':'../dist/js/custom.min',
 		'io': '../dist/plugins/socket.io-client/dist/socket.io',
 		'toastr': '../dist/plugins/angular-toastr/dist/angular-toastr.tpls',
-		'skycons': "../vendors/skycons/skycons.js",
-		'flot' : "../vendors/Flot/jquery.flot.js",
-		'pie':"../vendors/Flot/jquery.flot.pie.js",
-		'time':'../vendors/Flot/jquery.flot.time.js',
-		'stack':'../vendors/Flot/jquery.flot.stack.js',
-		'resize':'../vendors/Flot/jquery.flot.resize.js',
-		'orderBars':"../vendors/flot.orderbars/js/jquery.flot.orderBars.js",
-		'spline':"../vendors/flot-spline/js/jquery.flot.spline.min.js",
-		'curvedLines':"../vendors/flot.curvedlines/curvedLines.js",
-
-
-
+		'skycons': "../vendors/skycons/skycons",
+		'flot' : "../vendors/Flot/jquery.flot",
+		'pie':"../vendors/Flot/jquery.flot.pie",
+		'time':'../vendors/Flot/jquery.flot.time',
+		'stack':'../vendors/Flot/jquery.flot.stack',
+		'resize':'../vendors/Flot/jquery.flot.resize',
+		'orderBars':"../vendors/flot.orderbars/js/jquery.flot.orderBars",
+		'spline':"../vendors/flot-spline/js/jquery.flot.spline.min",
+		'curvedLines':"../vendors/flot.curvedlines/curvedLines",
+		'moment'	: '../dist/plugins/moment/min/moment.min',
+		'date'		: '../vendors/DateJS/build/date',
+		'datepicker': '../vendors/bootstrap-daterangepicker/daterangepicker'
     // <script src="../vendors/DateJS/build/date.js"></script>
     // <!-- JQVMap -->
     // <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
@@ -99,7 +99,7 @@ var require = {
 		'angular-animate': {deps: ['angular']},
 		'angular-resource': {deps: ['angular']},
 		'angular-cookies': {deps: ['angular']},
-		'custom':{deps:['angular','jquery']},
+		'custom':{deps:['angular','jquery',]},
 		'nprogress':{deps:['angular','jquery']},
 		'Chart':{deps:['angular','jquery']},
 		'progressbar':{deps:['angular','jquery']},

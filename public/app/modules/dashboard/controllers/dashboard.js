@@ -1,24 +1,38 @@
 define(['modules/dashboard/module','io'], function (module,io) {
 
 
-module.registerController('dashboardCtrl',function($scope){
-	console.log("in controller dashboard")
-            //         var socket = io.connect(appConfig.socketURL)
+module.registerController('dashboardCtrl',function($scope,notificationService,Authorization,$state,User){
 
-  
-            // socket.on('initChat',function(data){
-            //     console.log('socket connected for '+data.name)
-            //     socket.emit('dataRecieve',"success")
-            // })
+  var checkAvailability = Authorization.checkAvailability();
+
+  if(checkAvailability){
+        $("#focusget").focus();
+
+
+
+
+
+        $scope.currentUser = JSON.parse(User.getUserInfo());
+
+        Authorization.dailyUpdate().then(function(data){
+           $scope.dailyUpdate= data.data.response.result;
+                }).catch(function(){
+                  $state.transitionTo('login')
+              });
+        var socket = io.connect(appConfig.socketURL)
+        let userInitial = window.localStorage.getItem('_identity')
+        socket.emit('initChat',userInitial);
+        socket.on('initComplete',function(msg){
+        notificationService.confirmation(msg);
+            })
+  }else{
+        $state.transitionTo('login')
+  }
+
+
+
             
-              
-  // $(document).ready(() => {
-  //       const loader = document.getElementById('loader');
-  //       setTimeout(() => {
-  //         loader.classList.add('fadeOut');
-  //       }, 300);
-  //     });
-
+  
 });
 
 })

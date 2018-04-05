@@ -9,7 +9,8 @@ define(['auth/module','io', 'form-validator-bootstrap', 'form-validator-mandator
                                                             $location, 
                                                             $http, 
                                                             $cookies,
-                                                            notificationService) {
+                                                            notificationService
+                                                            ) {
  
         $scope.userInfo = {
             username: '',
@@ -35,28 +36,27 @@ define(['auth/module','io', 'form-validator-bootstrap', 'form-validator-mandator
             }
             $rootScope.startSpinner()
 
-            Authorization.login(
-                $scope.userInfo.username,
-                $scope.userInfo.password)
-
+            Authorization.login($scope.userInfo.username,$scope.userInfo.password)
                 .success(function (data) {
                     $scope.stopSpinner();
-                    User.initUserInfo()                      
-                        notificationService.loginSuccess();
+                    if(data.status){
+                         User.initUserInfo().success(function(res){
+                            notificationService.loginSuccess();
+                        $state.transitionTo('dashboard')
+                         }).error(function(err){
+                            throw new Error("Error")
+                         })                  
+                        
+                    }
+                   
                         
                 })
 
                 .error(function (response) {
-                    // $scope.stopSpinner();
+                    $scope.stopSpinner();
                         console.log("in Error")
 
                 });
-        };
-
-
-
-
-
-              
+        };              
     });
 });

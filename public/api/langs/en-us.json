@@ -1,5 +1,5 @@
 {
-	"forgotPassword"	:	"Forgot Password",
+	"forgotPassword"	:	"Forgot Password?",
 	"pleasesignin"		:	"Please Sign In",
 	"username" 			: 	"Username",
 	"password" 			: 	"Password",
@@ -17,6 +17,18 @@
 	"registerhere"		:	"Register Here",
 	"register"			:	"Register",
 	"SuccessLogin"		:	"Login Successfully.",
-	"loginMsg"			:	"Login"	
+	"loginMsg"			:	"Log in"	,
+	"loginForm"			:	"Login Form",
+	"chatbot"			:	"Chat Bot",
+	"newtosite"			:	"New to site",
+	"createaccount"		:	"Create Account",
+	"rightreserved"		:	"All Rights Reserved. Chat Bot ! is a Bootstrap 3 template. Privacy and Terms",
+	"alreadymember"		:	"Already a member",
+	"submit"			:	"Submit",
+	"firstname"			:	"First Name",
+	"lastname"			:	"Last Name",
+	"Successregister"	:   "Success register.",
+	"registerMsg"		: 	"Register",
+	"realtime"			:	"Real Time"
 
 }

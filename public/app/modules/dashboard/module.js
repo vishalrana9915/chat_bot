@@ -14,30 +14,30 @@ define([
     couchPotato.configureApp(module);
     module.config(function ($stateProvider, $couchPotatoProvider,$urlRouterProvider) {
 
-        $stateProvider
+        // $stateProvider
 
-        .state('dash', {
-            url: '/dash',
-            data:{
-                title:'Dashboard'
-            },
-            views: {
-                root: {
-                    "content@app": {
-                    templateUrl: "app/modules/dashboard/views/dashboard.html",
-                    controller :"dashboardCtrl",
-                    resolve: {
-                        deps: $couchPotatoProvider.resolveDependencies([
-                            'app/modules/dashboard/controllers/dashboard'
-                         ])
-                    }
-                }
-                }
-            }
+        // .state('dash', {
+        //     url: '/dash',
+        //     data:{
+        //         title:'Dashboard'
+        //     },
+        //     views: {
+        //         root: {
+        //             "content@app": {
+        //             templateUrl: "app/modules/dashboard/views/dashboard.html",
+        //             controller :"dashboardCtrl",
+        //             resolve: {
+        //                 deps: $couchPotatoProvider.resolveDependencies([
+        //                     'app/modules/dashboard/controllers/dashboard'
+        //                  ])
+        //             }
+        //         }
+        //         }
+        //     }
 
-        })
+        // })
 
-        $urlRouterProvider.otherwise('/login');
+        // $urlRouterProvider.otherwise('/login');
 
     })
         //.constant('authKeys', authKeys);

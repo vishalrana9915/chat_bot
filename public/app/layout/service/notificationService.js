@@ -12,7 +12,15 @@ define(['auth/module'], function (module) {
                loginSuccess : function(){
                 toastr.success(notificationMessages.successLoginMessage(),notificationMessages.successCreateTitle())
             },
-            
+            error:function(msg){
+                 toastr.error(notificationMessages.error(msg),notificationMessages.errorTitle())
+            },
+            registerSuccess:function(){
+                 toastr.success(notificationMessages.successMessage(),notificationMessages.successRegisterTitle())
+            },
+            confirmation : function(msg){
+                 toastr.success(notificationMessages.socketMessage(msg),notificationMessages.socketTitle())
+            }
            
         };
         return notificationService;

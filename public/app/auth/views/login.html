@@ -1,9 +1,9 @@
-   <div>
+   <div id='loginPage'>
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
             <form id='loginForm'>
-              <h1>Login Forms</h1>
+              <h1>{{getWord('loginForm')}}</h1>
               <div>
                 <input type="text" class="form-control"  placeholder="{{getWord('username')}}" name="username" ng-model='userInfo.username'/>
               </div>
@@ -11,23 +11,23 @@
                 <input name="password" type="password" class="form-control" placeholder="{{getWord('password')}}" ng-model='userInfo.password' />
               </div>
               <div>
-                <a class="btn btn-default submit" ng-click='loginUser()'>Log in</a>
-                <a class="reset_pass" >Lost your password?</a>
+                <a class="btn btn-default submit" ng-click='loginUser()'>{{getWord('loginMsg')}}</a>
+                <a class="reset_pass" >{{getWord('forgotPassword')}}</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
-                  <a href='/#/register' class="to_register"> Create Account </a>
+                <p class="change_link">{{getWord('newtosite')}}?
+                  <a href='/#/register' class="to_register"> {{getWord('createaccount')}} </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Chat Bot !</h1>
-                  <p>©2018 All Rights Reserved. Chat Bot ! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i> {{getWord('chatbot')}} !</h1>
+                  <p>©2018 {{getWord('rightreserved')}}</p>
                 </div>
               </div>
  			</form>
@@ -38,12 +38,4 @@
 
 </div>
 
-<!--###############################################################-->
-<!--## OVERLAY                                                   ##-->
-<!--###############################################################-->
-<div id="pageOverlay" class="overlay hidden"></div>
-
-<!--###############################################################-->
-<!--## SPIN JS                                                   ##-->
-<!--###############################################################-->
-<custom-spinner id="spCustomSpinner" ></custom-spinner>
+<custom-spinner id='pageOverlay'></custom-spinner>

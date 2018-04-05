@@ -13,7 +13,6 @@ define(['app', 'jquery', 'spinner-js', 'lodash'],
 				replace: true,
 
 				link: function (scope, element, attributes) {
-					console.log("in custom spinner")
 					var opts = {
 						lines       : 13,           // The number of lines to draw
 						length      : 28,           // The length of each line

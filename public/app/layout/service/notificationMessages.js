@@ -15,6 +15,24 @@ define(['app'], function (module) {
 			},
 			successLoginMessage : function () {
 				return $rootScope.getWord('SuccessLogin');
+			},
+			error:function(msg){
+				return $rootScope.getWord(msg);
+			},
+			errorTitle:function(){
+				return '<h2>'+$rootScope.getWord('error')+'</h2>'
+			},
+			successMessage : function(){
+				return $rootScope.getWord('Successregister');
+			},
+			successRegisterTitle: function(){
+				return '<h2>'+$rootScope.getWord('registerMsg')+'</h2>'
+			},
+			socketMessage: function(msg){
+				return $rootScope.getWord(msg);
+			},
+			socketTitle:function(){
+				return '<h2>'+$rootScope.getWord('realtime')+'</h2>'
 			}
 		};
 		return notificationMessages;
