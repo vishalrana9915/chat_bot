@@ -1,0 +1,87 @@
+ <div class='container-fluid' id='content'>
+
+<heading-initial></heading-initial>
+
+
+<div class='row' id='focusget'>
+    
+    <side-initials></side-initials>
+
+
+
+    <div class='col-md-10' style='background-color: #F7F7F7;;bottom: 0'>
+        
+    <div style='margin-right:23%;margin-left:23%;background-color:grey;margin-top: 30px;margin-bottom: 20px;'>
+          <div style='padding: 10px;'>
+            <img ng-src='dist/images/logo.svg' style='border-radius: 50%;width: 5%;'/>
+          <label style='color: white;'>Chat Bot</label>
+          </div>
+          <div style='padding: 10px;margin-top: 5px;' >
+            <textarea  placeholder="Whats in your mind!" style='width: 100%;'></textarea>  
+          </div>
+          <div style='margin:10px;'>
+            <button class='btn btn-primary' >save</button>
+          </div>
+
+  </div>
+
+  <!-- <div style='margin-right:23%;margin-left:23%;background-color:grey;margin-top: 40px;'>
+          <div class='row' style='padding: 10px;'>
+            <div class='col-lg-1'>
+            <img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/>
+            </div>
+            <div class='col-lg-11'>
+               <label style='color: white;margin-bottom: inherit;'>Your NAme is gonna be here.</label><br/>
+          <sub style='color: white;'>TIme of now</sub>
+            </div>
+
+         
+          </div>
+          <div style='padding: 10px;margin-top: 5px;' >
+            <p style='color: white;'>This content is gonna be here for a while untill i bind the real values</p>
+            </div>
+          <div class='row' style='margin:10px;text-align: center;'>
+              <div class='col-lg-4' style='color: white;padding: 5px;' >Like</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;'>Comment</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;'>Share</div>
+          </div>
+
+  </div> -->
+
+   <div style='margin-right:23%;margin-left:23%;background-color:grey;margin-top: 40px;' ng-repeat='userFeeds in feeds'>
+          <div class='row' style='padding: 10px;'>
+            <div class='col-lg-1' >
+            <img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/>
+            </div>
+            <div class='col-lg-11'>
+               <label style='color: white;margin-bottom: inherit;'>{{userFeeds.senderInfo.fullName}}</label><br/>
+          <sub style='color: white;'>{{userFeeds.createdAt | date: 'medium'}}</sub>
+            </div>
+
+         
+          </div>
+          <div style='padding: 10px;margin-top: 5px;' >
+            <p style='color: white;'>{{userFeeds.content}}</p>
+            <div style='margin-left: 10%;margin-right: 10%;'   ng-repeat='pic in userFeeds.picture'>
+
+            <img ng-src='{{src}}' style='border-radius: 50%;width: 100%;'/>
+            </div>
+            </div>
+          <div class='row' style='margin:10px;text-align: center;border-top: 1px solid blanchedalmond;'>
+              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;' >Like</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'>Comment</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'>Share</div>
+          </div>
+
+  </div>
+    </div>
+    </div>
+    
+  </div>
+
+    <!-- <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script> -->
+    <!-- <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script> -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="dist/js/custom.min.js"></script>
+

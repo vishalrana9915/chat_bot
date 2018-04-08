@@ -67,7 +67,8 @@ define([
 
         //'login, lock, and register user
         'app.auth', //load 'app.auth' first
-        'app.dashboard'
+        'app.dashboard',
+        'app.connect'
         // ui application modules smart-admin
         // 'app.layout',
         // 'app.ui'

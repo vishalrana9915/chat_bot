@@ -64,17 +64,25 @@ define([
                 views:{
                     root:{
                         templateUrl:'',
-	                    controller : function ($scope, $cookies) {
-                            //Delete cookies.
-                            $cookies.remove("_Token");
-                            $cookies.remove("expDate");
+	                    controller : function ($scope, $cookies,$state) {
+                            //Delete cookies
+                            try{
 
-                            //Clear out DataTables states.
+                             var cookies = document.cookie.split(";");
+                              for (var i = 0; i < cookies.length; i++) {
+                                var cookie = cookies[i];
+                                var eqPos = cookie.indexOf("=");
+                                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                            }
+                            }catch(e){
+                                console.log("hello")
+                            }
                             localStorage.clear();
                             sessionStorage.clear();
 
                             //Reload back to the login screen.
-                            location.reload();
+                            $state.transitionTo('login')
 	                    }
 
                     }
@@ -136,10 +144,27 @@ define([
             }
         })
 
+          .state('connect', {
+            url:'/connect',
+            views: {
+                root:{
+                    templateUrl: 'app/modules/connect/views/connect.html',
+                    controller:'connectCtrl',
+                    resolve:{
+                         deps: $couchPotatoProvider.resolveDependencies([
+                            'app/modules/connect/controller/connect'
+                            ])                        
+                    }
+                }
+            },
+            data: {
+                requiresLogin:true
+            }
+        })
+
         $urlRouterProvider.otherwise('login');
 
     })
-        //.constant('authKeys', authKeys);
 
     module.run(function($couchPotato){
         module.lazy = $couchPotato;

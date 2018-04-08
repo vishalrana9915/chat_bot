@@ -7,9 +7,14 @@ define([
     // 'auth/directives/loginAuth',
     // 'auth/directives/signupForm',
     'modules/dashboard/module',
+    'modules/connect/module',
+    'layout/directives/header',
+    'layout/directives/side',
+
     // 'modules/dashboard/directives/header',
     // 'modules/dashboard/directives/footer',
     'modules/dashboard/controllers/dashboard',
+    'modules/connect/controllers/connect',
 	// application layout
 	'layout/module',
 

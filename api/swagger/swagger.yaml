@@ -16,6 +16,8 @@ tags:
     description: "user api"
   - name: admin
     description: "admin api"
+  - name: connect
+    description: "connect api"
 paths:
   "/user/login":
       post:
@@ -320,7 +322,60 @@ paths:
                   type: number
                 responseMessage: 
                   type: string
-         
+  "/connect/createFeed":
+      post:
+        summary: Creating new feeds.
+        parameters:
+        - name: "authorization"
+          in: "header"
+          required: true
+          type: "string"
+        - name: "body"
+          in: "body"
+          description: "connect details"
+          required: true
+          schema:
+            $ref: "#/definitions/newFeeds"
+        responses:
+          "201":
+            description: Sucessfully created feed.
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: number
+                responseMessage: 
+                  type: string
+                roomId:
+                  type: string
+          "400":
+            description: Access Forbidden.          
+            schema: 
+              type: object
+              properties:
+                responseCode: 
+                  type: number
+                responseMessage: 
+                  type: string  
+  "/connect/uploadFile":
+      post:
+        summary: Performing accept/reject function on notifications.
+        parameters:
+        - name: "authorization"
+          in: "header"
+          required: true
+          type: "string"
+        - name: "file"
+          in: "formData"
+          description: "file to upload"
+          required: true
+          type: "file"
+        responses:
+          "201":
+            description: Sucessfully uploaded file.  
+          "400":
+            description: Failed to upload file.
+                  
 definitions:
   searched:
     type: "object"
@@ -407,7 +462,27 @@ definitions:
       uuid:
         type: string
         description: "This will contains the id of notification sender.Who request to you."
-    
+  newFeeds:
+    type: "object"
+    required: 
+    - "senderInfo"
+    properties:
+      senderInfo:
+        type: "object"
+        properties:
+          fullName:
+            type: "string"
+          email:
+            type: "string"
+          id:
+            type: "string"
+      picture:
+        type: "array"
+        items:
+          type: "string"
+      content:
+        type: "string"
+        description: "This will contains the message you want to post."  
     
     
     

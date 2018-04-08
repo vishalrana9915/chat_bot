@@ -6,33 +6,26 @@ module.registerController('dashboardCtrl',function($scope,notificationService,Au
   var checkAvailability = Authorization.checkAvailability();
 
   if(checkAvailability){
-        $("#focusget").focus();
+      try{
+        $scope.currentUser =  JSON.parse(User.getUserInfo()) ;
 
-
-
-
-
-        $scope.currentUser = JSON.parse(User.getUserInfo());
-
+      }catch(e){
+        $scope.currentUser =  User.getUserInfo() ;
+      }
         Authorization.dailyUpdate().then(function(data){
+          if(Array.isArray(data.data.response.result)){
+            $scope.dailyUpdate= data.data.response.result[0]
+          }else{
            $scope.dailyUpdate= data.data.response.result;
+
+          }
                 }).catch(function(){
                   $state.transitionTo('login')
               });
-        var socket = io.connect(appConfig.socketURL)
-        let userInitial = window.localStorage.getItem('_identity')
-        socket.emit('initChat',userInitial);
-        socket.on('initComplete',function(msg){
-        notificationService.confirmation(msg);
-            })
+        
   }else{
         $state.transitionTo('login')
   }
-
-
-
-            
-  
 });
 
 })

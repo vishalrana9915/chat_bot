@@ -13,6 +13,13 @@ define(['auth/module'], function (module) {
 			}
 			
 
+			this.console = function(msg){
+				let flag = true;
+				if(flag){
+					connsole.log(msg);
+				}
+			}
+
 			this.login = function (username, password) {
 				//******************************************************************************************************
 				// Resetting the Authorization in the header if it exists and you are trying to login
@@ -36,14 +43,16 @@ define(['auth/module'], function (module) {
 							notificationService.error("Please enter valid credentials.")
 							 throw new authorizationException("Please enter valid credentials.") ;
 						}
-						else if(data.response.responseCode == 400)
-							throw new authorizationException("Check your email and password.")
+						else if(data.response.responseCode == 400){
+							notificationService.error("Please enter valid credentials.")
+
+							throw new authorizationException("Check your email and password.")}
 						else{
 						$http.defaults.headers.common.Authorization = data.response.accessToken;
 						$http.defaults.headers.common['Accept-Language'] = $cookies.get('_locale');
 						$cookies.put("_Token", data.response.accessToken);
 						$cookies.put("expDate", data[".expires"]);
-						console.log(data.response.userProfile._id)
+						// console.log(data.response.userProfile._id)
 						window.localStorage.setItem('_identity',data.response.userProfile._id)
 						authToken = data.response.accessToken;
 						return data
@@ -154,7 +163,7 @@ define(['auth/module'], function (module) {
 						else if(data.response.responseCode == 400)
 							throw new authorizationException("Please try after some time.")
 						else{
-							console.log(data)
+							// console.log(data)
 						return data;
 						}  
 						
@@ -171,6 +180,35 @@ define(['auth/module'], function (module) {
 
 					});
 ;
+			};
+
+			this.getFeeds = function(){
+				var content = this.sendRequest($cookies.get('_Token'),"GET",appConfig.apiURL+'connect/feeds');
+				return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						else if(data.response.responseCode == 400)
+							throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data.response;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data.error_description);
+
+					});
 			}
 		}
 	);
