@@ -17,10 +17,10 @@
           <label style='color: white;'>Chat Bot</label>
           </div>
           <div style='padding: 10px;margin-top: 5px;' >
-            <textarea  placeholder="Whats in your mind!" style='width: 100%;'></textarea>  
+            <textarea  placeholder="Whats in your mind!" ng-model='content' style='width: 100%;'></textarea>  
           </div>
           <div style='margin:10px;'>
-            <button class='btn btn-primary' >save</button>
+            <button class='btn btn-primary' ng-click='saveFeed(content);'>save</button>
           </div>
 
   </div>
@@ -64,7 +64,7 @@
             <p style='color: white;'>{{userFeeds.content}}</p>
             <div style='margin-left: 10%;margin-right: 10%;'   ng-repeat='pic in userFeeds.picture'>
 
-            <img ng-src='{{src}}' style='border-radius: 50%;width: 100%;'/>
+            <img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/>
             </div>
             </div>
           <div class='row' style='margin:10px;text-align: center;border-top: 1px solid blanchedalmond;'>
