@@ -34,6 +34,7 @@ define([
 	'layout/service/socketService',
 	'layout/service/buildInfo',
 	'layout/service/notificationService',
+	'layout/service/facilityRoutingService',
 	'layout/service/notificationMessages',
 	// 'layout/service/dtEncoderFactory',
 	// Activities Working feature

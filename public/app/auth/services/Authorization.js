@@ -69,7 +69,7 @@ define(['auth/module'], function (module) {
 					})
 					.error(function (data, status, headers, config) {
 
-						console.log(data.error_description);
+						console.log(data);
 
 					});
 			};
