@@ -49,7 +49,7 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
         if($scope.content || $scope.picture){
           var data ={
               content:$scope.content,
-              picture:$scope.picture
+              picture:$scope.picture || ""
             }
            
 
