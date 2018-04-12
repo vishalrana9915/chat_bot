@@ -8,18 +8,7 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
   if(checkAvailability){
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    $scope.picture=[]
     
       try{
         $scope.currentUser =  JSON.parse(User.getUserInfo()) ;
@@ -30,14 +19,22 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
        
       $scope.getNewFeeds = function(){
         Authorization.getFeeds().then(function(data){
-           $scope.feeds =  data.data.response;
+           $scope.feeds =  data.data.response.result;
+           $scope.correspondingImages = data.data.response.images;
                 }).catch(function(){
                   $state.transitionTo('login')
               });
       }    
-      $scope.getNewFeeds();
+       $scope.getNewFeeds();
       var myVar = setInterval(function(){
-        $scope.getNewFeeds();
+           Authorization.checkDiff().then(function(data){
+                  console.log(data)
+              if(data.data.response){
+                    $scope.getNewFeeds();
+              }
+           }).catch(function(){
+                  notificationService.error("Error")
+              });
       },15000)
 
        $scope.$on('$destroy',()=>{
@@ -49,20 +46,18 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
 
 
       $scope.saveFeed = function(field){
-        if($scope.content || $scope.formData){
+        if($scope.content || $scope.picture){
           var data ={
-              content:field
+              content:$scope.content,
+              picture:$scope.picture
             }
+           
 
-            if($scope.content){
-              Authorization.createFeeds(data)
-            }else if($scope.formData && !$scope.content){
-              Authorization.createFeeds(data)
-            }
-
-      Authorization.createFeeds(data).then(function(response){
+      Authorization.createFeeds(data)
+        .then(function(response){
         $scope.content = "";
-        $scope.formData={}
+        $scope.picture=[];
+        $scope.fileExist=false;
            $scope.getNewFeeds();
                 }).catch(function(){
                   $state.transitionTo('login')
@@ -74,30 +69,34 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
   }
 
 
-
+    $scope.fileExist= false;
 
     $scope.uploadFile = function(){angular.element('#uploadFeed').click()};
     $scope.fileSelected = function(data){
-    $scope.formData = fileUploadService.createFileFormData(data.files);
+      console.log(data.files)
+      $scope.fileExist=true;
+      $scope.formData =''
+    // $scope.formData = fileUploadService.createFileFormData(data.files);
+    // if($scope.formData){
+    //      Authorization.uploadFile($scope.formData).then(function(response){
+    //       $scope.picture = response.response;
+    //             }).catch(function(){
+    //               notificationService.error("Error while uploading file.Please try again later.")
+    //               // $state.transitionTo('login')
+    //           })
+    // }
+
+
+        Authorization.uploadFile(data.files["0"]).then(function(result){
+          console.log(result)
+          $scope.picture.push(result.data.response);
+        }).catch(function(e){
+          console.log(e)
+      })
+
+
+ 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -106,11 +105,6 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
   }else{
         $state.transitionTo('login')
   }
-
-
-
-  
-
 
 });
 

@@ -20,6 +20,8 @@ define([
 
 	'layout/directives/customSpinner',
 	'layout/directives/networkStatus',
+	'layout/directives/fileinput',
+	'layout/filters/imageFilter',
 	'components/language/form-validation-key-service',
 	// 'components/notifications/notificationFlyOut',
 

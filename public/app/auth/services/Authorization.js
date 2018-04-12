@@ -133,7 +133,7 @@ define(['auth/module'], function (module) {
 					})
 					.error(function (data, status, headers, config) {
 
-						console.log(data.error_description);
+						console.log(data);
 
 					});
 
@@ -178,7 +178,7 @@ define(['auth/module'], function (module) {
 					})
 					.error(function (data, status, headers, config) {
 
-						console.log(data.error_description);
+						console.log(data);
 
 					});
 ;
@@ -208,10 +208,41 @@ define(['auth/module'], function (module) {
 					})
 					.error(function (data, status, headers, config) {
 
-						console.log(data.error_description);
+						console.log(data);
 
 					});
 			};
+
+
+				this.checkDiff = function(){
+					var content = this.sendRequest($cookies.get('_Token'),"GET",appConfig.apiURL+'connect/checkDiff');
+				return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						// else if(data.response.responseCode == 400)
+						// 	throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data);
+
+					});
+				}
+
 
 			this.createFeeds = function(content){
 				var content = this.sendRequest($cookies.get('_Token'),"POST",appConfig.apiURL+'connect/createFeed',content);
@@ -237,10 +268,30 @@ define(['auth/module'], function (module) {
 					})
 					.error(function (data, status, headers, config) {
 
-						console.log(data.error_description);
+						console.log(data);
 
 					});
 			};
+
+			this.uploadFile = function(myFile){
+					console.log(myFile)
+			        var uploadUrl = appConfig.apiURL+'connect/uploadFile';
+			        var fd = new FormData();
+			        fd.append('file', myFile);
+
+			      return  $http.post(uploadUrl,fd, {
+			            transformRequest: angular.identity,
+			            headers: {'Content-Type': undefined,authorization:$cookies.get('_Token')}
+			        })
+			        .success(function(data){
+			          console.log("success!!");
+			          console.log(data)
+			          return data.response
+			        })
+			        .error(function(){
+			          console.log("error!!");
+			        });
+			}
 		}
 	);
 

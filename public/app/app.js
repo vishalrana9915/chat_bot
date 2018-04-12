@@ -137,7 +137,7 @@ define([
 
                 try {
                     var content = rejectionInfo.data ? rejectionInfo.data : '';
-                    toastr.error(content,$rootScope.getWord('Error'))
+                    // toastr.error(content,$rootScope.getWord('Error'))
                     // $.bigBox({
                     //     title:  $rootScope.getWord('Error'),
                     //     content: rejectionInfo.data ? rejectionInfo.data : '',

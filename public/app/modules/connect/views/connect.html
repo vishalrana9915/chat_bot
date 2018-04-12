@@ -19,14 +19,27 @@
           <div style='padding: 10px;margin-top: 5px;' >
             <textarea  placeholder="Whats in your mind!" ng-model='content' style='width: 100%;'></textarea>  
           </div>
-          <div><span class='fa fa-plus' style='color: white;float: right;margin-right: 10px;'  ng-click="uploadFile();" ></span></div>
-          <input type='file' id='uploadFeed' style='display: none;' ng-model='fileUploaded' onchange="angular.element(this).scope().fileSelected($event)"/>
-          <div style='margin:10px;'>
-            <button class='btn btn-primary' ng-click='saveFeed(content);'>save</button>
+          <div class='row'>
+            <div class='col-lg-6' style='width:100%;' ng-show='fileExist'>
+              <!--  <img ng-src="{{filepreview}}" class="img-responsive" ng-show="filepreview"/><span class='fa fa-close'></span> -->
+              <span ng-show='fileExist' style='color: white;margin-left: 10px;'>
+                <label>One file selected</label>
+              
+            </span>
+            </div>
+            <div ng-class='{true:"col-lg-6",false:"col-lg-12"}[fileExist]'>
+              <span class='fa fa-plus' style='color: white;float: right;margin-right: 10px;'  ng-click="uploadFile();" ></span>
+            </div>
           </div>
-
+          <div>
+            <button class='btn btn-primary' ng-click='saveFeed(content);' style='margin-left: 10px;margin-top: 10px;'>save</button>
+          </div>
+          </div>
+      
+          <input type='file' id='uploadFeed' style='display: none;' file-model="myFile" onchange="angular.element(this).scope().fileSelected(this)"/>
+          <div style='margin:10px;'>
   </div>
-
+          
   <!-- <div style='margin-right:23%;margin-left:23%;background-color:grey;margin-top: 40px;'>
           <div class='row' style='padding: 10px;'>
             <div class='col-lg-1'>
@@ -50,6 +63,10 @@
 
   </div> -->
 
+  <div style='margin-right:23%;margin-left:23%;margin-top: 40px;text-align: center;' ng-show='feeds.length==0'>
+    <label><span class='fa fa-plus'></span>&nbsp;&nbsp;No feeds found.</label>
+  </div>
+
    <div style='margin-right:23%;margin-left:23%;background-color:grey;margin-top: 40px;' ng-repeat='userFeeds in feeds'>
           <div class='row' style='padding: 10px;'>
             <div class='col-lg-1' >
@@ -57,16 +74,16 @@
             </div>
             <div class='col-lg-11'>
                <label style='color: white;margin-bottom: inherit;'>{{userFeeds.senderInfo.fullName}}</label><br/>
-          <sub style='color: white;'>{{userFeeds.createdAt | date: 'medium'}}</sub>
+               <sub style='color: white;'>{{userFeeds.createdAt | date: 'medium'}}</sub>
             </div>
 
          
           </div>
           <div style='padding: 10px;margin-top: 5px;' >
             <p style='color: white;'>{{userFeeds.content}}</p>
-            <div style='margin-left: 10%;margin-right: 10%;'   ng-repeat='pic in userFeeds.picture'>
+            <div class='row' style='margin-left: 10%;margin-right: 10%;'>
 
-            <img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/>
+            <img ng-src='data:image/png;base64,{{correspondingImages[$index] }}' style='width: 100%;'/>
             </div>
             </div>
           <div class='row' style='margin:10px;text-align: center;border-top: 1px solid blanchedalmond;'>

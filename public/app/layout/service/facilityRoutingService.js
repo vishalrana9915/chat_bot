@@ -10,24 +10,27 @@ define(['app'], function (module) {
 
         return {
             createFileFormData : function(files){
-
-                var formData = new FormData();
+                console.log(files["0"])
+                var myFormData = new FormData();
 
                 if(files == null || files == undefined || files.length <=0){
                     console.log('No files found!');
                     return 0;
-                }
-
-                for (var i = 0; i < files.length; i++)
-                    formData.append('files[]', files[i]);
+                }else{
+                    // for (var i = 0; i < files.length; i++)
+                    myFormData.append('file', files);
 
                 // if(data){
                 //     _.forEach(data, function (n, key) {
                 //         formData.append(key, n);
                 //     });
                 // }
+                    console.log(myFormData);
                 
-                return formData;
+                return myFormData;
+                }
+
+                
             }
         };
     });

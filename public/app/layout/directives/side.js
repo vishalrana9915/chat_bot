@@ -1,7 +1,6 @@
 /**
  * Created by Vishal rana .
- * Path: public/app/layout/directives/customSpinner.js
- * Notes: Directive for using the spin.js plugin
+ * Path: public/app/layout/directives/side.js
  */
 define(['app', 'jquery', 'spinner-js', 'lodash'],
 	function (module, $, Spinner, _) {
