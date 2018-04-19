@@ -291,6 +291,36 @@ define(['auth/module'], function (module) {
 			        .error(function(){
 			          console.log("error!!");
 			        });
+			};
+
+			this.likeFeed = function(feedId){
+					// var uploadUrl = appConfig.apiURL+'connect/likeFeed?postId='+feedId;
+					var content = this.sendRequest($cookies.get('_Token'),"GET",appConfig.apiURL+'connect/likeFeed?postId='+feedId);
+				 return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						// else if(data.response.responseCode == 400)
+						// 	throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data);
+
+					});
 			}
 		}
 	);

@@ -20,6 +20,20 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
       $scope.getNewFeeds = function(){
         Authorization.getFeeds().then(function(data){
            $scope.feeds =  data.data.response.result;
+            console.log(localStorage.getItem('_identity'))
+          angular.forEach($scope.feeds,function(val,index){
+            var limitStart=true;
+          angular.forEach(val.like,function(dat){
+              if(dat.id == localStorage.getItem('_identity')){
+                if(limitStart){
+                val.likeFeed = 'true';
+                limitStart = false;
+                }
+              }else{
+                val.likeFeed = 'false';
+              }
+            })           
+          })
            $scope.correspondingImages = data.data.response.images;
                 }).catch(function(){
                   $state.transitionTo('login')
@@ -42,7 +56,7 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
        })
 
 
-      console.log("connect wise.");
+      // console.log("connect wise.");
 
 
       $scope.saveFeed = function(field){
@@ -76,17 +90,6 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
       console.log(data.files)
       $scope.fileExist=true;
       $scope.formData =''
-    // $scope.formData = fileUploadService.createFileFormData(data.files);
-    // if($scope.formData){
-    //      Authorization.uploadFile($scope.formData).then(function(response){
-    //       $scope.picture = response.response;
-    //             }).catch(function(){
-    //               notificationService.error("Error while uploading file.Please try again later.")
-    //               // $state.transitionTo('login')
-    //           })
-    // }
-
-
         Authorization.uploadFile(data.files["0"]).then(function(result){
           console.log(result)
           $scope.picture.push(result.data.response);
@@ -96,6 +99,17 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
 
 
  
+    }
+
+
+    $scope.likeFeed = function(feedId){
+  
+      Authorization.likeFeed(feedId).then(function(result){
+         console.log(result)
+         $scope.getNewFeeds();
+        }).catch(function(e){
+          console.log(e)
+      })
     }
 
 

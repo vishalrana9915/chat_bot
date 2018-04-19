@@ -86,10 +86,13 @@
             <img ng-src='data:image/png;base64,{{correspondingImages[$index] }}' style='width: 100%;'/>
             </div>
             </div>
+            <div style='color: white;margin: 5px;'>
+              <label>{{userFeeds.like.length}} Likes   {{userFeeds.comment.length}} Comments</label>
+            </div>
           <div class='row' style='margin:10px;text-align: center;border-top: 1px solid blanchedalmond;'>
-              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;' >Like</div>
-              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'>Comment</div>
-              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'>Share</div>
+              <div class='col-lg-4' ng-class='{"colorChange":userFeeds.likeFeed}' style='color: white;padding: 5px;cursor: pointer;' ng-click='likeFeed(userFeeds._id);'><span class='fa fa-thumbs-up'></span>&nbsp; Like</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'><span class='fa fa-comments'></span>&nbsp;Comment</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'><span class='fa fa-share-alt'></span>&nbsp;Share</div>
           </div>
 
   </div>

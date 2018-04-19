@@ -1,4 +1,4 @@
-#loginForm .has-error .control-label,
+/*#loginForm .has-error .control-label,
 #loginForm .has-error .help-block,
 #loginForm .has-error .form-control-feedback 
 {
@@ -34,4 +34,8 @@
 }
 #registerForm .has-success .form-control{
    border-color:#ced4da;
+}*/
+
+.colorChange{
+	color:blue !important;
 }
