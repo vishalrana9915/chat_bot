@@ -4,26 +4,21 @@ define([
 	'auth/models/User',
 	'auth/login/loginCtrl',
 	'auth/signup/signupCtrl',
-    // 'auth/directives/loginAuth',
-    // 'auth/directives/signupForm',
     'modules/dashboard/module',
     'modules/connect/module',
+    'modules/friends/module',
     'layout/directives/header',
     'layout/directives/side',
-
-    // 'modules/dashboard/directives/header',
-    // 'modules/dashboard/directives/footer',
     'modules/dashboard/controllers/dashboard',
     'modules/connect/controllers/connect',
-	// application layout
+    'modules/friends/controllers/friends',
 	'layout/module',
-
 	'layout/directives/customSpinner',
 	'layout/directives/networkStatus',
 	'layout/directives/fileinput',
+	'layout/directives/enterDir',
 	'layout/filters/imageFilter',
 	'components/language/form-validation-key-service',
-	// 'components/notifications/notificationFlyOut',
 
 	// Language components & controller
 	'components/language/Language',

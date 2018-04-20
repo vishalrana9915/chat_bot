@@ -39,29 +39,6 @@
           <input type='file' id='uploadFeed' style='display: none;' file-model="myFile" onchange="angular.element(this).scope().fileSelected(this)"/>
           <div style='margin:10px;'>
   </div>
-          
-  <!-- <div style='margin-right:23%;margin-left:23%;background-color:grey;margin-top: 40px;'>
-          <div class='row' style='padding: 10px;'>
-            <div class='col-lg-1'>
-            <img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/>
-            </div>
-            <div class='col-lg-11'>
-               <label style='color: white;margin-bottom: inherit;'>Your NAme is gonna be here.</label><br/>
-          <sub style='color: white;'>TIme of now</sub>
-            </div>
-
-         
-          </div>
-          <div style='padding: 10px;margin-top: 5px;' >
-            <p style='color: white;'>This content is gonna be here for a while untill i bind the real values</p>
-            </div>
-          <div class='row' style='margin:10px;text-align: center;'>
-              <div class='col-lg-4' style='color: white;padding: 5px;' >Like</div>
-              <div class='col-lg-4' style='color: white;padding: 5px;'>Comment</div>
-              <div class='col-lg-4' style='color: white;padding: 5px;'>Share</div>
-          </div>
-
-  </div> -->
 
   <div style='margin-right:23%;margin-left:23%;margin-top: 40px;text-align: center;' ng-show='feeds.length==0'>
     <label><span class='fa fa-plus'></span>&nbsp;&nbsp;No feeds found.</label>
@@ -86,14 +63,32 @@
             <img ng-src='data:image/png;base64,{{correspondingImages[$index] }}' style='width: 100%;'/>
             </div>
             </div>
-            <div style='color: white;margin: 5px;'>
+            <div style='color: white;padding: 10px;'>
               <label>{{userFeeds.like.length}} Likes   {{userFeeds.comment.length}} Comments</label>
             </div>
           <div class='row' style='margin:10px;text-align: center;border-top: 1px solid blanchedalmond;'>
-              <div class='col-lg-4' ng-class='{"colorChange":userFeeds.likeFeed}' style='color: white;padding: 5px;cursor: pointer;' ng-click='likeFeed(userFeeds._id);'><span class='fa fa-thumbs-up'></span>&nbsp; Like</div>
-              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'><span class='fa fa-comments'></span>&nbsp;Comment</div>
+              <div class='col-lg-4' ng-class='{"colorChange":userFeeds.PartiallikeFeed}' style='color: white;padding: 5px;cursor: pointer;' ng-click='likeFeed(userFeeds._id);'><span class='fa fa-thumbs-up'></span>&nbsp; Like</div>
+              <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;' ng-click='commentFeed($index);'><span class='fa fa-comments'></span>&nbsp;Comment</div>
               <div class='col-lg-4' style='color: white;padding: 5px;cursor: pointer;'><span class='fa fa-share-alt'></span>&nbsp;Share</div>
           </div>
+          <div class='row' style='margin: 0;padding: 12px 16px 4px;background-color: #f3f6f8;border:1px solid;' ng-show='commentTrue== $index'>
+            <div class='col-lg-1'><img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/></div>
+            <div class='col-lg-11'> <textarea type='text' placeholder="Enter your comment" ng-model='commentField'  style='width: 100%;' > </textarea>
+              <input type='button' ng-show='commentField' value='Reply' ng-click='commentingField(commentField,$index)' style='margin-top: 5px;'/> </div>
+          </div>
+          <div class='row' style='margin: 0;padding: 12px 16px 4px;background-color: #f3f6f8;border:1px solid;' ng-show='commentTrue== $index' >
+            <div ng-repeat='comments in userFeeds.comment | limitTo : limit ' style='width: 100%;margin-bottom: 20px;'>
+            <div class='col-lg-1'><img ng-src='dist/images/404.png' style='border-radius: 50%;width: 100%;'/></div>
+            <div class='col-lg-11'>
+              <b>{{comments.fullname }} </b><br/>
+              <p>{{comments.text}}</p>
+              <span style='margin-top: 5px;'><a>Like</a>&nbsp;&nbsp;<a>Reply</a></span>
+            </div>
+            
+          </div>
+          <div style='margin-top: 15px;' ng-show='limit< userFeeds.comment.length'><a ng-click='incrementLimit();' style='cursor: pointer;'>Show more</a></div>
+          <div style='margin-top: 15px;' ng-show='limit >= userFeeds.comment.length' ><a ng-click='decrementLimit();' style='cursor: pointer;'>Show less</a></div>
+        </div>
 
   </div>
     </div>

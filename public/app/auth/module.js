@@ -162,7 +162,25 @@ define([
             }
         })
 
-        $urlRouterProvider.otherwise('login');
+           .state('message', {
+            url:'/message',
+            views: {
+                root:{
+                    templateUrl: 'app/modules/friends/views/friends.html',
+                    controller:'friendsCtrl',
+                    resolve:{
+                         deps: $couchPotatoProvider.resolveDependencies([
+                            'app/modules/friends/controllers/friends'
+                            ])                        
+                    }
+                }
+            },
+            data: {
+                requiresLogin:true
+            }
+        });
+
+        // $urlRouterProvider.otherwise('login');
 
     })
 

@@ -7,6 +7,7 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
 
   if(checkAvailability){
 
+    var limitStep = 1;
 
     $scope.picture=[]
     
@@ -20,17 +21,18 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
       $scope.getNewFeeds = function(){
         Authorization.getFeeds().then(function(data){
            $scope.feeds =  data.data.response.result;
-            console.log(localStorage.getItem('_identity'))
           angular.forEach($scope.feeds,function(val,index){
             var limitStart=true;
           angular.forEach(val.like,function(dat){
-              if(dat.id == localStorage.getItem('_identity')){
+              if(dat.id === localStorage.getItem('_identity')){
+                // console.log(dat.id)
+                // console.log(localStorage.getItem('_identity'))
                 if(limitStart){
-                val.likeFeed = 'true';
+                val.PartiallikeFeed = true;
                 limitStart = false;
                 }
               }else{
-                val.likeFeed = 'false';
+                val.PartiallikeFeed = false;
               }
             })           
           })
@@ -42,7 +44,6 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
        $scope.getNewFeeds();
       var myVar = setInterval(function(){
            Authorization.checkDiff().then(function(data){
-                  console.log(data)
               if(data.data.response){
                     $scope.getNewFeeds();
               }
@@ -80,11 +81,10 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
                 notificationService.error("Provide some input");
               }
 
-  }
+      }
 
 
     $scope.fileExist= false;
-
     $scope.uploadFile = function(){angular.element('#uploadFeed').click()};
     $scope.fileSelected = function(data){
       console.log(data.files)
@@ -103,7 +103,6 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
 
 
     $scope.likeFeed = function(feedId){
-  
       Authorization.likeFeed(feedId).then(function(result){
          console.log(result)
          $scope.getNewFeeds();
@@ -113,7 +112,39 @@ module.registerController('connectCtrl',function($scope,notificationService,Auth
     }
 
 
+    $scope.commentFeed = function(id){
+      console.log(id)
+      $scope.commentTrue=id
+    }
 
+
+    $scope.limit = limitStep;
+      $scope.incrementLimit = function() {
+          $scope.limit += limitStep;
+      };
+      $scope.decrementLimit = function() {
+          $scope.limit -= limitStep;
+      };
+
+      $scope.commentingField = function(val,idx){
+        console.log(val+idx)
+        var idToBeComment = $scope.feeds[idx]._id;
+        console.log(idToBeComment)
+        var content= {
+          comment:val
+        }
+        Authorization.commentFeed(idToBeComment,content).then(function(result){
+         console.log(result)
+         $scope.commentField=""
+         $scope.getNewFeeds();
+        }).catch(function(e){
+          console.log(e)
+      })
+      };
+
+      $scope.likeing = function(dadta){
+        console.log(dadta)
+      }
 
 
   }else{

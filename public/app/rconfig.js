@@ -59,7 +59,7 @@ var require = {
 		'form-validator-bootstrap': '../dist/plugins/formvalidation/dist/js/framework/bootstrap.min',
 		'form-validator-mandatoryicon': '../dist/plugins//formvalidation-mandatoryIcon/dist/mandatoryIcon.min',
 		'form-validator-i18n': '../dist/plugins//formvalidation-i18n/src/i18n',
-
+		'angucomplete-alt':'../dist/plugins/angucomplete-alt/angucomplete-alt',
 		//form validator language packages
 		'form-validator-en_CA': '../dist/plugins/formvalidation/dist/js/language/en_CA',
 		'form-validator-en_US': '../dist/plugins/formvalidation/dist/js/language/en_US',

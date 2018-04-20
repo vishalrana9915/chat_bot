@@ -44,7 +44,7 @@ define(['auth/module', 'auth/services/Authorization'], function (module) {
 						dfd.promise;
 				},
 					getUserInfo:function(){
-						let resultUser = (UserModel.name) ? UserModel :  $cookies.get('userObj');
+						var resultUser = (UserModel.name) ? UserModel :  $cookies.get('userObj');
 					return resultUser;
 				}
 

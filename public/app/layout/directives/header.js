@@ -13,13 +13,10 @@ define(['app', 'jquery', 'spinner-js', 'lodash','io'],
 				replace: true,
 				templateUrl: 'app/modules/dashboard/partials/header.html',
 				link: function (scope, element, attributes) {
-				console.log("in html directive")
-
 				var socket = io.connect(appConfig.socketURL)
-		        let userInitial = window.localStorage.getItem('_identity')
+		        var userInitial = window.localStorage.getItem('_identity')
 		        socket.emit('initChat',userInitial);
 		        socket.on('initComplete',function(msg){
-		        notificationService.confirmation(msg);
             })
 
 			}

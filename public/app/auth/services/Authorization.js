@@ -14,7 +14,7 @@ define(['auth/module'], function (module) {
 			
 
 			this.console = function(msg){
-				let flag = true;
+				var flag = true;
 				if(flag){
 					connsole.log(msg);
 				}
@@ -28,12 +28,12 @@ define(['auth/module'], function (module) {
 				//******************************************************************************************************
 				$http.defaults.headers.common.Authorization = undefined;
 
-				let params = {
+				var params = {
 					email:username,
 					password:password
 				}
 				// "grant_type=password&username=" + username + "&password=" + password;
-				let requestObj = {
+				var requestObj = {
 					url    : appConfig.apiURL + 'user/login',
 					method : "POST",
 					headers: { 'Content-Type': 'application/json' },
@@ -104,7 +104,7 @@ define(['auth/module'], function (module) {
 							 throw new authorizationException("password / confirm password disn't match.") ;
 				}else{
 					delete userData.confirm;
-				let requestObj = {
+				var requestObj = {
 					url    : appConfig.apiURL + 'user/register',
 					method : "POST",
 					headers: { 'Content-Type': 'application/json' },
@@ -321,7 +321,39 @@ define(['auth/module'], function (module) {
 						console.log(data);
 
 					});
+			};
+
+
+			this.commentFeed = function(id,text){
+					// var uploadUrl = appConfig.apiURL+'connect/likeFeed?postId='+feedId;
+					var content = this.sendRequest($cookies.get('_Token'),"POSt",appConfig.apiURL+'connect/commentFeed?postId='+id,text);
+				 return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						// else if(data.response.responseCode == 400)
+						// 	throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data);
+
+					});
 			}
+
 		}
 	);
 

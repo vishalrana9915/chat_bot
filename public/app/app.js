@@ -68,7 +68,9 @@ define([
         //'login, lock, and register user
         'app.auth', //load 'app.auth' first
         'app.dashboard',
-        'app.connect'
+        'app.connect',
+        'app.friends',
+        'angucomplete-alt'
         // ui application modules smart-admin
         // 'app.layout',
         // 'app.ui'
