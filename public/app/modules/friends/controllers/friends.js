@@ -1,7 +1,7 @@
 define(['modules/friends/module','angucomplete-alt'], function (module,io) {
 
 
-module.registerController('friendsCtrl',function($scope,notificationService,Authorization,$state,User,fileUploadService){
+module.registerController('friendsCtrl',function($scope,notificationService,Authorization,$state,User,fileUploadService,$rootScope,$q){
 
   var checkAvailability = Authorization.checkAvailability();
 
@@ -14,24 +14,54 @@ module.registerController('friendsCtrl',function($scope,notificationService,Auth
         $scope.currentUser =  User.getUserInfo() ;
     }
 
+   $scope.selectedChat=[]
+   $scope.listFriends = []
+   var init = function(){
+   $q.all([Authorization.getRooms(),Authorization.viewAll()]).then(function(data){
+           $scope.listFriends =  data[0].data.response.result;
+           $scope.findFriends = data[1].data.response.result;
+           // console.log($scope.listFriends)
+                }).catch(function(){
+                 notificationService.error();
+              });
 
+   }
+  	
+init();
 
-  $scope.friends = [{firstName:"vishal",lastName:"rana",age:"22"},{firstName:"robin",lastName:"suraj",age:"24"},{firstName:"uv",lastName:"v",age:"24"},{firstName:"shubham",lastName:"yadav",age:"24"}]
 
   $scope.localSearch = function(str) {
-  var matches = [];
-  $scope.friends.forEach(function(person) {
-    var fullName = person.firstName + ' ' + person.lastName;
-    if ((person.firstName.toLowerCase().indexOf(str.toString().toLowerCase()) >= 0) ||
-        (person.lastName.toLowerCase().indexOf(str.toString().toLowerCase()) >= 0) ||
-        (fullName.toLowerCase().indexOf(str.toString().toLowerCase()) >= 0)) {
+  	var matches = [];
+ 		$scope.findFriends.forEach(function(person) {
+    if (person.fullName.toLowerCase().indexOf(str.toString().toLowerCase()) >= 0) {
       matches.push(person);
-    }
-  });
-  console.log(matches[0])
-  return matches;
+   		 }
+ 		 });
+  		return matches;
 };		
 
+$scope.selectedFriend = function(val){
+	try{
+		if(val.originalObject._id){
+			var data={
+				  "chatType": "PERSONAL",
+				  "members": [
+				   val.originalObject._id
+				  ]
+				}
+			$q.all([Authorization.createRoom(data)]).then(function(data){
+          	init();
+           // console.log($scope.listFriends)
+                }).catch(function(){
+                 notificationService.error();
+              });
+
+		}
+	
+	}catch(e){
+	console.log();
+}
+}	
 
 
   }else{

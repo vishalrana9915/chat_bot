@@ -352,8 +352,98 @@ define(['auth/module'], function (module) {
 						console.log(data);
 
 					});
-			}
+			};
 
+
+			this.getRooms =  function(){
+					// var uploadUrl = appConfig.apiURL+'connect/likeFeed?postId='+feedId;
+					var content = this.sendRequest($cookies.get('_Token'),"GET",appConfig.apiURL+'user/viewRooms');
+				 return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						// else if(data.response.responseCode == 400)
+						// 	throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data);
+
+					});
+			};
+
+				this.viewAll =  function(){
+					// var uploadUrl = appConfig.apiURL+'connect/likeFeed?postId='+feedId;
+					var content = this.sendRequest($cookies.get('_Token'),"GET",appConfig.apiURL+'user/viewAll');
+				 return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						// else if(data.response.responseCode == 400)
+						// 	throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data);
+
+					});
+			};
+
+				this.createRoom =  function(value){
+					// var uploadUrl = appConfig.apiURL+'connect/likeFeed?postId='+feedId;
+					var content = this.sendRequest($cookies.get('_Token'),"POST",appConfig.apiURL+'user/createRoom',value);
+				 return $http(content)
+				.success(function (data) {
+						if(!data.status){
+							notificationService.error("Please try after some time.")
+							 throw new authorizationException("Please try after some time.") ;
+						}
+						// else if(data.response.responseCode == 400)
+						// 	throw new authorizationException("Please try after some time.")
+						else{
+							// console.log(data)
+						return data;
+						}  
+						
+						// User.initUserInfo();
+
+						//******************************************************************************************************
+						// userIsAuthorized field is added to avoid throwing error messages if user is unauthorized.
+						//******************************************************************************************************
+						// $rootScope.userIsAuthorized = true;
+					})
+					.error(function (data, status, headers, config) {
+
+						console.log(data);
+
+					});
+			};
 		}
 	);
 
