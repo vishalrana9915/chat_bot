@@ -27,22 +27,44 @@
 
           <!-- <nav class="navbar navbar-default"> -->
   <!-- <div class="container-fluid"> -->
-    <div class="navbar-header" style='padding: 5px;' ng-show='selectedChat.length>0'>
-      <button type="button" class="btn btn-primary">vishal <span class="badge">7</span></button>
-     <button type="button" class="btn btn-primary">rana <span class="badge">7</span></button>
+    <div class="navbar-header" style='padding: 5px;' ng-show='selectedChat'>
+      <button type="button" class="btn btn-primary">{{selectedChat.fullName}} <span class="badge">7</span></button>
+     <!-- <button type="button" class="btn btn-primary">rana <span class="badge">7</span></button> -->
     </div>
-    <div style='background-color: lightblue;' ng-show='selectedChat.length>0'>
+    <div style='background-color: lightblue;' ng-show='selectedChat' >
 
       <div class='row' style='margin:0px;'>
         <ul class="pages">
           <li class="chat page" style='display: list-item;'>
       <div class="chatArea">
-        <ul class="messages">
-          <li>
-          <span class="username" style="color:rgb(56, 36, 170);">vis</span>&nbsp;&nbsp;<span class="messageBody">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
-           </li>
-              <li style='float: right;padding-right: 20px;'>
-            <span class="username" style="color: rgb(240, 12, 224);">vis</span>&nbsp;&nbsp;<span class="messageBody">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of </span>
+        <ul class="messages" >
+            <!--< li ng-repeat='chat in currentChat' ng-class='{chatStyle:chat.senderDetails.senderId == currentUser.userId}'>
+          <span class="username" style="color:rgb(56, 36, 170);" ng-show='chat.senderDetails.senderId != currentUser.userId'>{{chat.senderDetails.fullName}}</span>
+          <span class="username" style="color:rgb(56, 36, 170);" ng-show='chat.senderDetails.senderId == currentUser.userId'>{{chat.senderDetails.fullName}}</span>&nbsp;&nbsp;<span class="messageBody">
+            {{chat.message}}
+          </span>
+          <br/>
+           </li > -->
+            <li style='border:none;'><br/>
+              <div style='float: right;padding-right: 20px;' ng-repeat='chat in currentChat' ng-class='{chatStyle:chat.senderDetails.senderId == currentUser.userId}'>
+            <span class="username" ng-show='chat.senderDetails.senderId != currentUser.userId ' class="chatColor">{{chat.recieverDetails.fullName}}</span>&nbsp;&nbsp;<span class="messageBody" ng-show='chat.senderDetails.senderId != currentUser.userId '>
+            {{chat.message}} </span>
+
+             <span class="username" ng-show='chat.senderDetails.senderId == currentUser.userId' class="notherChange">{{chat.senderDetails.fullName}}</span>&nbsp;&nbsp;<span class="messageBody" ng-show='chat.senderDetails.senderId == currentUser.userId'>
+            {{chat.message}} </span>
+          </div><br/>
+          <!-- <div>
+            <span class="username" style="color: rgb(240, 12, 224);">acha</span>&nbsp;&nbsp;<span class="messageBody">
+            aaho </span>
+          </div><br/>
+          <div style='float: right;padding-right: 20px;'>
+            <span class="username" style="color: rgb(240, 12, 224);">acha</span>&nbsp;&nbsp;<span class="messageBody">
+            aaho </span>
+          </div><br/>
+          <div>
+            <span class="username" style="color: rgb(240, 12, 224);">acha</span>&nbsp;&nbsp;<span class="messageBody">
+            aaho </span>
+          </div><br/> -->
            </li>
 
          </ul>
@@ -50,9 +72,9 @@
       </div>
      <div class='row' style='margin:0px;padding: 5px;'>
         <div class='col-lg-10'>
-        <input type="text" name="" style='width: 100%;height: 90%;border: none;'></div>
+        <input type="text" name="" ng-model='chat_text' placeholder="send text..." style='width: 100%;height: 90%;border: none;'></div>
         <div  class='col-lg-2'>
-        <button class='btn btn-primary'>send</button></div>
+        <button class='btn btn-primary' ng-click='sendMessageLi(chat_text)'>send</button></div>
       </div>
     <!-- </div> -->
     </li>
@@ -64,7 +86,7 @@
     </div>
     <div class='col-md-3'>
   <div class='row' style='border:1px solid;padding: 10px;color: white;' ng-repeat='friend in listFriends'>
-    <div class='col-lg-12' ng-repeat='data in friend.members' ng-if='data._id != currentUser.userId'>
+    <div class='col-lg-12' ng-repeat='data in friend.members' ng-if='data._id != currentUser.userId' ng-click='createChat(data,friend._id)'>
       {{data.fullName}}
     </div>
     <!-- <div class='col-lg-9'>

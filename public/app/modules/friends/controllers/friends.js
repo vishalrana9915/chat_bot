@@ -13,8 +13,7 @@ module.registerController('friendsCtrl',function($scope,notificationService,Auth
       }catch(e){
         $scope.currentUser =  User.getUserInfo() ;
     }
-
-   $scope.selectedChat=[]
+   $scope.selectedChat=''
    $scope.listFriends = []
    var init = function(){
    $q.all([Authorization.getRooms(),Authorization.viewAll()]).then(function(data){
@@ -61,7 +60,38 @@ $scope.selectedFriend = function(val){
 	}catch(e){
 	console.log();
 }
-}	
+};
+
+	$scope.createChat = function(data,roomId){
+		$scope.selectedChat = data;
+		$scope.currentRoomId= roomId;
+		$rootScope.$broadcast('getChat',roomId)
+
+	}
+
+	 $rootScope.$on('successChat',function(id,chatData){
+		$scope.currentChat = chatData;
+		$scope.$apply()
+		console.log($scope.currentChat)
+	})
+
+
+
+	 $scope.sendMessageLi = function(message){
+	 	var data={
+	 		
+			  "roomId":$scope.currentRoomId,
+			  "message": message,
+			  "messageType": "TEXT",
+			  "recieverDetails": {
+			    "fullName": $scope.selectedChat.fullName,
+			 "recieverId":$scope.selectedChat._id
+			  }
+			
+	 	}
+	 	$scope.chat_text=""
+	 	$rootScope.$broadcast('sendMessageTo',{sender:$scope.currentUser,details:data});
+	 }
 
 
   }else{
