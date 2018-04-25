@@ -13,6 +13,7 @@ define(['app', 'jquery', 'spinner-js', 'lodash','io'],
 				replace: true,
 				templateUrl: 'app/modules/dashboard/partials/header.html',
 				link: function (scope, element, attributes) {
+					scope.currentRoomId = ''
 				var socket = io.connect(appConfig.socketURL)
 		        var userInitial = window.localStorage.getItem('_identity')
 		        socket.emit('initChat',userInitial);
@@ -20,27 +21,31 @@ define(['app', 'jquery', 'spinner-js', 'lodash','io'],
             })
 
 
-		        $rootScope.$on('getChat',function(idx,roomId){
-
-		        	socket.emit('getChatting',roomId)
-
-
-		        })
+		        scope.getChat = function(roomId){
+		        // $rootScope.$on('getChat',function(idx,roomId){
+		        	socket.emit('getChatting',roomId);
+		        	scope.currentRoomId = roomId;
+		        }
 
 		        socket.on('allChat',function(data){
-		        	$rootScope.$broadcast('successChat',data)
+		        	scope.successChat(data);
 		        })
 
 
-		        $rootScope.$on('sendMessageTo',function(identity,data){
+		        scope.sendMessageTo = function(data){
+		        	console.log("calling function")
 		        	socket.emit('sendMessage',data);
-		        	socket.on('msgSentSuccess',function(dam){
-		        	socket.emit('getChatting',data.details.roomId);
-		        })
-		        	
-		        })
+		        }
 
+		        	
+		        	socket.on('msgSentSuccess',function(dam){
+		        			socket.emit('getChatting',scope.currentRoomId);
+		       			 })
 		        
+		        	socket.on('msgResponse',function(){
+		        		console.log('message change on current')
+		        		socket.emit('getChatting',scope.currentRoomId);
+		        	})
 
 
 			}

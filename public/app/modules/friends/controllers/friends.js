@@ -65,15 +65,16 @@ $scope.selectedFriend = function(val){
 	$scope.createChat = function(data,roomId){
 		$scope.selectedChat = data;
 		$scope.currentRoomId= roomId;
-		$rootScope.$broadcast('getChat',roomId)
+		$scope.getChat(roomId);
+		// $rootScope.$broadcast('getChat',roomId)
 
 	}
 
-	 $rootScope.$on('successChat',function(id,chatData){
+	 $scope.successChat = function(chatData){
 		$scope.currentChat = chatData;
 		$scope.$apply()
 		console.log($scope.currentChat)
-	})
+	}
 
 
 
@@ -90,7 +91,8 @@ $scope.selectedFriend = function(val){
 			
 	 	}
 	 	$scope.chat_text=""
-	 	$rootScope.$broadcast('sendMessageTo',{sender:$scope.currentUser,details:data});
+	 	$scope.sendMessageTo({sender:$scope.currentUser,details:data});
+	 	// $rootScope.$broadcast('sendMessageTo',{sender:$scope.currentUser,details:data});
 	 }
 
 

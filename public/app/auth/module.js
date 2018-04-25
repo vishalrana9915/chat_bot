@@ -180,7 +180,7 @@ define([
             }
         });
 
-        // $urlRouterProvider.otherwise('login');
+        $urlRouterProvider.otherwise('login');
 
     })
 
