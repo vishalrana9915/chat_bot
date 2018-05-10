@@ -18,6 +18,7 @@ define([
 	'layout/directives/fileinput',
 	'layout/directives/enterDir',
 	'layout/filters/imageFilter',
+	'layout/filters/decryptMessage',
 	'components/language/form-validation-key-service',
 
 	// Language components & controller

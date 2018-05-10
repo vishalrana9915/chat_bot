@@ -48,10 +48,10 @@
             <li style='border:none;'><br/>
               <div style='float: right;padding-right: 20px;' ng-repeat='chat in currentChat' ng-class='{chatStyle:chat.senderDetails.senderId == currentUser.userId}'>
             <span class="username" ng-show='chat.senderDetails.senderId != currentUser.userId ' class="chatColor">{{chat.recieverDetails.fullName}}</span>&nbsp;&nbsp;<span class="messageBody" ng-show='chat.senderDetails.senderId != currentUser.userId '>
-            {{chat.message}} </span>
+            {{chat.message | decryptFilter}} </span>
 
              <span class="username" ng-show='chat.senderDetails.senderId == currentUser.userId' class="notherChange">{{chat.senderDetails.fullName}}</span>&nbsp;&nbsp;<span class="messageBody" ng-show='chat.senderDetails.senderId == currentUser.userId'>
-            {{chat.message}} </span>
+            {{chat.message | decryptFilter}} </span>
           </div><br/>
           <!-- <div>
             <span class="username" style="color: rgb(240, 12, 224);">acha</span>&nbsp;&nbsp;<span class="messageBody">
