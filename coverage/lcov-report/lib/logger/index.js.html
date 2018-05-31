@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib\logger\index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">lib/logger/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.37% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/67</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.88% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.37% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/67</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+//// Import bunyan logger
+var bunyan = require('bunyan'),
+    _ = require('lodash');
+&nbsp;
+var logger,
+    streams;
+const TAG = {
+        REQUEST : 'BOT-request',
+        RESPONSE: 'BOT-response',
+        DEBUG : 'BOT-debug',
+        ERROR : 'BOT-error',
+        MESSAGE  : 'BOT-message'
+    },
+    _debug = require('debug'),
+    errLog = _debug(TAG.ERROR),
+    msgLog = _debug(TAG.MESSAGE);
+    process.env.NODE_ENV = 'dev';
+&nbsp;
+var initialize = _.once(function() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(process.env.NODE_ENV == 'dev' || <span class="branch-1 cbranch-no" title="branch not covered" >process.env.NODE_ENV)</span> {
+        var bunyanDebugStream = require('bunyan-debug-stream');
+        streams = [
+            {
+                level: 'error',
+                type: 'raw',
+                stream: bunyanDebugStream({
+                    basepath: process.cwd() + '\\app.logs' // this should be the root folder of your project.
+                })
+            },
+            {
+                level: 'warn',
+                type: 'raw',
+                stream: bunyanDebugStream({
+                    basepath: process.cwd() + '\\app.logs' // this should be the root folder of your project.
+                })
+            }
+        ];
+    } else {
+<span class="cstat-no" title="statement not covered" >        streams = [</span>
+            {
+                level: 'error',
+                path: 'app.log'
+            },
+            {
+                level: 'warn',
+                path: 'app.log'
+            },
+            {
+                level: 'info',
+                path: 'app.log'
+            }
+        ];
+    }
+   // console.log(bunyan.stdSerializers)
+&nbsp;
+    logger = bunyan.createLogger({
+        name : "ChatBotLogs",
+        streams : streams,
+        serializers : {
+            req : bunyan.stdSerializers.req,
+            res : bunyan.stdSerializers.res,
+            err : bunyan.stdSerializers.err
+        }
+    });
+&nbsp;
+ 
+});
+&nbsp;
+initialize();
+&nbsp;
+/**
+ * Log Incoming Request
+ * @param req
+ * @param res
+ * @param next
+ * @returns {*}
+ */
+<span class="fstat-no" title="function not covered" >function requestLogger(req , res , next){</span>
+<span class="cstat-no" title="statement not covered" >        let seq;</span>
+    //Skip Logging for Swagger Page Load Requests
+<span class="cstat-no" title="statement not covered" >    if(_.includes(req.url , "/docs")){</span>
+<span class="cstat-no" title="statement not covered" >        return next();</span>
+    }
+<span class="cstat-no" title="statement not covered" >    req.received_at = new Date();</span>
+<span class="cstat-no" title="statement not covered" >    res.req = req;</span>
+<span class="cstat-no" title="statement not covered" >    log( TAG.REQUEST  , ['======================= [time] Request ID : ', seq , ' ==========================='  ] );</span>
+<span class="cstat-no" title="statement not covered" >    logOnRequestReceive( req );</span>
+<span class="cstat-no" title="statement not covered" >    log( TAG.REQUEST , '=================================================================================' );</span>
+<span class="cstat-no" title="statement not covered" >    req.seq = seq++;</span>
+<span class="cstat-no" title="statement not covered" >    res.req = req;</span>
+<span class="cstat-no" title="statement not covered" >    next();</span>
+}
+&nbsp;
+/**
+ *Log Incoming Request
+ * @param req
+ */
+<span class="fstat-no" title="function not covered" >function logOnRequestReceive( req ){</span>
+<span class="cstat-no" title="statement not covered" >    var reqData = {</span>
+        path : req.path,
+        headers : req.headers,
+    };
+    //Extract Data from Request
+<span class="cstat-no" title="statement not covered" >    (req.connection) ? reqData.headers.ip = req.connection.remoteAddress : null;</span>
+<span class="cstat-no" title="statement not covered" >    (!_.isEmpty(req.query)) ? reqData.query = req.query : null ;</span>
+<span class="cstat-no" title="statement not covered" >    (!_.isEmpty(req.body)) ? reqData.body = req.body : null ;</span>
+<span class="cstat-no" title="statement not covered" >    (!_.isEmpty(req.params)) ? reqData.params = req.params : null ;</span>
+<span class="cstat-no" title="statement not covered" >    (!_.isEmpty(req.files)) ? reqData.files = req.files : null ;</span>
+<span class="cstat-no" title="statement not covered" >    req.data = reqData;</span>
+<span class="cstat-no" title="statement not covered" >    log(  TAG.REQUEST , reqData );</span>
+}
+&nbsp;
+/**
+ * Log  Response
+ * @param req
+ * @param data
+ */
+<span class="fstat-no" title="function not covered" >function logResponse(res , data){</span>
+<span class="cstat-no" title="statement not covered" >    if(!res.req || !res.req.data){</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    var req = res.req;</span>
+<span class="cstat-no" title="statement not covered" >    (!_.isEmpty(req.files)) ? req.data.files = req.files : null ;</span>
+<span class="cstat-no" title="statement not covered" >    data.timeTakenInMs = new Date().getTime() - ( req.received_at ? req.received_at.getTime() : new Date().getTime() );</span>
+    //Delete Unnecessary Stuff
+<span class="cstat-no" title="statement not covered" >    delete req.data.headers;</span>
+<span class="cstat-no" title="statement not covered" >    var resData = data.result;</span>
+<span class="cstat-no" title="statement not covered" >    delete data.result;</span>
+<span class="cstat-no" title="statement not covered" >    data.result = resData; </span> //This is done to keep result at bottom in object
+    //Logging
+<span class="cstat-no" title="statement not covered" >    log( TAG.RESPONSE , ['======================= [time] Response for Request ID : ', req.seq , ' ==================='  ] );</span>
+<span class="cstat-no" title="statement not covered" >    log( TAG.RESPONSE ,'----Request---' );</span>
+<span class="cstat-no" title="statement not covered" >    log( TAG.RESPONSE ,req.data );</span>
+<span class="cstat-no" title="statement not covered" >    log( TAG.RESPONSE , '----Response---' );</span>
+<span class="cstat-no" title="statement not covered" >    log( TAG.RESPONSE , data );</span>
+<span class="cstat-no" title="statement not covered" >    log(TAG.RESPONSE , '================================================================================='  );</span>
+&nbsp;
+}
+&nbsp;
+/**
+ * Log Incoming Request Data
+ * @param data
+ * @param tag
+ */
+<span class="fstat-no" title="function not covered" >function log( tag , data ){</span>
+&nbsp;
+    //No Tag
+<span class="cstat-no" title="statement not covered" >    if(_.isEmpty(data)){</span>
+<span class="cstat-no" title="statement not covered" >        data = tag;</span>
+<span class="cstat-no" title="statement not covered" >        tag = TAG.MESSAGE;</span>
+    }
+    //No Array
+<span class="cstat-no" title="statement not covered" >    if( data.length == 1){</span>
+<span class="cstat-no" title="statement not covered" >        data = _.first( data ); </span>//Extract single element
+    }
+    //Print Error in case of Error
+<span class="cstat-no" title="statement not covered" >    if(data instanceof Error){</span>
+<span class="cstat-no" title="statement not covered" >        return errLog( data.stack);</span>
+    }
+    //Log
+<span class="cstat-no" title="statement not covered" >    _debug(tag)( _getLoggableData( data ) );</span>
+}
+&nbsp;
+/**
+ * Logs Data only in debug mode
+ * @param data
+ */
+<span class="fstat-no" title="function not covered" >function debug( data ) {</span>
+<span class="cstat-no" title="statement not covered" >    log( data , TAG.DEBUG );</span>
+}
+&nbsp;
+/**
+ * Get Loggable Version of Data to logged
+ * @param data
+ * @returns {*}
+ * @private
+ */
+<span class="fstat-no" title="function not covered" >function _getLoggableData(data) {</span>
+<span class="cstat-no" title="statement not covered" >    var to_log ;</span>
+<span class="cstat-no" title="statement not covered" >    to_log =  _.clone(data);</span>
+    //Convert to String if Array
+<span class="cstat-no" title="statement not covered" >    to_log = to_log instanceof Array ? to_log.join('') : to_log ;</span>
+<span class="cstat-no" title="statement not covered" >    if(typeof to_log == 'string'){</span>
+<span class="cstat-no" title="statement not covered" >        to_log = to_log.replace( '[time]' , 'Time : '+ new Date());</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return to_log;</span>
+}
+&nbsp;
+&nbsp;
+module.exports = {logger, requestLogger};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 31 2018 14:00:02 GMT-0400 (Eastern Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
