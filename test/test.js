@@ -1,5 +1,5 @@
-// var expect = require('chai').assert;
-var expect = require('chai').expect;
+var expect = require('chai').assert;
+// var expect = require('chai').expect;
 var serve = require("../lib/appHttpClient");
 describe('basic test',()=>{
 
@@ -10,7 +10,7 @@ describe('basic test',()=>{
 			var path ='/chat_bot/api/v1/user/login'
 			var body ={"email":"vishal@gmail.com","password":"qwerty"}
 			 serve.post(hostname,port,path,body,(result)=>{
-			 	expect(result).to.be.an('object')
+			 	expect.typeOf(result,'object','we are returning object');
 			 })
 			
 		});
@@ -21,11 +21,11 @@ describe('basic test',()=>{
 		})
 	});
 
-	describe('checking other function',()=>{
-		it("checking get request",()=>{
-			serve.get('http://localhost:4009/chat_bot/api/v1/user/dailyActivity',(response)=>{
-			expect(response).to.be.an('object')		
-			})
-		})
-	})
+	// describe('checking other function',()=>{
+	// 	it("checking get request",()=>{
+	// 		serve.get('http://localhost:4009/chat_bot/api/v1/user/dailyActivity',(response)=>{
+	// 		expect(response).to.be.an('object')		
+	// 		})
+	// 	})
+	// })
 })
