@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">48.84% </span>
+        <span class="strong">20.93% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>21/43</span>
+        <span class='fraction'>9/43</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/18</span>
+        <span class='fraction'>0/18</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">48.84% </span>
+        <span class="strong">20.93% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>21/43</span>
+        <span class='fraction'>9/43</span>
       </div>
     </div>
   </div>
@@ -148,41 +148,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -232,42 +232,42 @@ var getResp = <span class="fstat-no" title="function not covered" >function (res
     });
 };
 &nbsp;
-function postRequest(hostname, port, path, headers, body, isSecure, callback) {
-    var options = {
+<span class="fstat-no" title="function not covered" >function postRequest(hostname, port, path, headers, body, isSecure, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    var options = {</span>
         hostname: hostname,
         port: port,
         path: path,
         method: 'POST',
         headers: headers
     };
-    var client = null;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (isSecure) {
+<span class="cstat-no" title="statement not covered" >    var client = null;</span>
+<span class="cstat-no" title="statement not covered" >    if (isSecure) {</span>
 <span class="cstat-no" title="statement not covered" >        client = https;</span>
     } else {
-        client = http;
+<span class="cstat-no" title="statement not covered" >        client = http;</span>
     }
-    var req = client.request(options, <span class="fstat-no" title="function not covered" >function (res) {</span>
+<span class="cstat-no" title="statement not covered" >    var req = client.request(options, <span class="fstat-no" title="function not covered" >function (res) {</span></span>
 <span class="cstat-no" title="statement not covered" >        callback(res);/</span>/for test
 <span class="cstat-no" title="statement not covered" >        getResp(res, callback);</span>
     });
-    req.on('error', function (e) {
-        logger.error({method: "postRequest", request: options, body: body, error: e.message}, TAG);
+<span class="cstat-no" title="statement not covered" >    req.on('error', <span class="fstat-no" title="function not covered" >function (e) {</span></span>
+<span class="cstat-no" title="statement not covered" >        logger.error({method: "postRequest", request: options, body: body, error: e.message}, TAG);</span>
     });
-    req.write(body);
-    req.end();
+<span class="cstat-no" title="statement not covered" >    req.write(body);</span>
+<span class="cstat-no" title="statement not covered" >    req.end();</span>
 }
 &nbsp;
 module.exports = {
     postWithHeader: <span class="fstat-no" title="function not covered" >function (hostname, port, path, headers, body, isSecure, callback) {</span>
 <span class="cstat-no" title="statement not covered" >        postRequest(hostname, port, path, headers, body, isSecure, callback);</span>
     },
-    post: function (hostname, port, path, params, callback) {
-        var body = querystring.stringify(params);
-        var headers = {
+    post: <span class="fstat-no" title="function not covered" >function (hostname, port, path, params, callback) {</span>
+<span class="cstat-no" title="statement not covered" >        var body = querystring.stringify(params);</span>
+<span class="cstat-no" title="statement not covered" >        var headers = {</span>
             'Content-Type': 'application/json',
             'Content-Length': JSON.stringify(body)
         };
-        postRequest(hostname, port, path, headers, body, false, callback);
+<span class="cstat-no" title="statement not covered" >        postRequest(hostname, port, path, headers, body, false, callback);</span>
     },
     postSecure: <span class="fstat-no" title="function not covered" >function (hostname, port, path, params, callback) {</span>
 <span class="cstat-no" title="statement not covered" >        var body = querystring.stringify(params);</span>
@@ -304,7 +304,7 @@ module.exports = {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 31 2018 14:06:11 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 01 2018 15:13:52 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

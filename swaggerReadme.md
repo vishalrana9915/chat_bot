@@ -8,7 +8,7 @@ Lets get started .
 #swagger create project project_name
 
 #swagger commands.
-swagger always looks for the api folder in your root directory.
+swagger always looks for the swagger folder in your root directory and search for swagger.yaml file on whom the whole concept depends upon.
 
 the editing the api docs :
 #hit command : swagger project edit.

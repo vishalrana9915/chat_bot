@@ -25,3 +25,15 @@ The command will generate a coverage folder in the root directory.
 
 To view the coverage report simply run the command:
 Npm run coverageReport.
+
+
+
+
+
+
+
+# two types of dependecies:
+
+Dev depen: the dependecies that we use to work with our application comes under this.
+
+Depend: The dependencies which are required to run the application comes in this.
